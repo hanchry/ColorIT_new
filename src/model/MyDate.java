@@ -151,5 +151,10 @@ public class MyDate {
         // eller return year == other.year && month = other.month && day == other.day
     }
 
+    public String getDate(){
+        return day + "." + month + "." + year;
+    }
+
+
 
 }
