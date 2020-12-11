@@ -22,7 +22,6 @@ public class ProjectListViewModel {
             list.add(new ProjectViewModel(model.getProject(i)));
         }
     }
-
     public ObservableList<ProjectViewModel> getList() {
         return list;
     }

@@ -10,10 +10,7 @@ import view.Developer.ProjectListViewController;
 import view.Developer.RequirementListViewController;
 import view.Main.MainViewController;
 import view.ProjectCreator.*;
-import view.ProjectOwner.AddRequirementViewController;
-import view.ProjectOwner.ProjectListRequirementsViewController;
-import view.ProjectOwner.RequirementAssignePersonViewController;
-import view.ProjectOwner.RequirementsListViewController;
+import view.ProjectOwner.*;
 import view.ScrumMaster.*;
 
 public class ViewHandler {
@@ -44,6 +41,7 @@ public class ViewHandler {
   private ProjectListRequirementsViewController projectListRequirementsViewController;
   private RequirementsListViewController requirementsListViewController;
   private RequirementAssignePersonViewController requirementAssignePersonViewController;
+  private EditRequirementViewController editRequirementViewController;
 
   //////////////////////SCRUM//////////////////////////
   private AddTaskViewController addTaskViewController;
@@ -53,8 +51,9 @@ public class ViewHandler {
   private AssignePersonTaskViewController assignePersonTaskViewController;
 
 
-  public ViewHandler(){
+  public ViewHandler(ProjectListModel model){
     currentScene = new Scene(new javafx.scene.layout.Region());
+    this.model = model;
   }
   public void start(Stage primaryStage){
     this.primaryStage = primaryStage;
@@ -108,6 +107,9 @@ public class ViewHandler {
       case "RequirementAssignePerson":
         root = loadRequirementAssignePerson("ProjectOwner/RequirementAssignePersonView.fxml");
         break;
+      case "EditRequirement":
+        root = loadEditRequirement("ProjectOwner/EditRequirementView.fxml");
+        break;
       ////////////////////////////////SCRUM///////////////////////////////////
       case "AddTask":
         root = loadAddTask("ScrumMaster/AddTaskView.fxml");
@@ -125,6 +127,7 @@ public class ViewHandler {
         root = loadAssignePersonTask("ScrumMaster/AssignePersonTaskView.fxml");
         break;
     }
+
     currentScene.setRoot(root);
     primaryStage.setScene(currentScene);
     primaryStage.setTitle(id);
@@ -209,6 +212,8 @@ public class ViewHandler {
       catch (Exception e){
         e.printStackTrace();
       }
+    }else {
+      projectListCreateViewController.reset();
     }
     return projectListCreateViewController.getRoot();
   }
@@ -219,11 +224,14 @@ public class ViewHandler {
         loader.setLocation(getClass().getResource(fxmlFile));
         root = loader.load();
         createProjectViewController = loader.getController();
-        createProjectViewController.init(root,this);
+        createProjectViewController.init(root,this,model);
       }
       catch (Exception e){
         e.printStackTrace();
       }
+    }
+    else {
+      createProjectViewController.reset();
     }
     return createProjectViewController.getRoot();
   }
@@ -347,6 +355,21 @@ public class ViewHandler {
       }
     }
     return requirementAssignePersonViewController.getRoot();
+  }
+  public Region loadEditRequirement(String fxmlFile){
+    if(editRequirementViewController == null) {
+      try {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        root = loader.load();
+        editRequirementViewController = loader.getController();
+        editRequirementViewController.init(root,this);
+      }
+      catch (Exception e){
+        e.printStackTrace();
+      }
+    }
+    return editRequirementViewController.getRoot();
   }
   ////////////////////////SCRUM//////////////////////
   public Region loadAddTask(String fxmlFile){

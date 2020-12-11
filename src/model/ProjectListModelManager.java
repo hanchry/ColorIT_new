@@ -3,7 +3,11 @@ package model;
 import java.util.ArrayList;
 
 public class ProjectListModelManager implements ProjectListModel {
-
+    private ProjectList list;
+    private TeamMembers members;
+    public ProjectListModelManager(){
+        list = new ProjectList();
+    }
     @Override
     public ArrayList<Requirement> getRequirementListOfProject(String title) {
         return null;
@@ -30,7 +34,7 @@ public class ProjectListModelManager implements ProjectListModel {
 
     @Override
     public void addProject(Project project) {
-
+        list.Add(project);
     }
 
     @Override
