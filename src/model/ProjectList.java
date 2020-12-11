@@ -30,11 +30,18 @@ public class ProjectList {
         return null;
     }
 
-
+    public Project getByProjectOwner(ProjectOwner owner) {
+        for (int i = 0; i < projects.size(); i++) {
+            if (projects.get(i).getTeamMembers(i).getOwner() == owner) {
+                return projects.get(i);
+            }
+        }
+        return null;
+    }
 
     public Project getByScrumMaster(ScrumMaster scrumMaster) {
         for (int i = 0; i < projects.size(); i++) {
-            if (projects.get(i).getTeamMembers().getScrum() == scrumMaster) {
+            if (projects.get(i).getTeamMembers(i).getScrum() == scrumMaster) {
                 return projects.get(i);
             }
         }
@@ -43,7 +50,7 @@ public class ProjectList {
 
     public Project getByDeveloper(Developer developer) {
         for (int i = 0; i < projects.size(); i++) {
-            if (projects.get(i).getTeamMembers().getDeveloper(i) == developer) {
+            if (projects.get(i).getTeamMembers(i).getDeveloper(i) == developer) {
                 projects.get(i);
             }
         }
