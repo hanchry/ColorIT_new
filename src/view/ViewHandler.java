@@ -16,10 +16,7 @@ import view.ProjectOwner.AddRequirementViewController;
 import view.ProjectOwner.ProjectListRequirementsViewController;
 import view.ProjectOwner.RequirementAssignePersonViewController;
 import view.ProjectOwner.RequirementsListViewController;
-import view.ScrumMaster.AddTaskViewController;
-import view.ScrumMaster.RequirementsListTasksViewController;
-import view.ScrumMaster.ScrumProjectListRequirementsViewController;
-import view.ScrumMaster.TaskListViewController;
+import view.ScrumMaster.*;
 
 public class ViewHandler {
 
@@ -52,6 +49,7 @@ public class ViewHandler {
   private ScrumProjectListRequirementsViewController scrumProjectListRequirementsViewController;
   private RequirementsListTasksViewController requirementsListTasksViewController;
   private TaskListViewController taskListViewController;
+  private AssignePersonTaskViewController assignePersonTaskViewController;
 
 
   public ViewHandler(){
@@ -114,7 +112,10 @@ public class ViewHandler {
         root = loadScrumProjectListRequirements("ScrumMaster/ScrumProjectListRequirementsView.fxml");
         break;
       case "TaskList":
-        root = loadTaskList("ScrumMaster/DeveloperTaskListView.fxml");
+        root = loadTaskList("ScrumMaster/TaskListView.fxml");
+        break;
+      case "AssignePersonTask":
+        root = loadAssignePersonTask("ScrumMaster/AssignePersonTaskView.fxml");
         break;
     }
     currentScene.setRoot(root);
@@ -370,5 +371,20 @@ public class ViewHandler {
       }
     }
     return taskListViewController.getRoot();
+  }
+  public Region loadAssignePersonTask(String fxmlFile){
+    if(assignePersonTaskViewController == null) {
+      try {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        root = loader.load();
+        assignePersonTaskViewController = loader.getController();
+        assignePersonTaskViewController.init(root,this);
+      }
+      catch (Exception e){
+        e.printStackTrace();
+      }
+    }
+    return assignePersonTaskViewController.getRoot();
   }
 }

@@ -27,4 +27,8 @@ public class TaskListViewController {
 
   public void deleteOnClick(ActionEvent actionEvent) {
   }
+
+  public void assignePersonOnClick(ActionEvent actionEvent) {
+    view.openView("AssignePersonTask");
+  }
 }
