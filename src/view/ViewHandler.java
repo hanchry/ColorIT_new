@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import model.ProjectListModel;
 import view.Developer.DeveloperTaskListViewController;
 import view.Developer.ProjectListViewController;
 import view.Developer.RequirementListViewController;
@@ -20,6 +21,7 @@ public class ViewHandler {
   private Scene currentScene;
   private Stage primaryStage;
   private Region root;
+  private ProjectListModel model;
 
   ///////////////////////DEVELOPER/////////////////////////////
   private ProjectListViewController projectListViewController;
@@ -202,7 +204,7 @@ public class ViewHandler {
         loader.setLocation(getClass().getResource(fxmlFile));
         root = loader.load();
         projectListCreateViewController = loader.getController();
-        projectListCreateViewController.init(root,this);
+        projectListCreateViewController.init(root,this,model);
       }
       catch (Exception e){
         e.printStackTrace();

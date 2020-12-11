@@ -30,14 +30,7 @@ public class ProjectList {
         return null;
     }
 
-    public Project getByProjectOwner(ProjectOwner owner) {
-        for (int i = 0; i < projects.size(); i++) {
-            if (projects.get(i).getTeamMembers().getOwner() == owner) {
-                return projects.get(i);
-            }
-        }
-        return null;
-    }
+
 
     public Project getByScrumMaster(ScrumMaster scrumMaster) {
         for (int i = 0; i < projects.size(); i++) {
