@@ -6,14 +6,17 @@ public class Task
 
     private Time time;
     private StartDate_DeadLine date;
-    private String Title;
-    private String TaskID;
+    private String title;
+    private String taskID;
     private Developer responsibleDeveloper;
+    private static final boolean FINISHED = false;
+    private static final boolean NOT_STARTED = true;
+    private static final boolean STARTED = false;
 
 
-    public Task(String TaskID, String Title, int timeEstimatedInHours){
-        this.TaskID = TaskID;
-        this.Title = Title;
+    public Task(String taskID, String title, int timeEstimatedInHours){
+        this.taskID = taskID;
+        this.title = title;
         time = new Time(timeEstimatedInHours);
     }
     public void setResponsibleDeveloper(Developer developer){
@@ -34,17 +37,31 @@ public class Task
     }
 
     public String getTaskID() {
-        return TaskID;
+        return taskID;
+    }
+    public void setTaskID(String ID)
+    {
+        this.taskID = ID;
     }
 
     public String getTitle() {
-        return Title;
+        return title;
     }
     public void setTimeSpent(double hours){
         time.setHoursSpent(hours);
     }
 
-    public void updateTaskStatus() {
+    public boolean isStarted()
+    {
+        return true;
+    }
+
+    public boolean isFinished()
+    {
+        return true;
+    }
+    public void updateTaskStatus()
+    {
 
     }
 
