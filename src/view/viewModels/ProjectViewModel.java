@@ -1,6 +1,7 @@
 package view.viewModels;
 
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import model.Project;
 
 public class ProjectViewModel {
@@ -21,27 +22,27 @@ public class ProjectViewModel {
    projectStatus = new SimpleStringProperty(project.getStatus());
  }
 
-  public String getProjectDeadline() {
-    return projectDeadline.get();
+  public StringProperty getProjectDeadline() {
+    return projectDeadline;
   }
 
-  public String getProjectStartDate() {
-    return projectStartDate.get();
+    public StringProperty getProjectStartDate() {
+        return projectStartDate;
+    }
+
+    public StringProperty getProjectStatus() {
+    return projectStatus;
   }
 
-  public String getProjectStatus() {
-    return projectStatus.get();
+  public StringProperty getProjectTimeEstimeted() {
+    return projectTimeEstimeted;
   }
 
-  public String getProjectTimeEstimeted() {
-    return projectTimeEstimeted.get();
+  public StringProperty getProjectTimeSpent() {
+    return projectTimeSpent;
   }
 
-  public String getProjectTimeSpent() {
-    return projectTimeSpent.get();
-  }
-
-  public String getProjectTitle() {
-    return projectTitle.get();
+  public StringProperty getProjectTitle() {
+    return projectTitle;
   }
 }

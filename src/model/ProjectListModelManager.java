@@ -13,7 +13,6 @@ public class ProjectListModelManager implements ProjectListModel {
     public ArrayList<Task> getTasksOfRequirement(Requirement requirement) {
         return null;
     }
-
     @Override
     public ProjectList getProjects() {
         return null;
