@@ -25,4 +25,7 @@ public class RequirementsListViewController {
   public void addOnClick(ActionEvent actionEvent) {
     view.openView("AddRequirement");
   }
+
+  public void deleteOnClick(ActionEvent actionEvent) {
+  }
 }

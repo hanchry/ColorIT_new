@@ -24,4 +24,7 @@ public class TaskListViewController {
   public void addOnClick(ActionEvent actionEvent) {
     view.openView("AddTask");
   }
+
+  public void deleteOnClick(ActionEvent actionEvent) {
+  }
 }

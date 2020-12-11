@@ -22,7 +22,7 @@
         </columns>
       </TableView>
       <Label layoutX="251.0" layoutY="23.0" />
-      <HBox alignment="CENTER" layoutX="6.0" prefHeight="100.0" prefWidth="529.0" spacing="20.0">
+      <HBox fx:id="titleLabel" alignment="CENTER" layoutX="6.0" prefHeight="100.0" prefWidth="529.0" spacing="20.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Requirement:">
                <font>
@@ -44,6 +44,11 @@
                </font>
             </Button>
             <Button fx:id="add" mnemonicParsing="false" onAction="#addOnClick" prefWidth="120.0" text="Add">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="delete" mnemonicParsing="false" onAction="#deleteOnClick" prefWidth="120.0" text="Delete">
                <font>
                   <Font size="25.0" />
                </font>
