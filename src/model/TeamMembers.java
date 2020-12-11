@@ -4,14 +4,13 @@ import java.util.ArrayList;
 
 public class TeamMembers {
     private ArrayList<Developer> developers;
-    private ProjectCreator creator;
+    private ProjectOwner owner;
     private ScrumMaster scrum;
 
 
-    public TeamMembers(ProjectCreator creator, ScrumMaster scrum){
-        this.creator = creator;
+    public TeamMembers(ProjectOwner owner, ScrumMaster scrum){
+        this.owner = owner;
         this.scrum = scrum;
-
         developers = new ArrayList<>();
     }
     public void addDeveloper(Person person){
@@ -25,8 +24,8 @@ public class TeamMembers {
         return developers.get(index);
     }
 
-    public ProjectCreator getCreator() {
-        return creator;
+    public ProjectOwner getOwner() {
+        return owner;
     }
 
 

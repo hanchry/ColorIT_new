@@ -6,14 +6,14 @@ public class Task
 
     private Time time;
     private StartDate_DeadLine date;
-    private String Title;
-    private String TaskID;
+    private String title;
+    private String taskID;
     private Developer responsibleDeveloper;
 
 
-    public Task(String TaskID, String Title, int timeEstimatedInHours){
-        this.TaskID = TaskID;
-        this.Title = Title;
+    public Task(String taskID, String title, int timeEstimatedInHours){
+        this.taskID = taskID;
+        this.title = title;
         time = new Time(timeEstimatedInHours);
     }
     public void setResponsibleDeveloper(Developer developer){
@@ -34,11 +34,15 @@ public class Task
     }
 
     public String getTaskID() {
-        return TaskID;
+        return taskID;
+    }
+    public void setTaskID(String ID)
+    {
+        this.taskID = ID;
     }
 
     public String getTitle() {
-        return Title;
+        return title;
     }
     public void setTimeSpent(double hours){
         time.setHoursSpent(hours);
