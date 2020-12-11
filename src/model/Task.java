@@ -9,6 +9,9 @@ public class Task
     private String title;
     private String taskID;
     private Developer responsibleDeveloper;
+    private static final boolean FINISHED = false;
+    private static final boolean NOT_STARTED = true;
+    private static final boolean STARTED = false;
 
 
     public Task(String taskID, String title, int timeEstimatedInHours){
@@ -48,7 +51,17 @@ public class Task
         time.setHoursSpent(hours);
     }
 
-    public void updateTaskStatus() {
+    public boolean isStarted()
+    {
+        return true;
+    }
+
+    public boolean isFinished()
+    {
+        return true;
+    }
+    public void updateTaskStatus()
+    {
 
     }
 
