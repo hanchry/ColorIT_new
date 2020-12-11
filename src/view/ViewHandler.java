@@ -14,6 +14,7 @@ import view.ProjectCreator.EditProjectViewController;
 import view.ProjectCreator.ProjectListCreateViewController;
 import view.ProjectOwner.AddRequirementViewController;
 import view.ProjectOwner.ProjectListRequirementsViewController;
+import view.ProjectOwner.RequirementAssignePersonViewController;
 import view.ProjectOwner.RequirementsListViewController;
 import view.ScrumMaster.AddTaskViewController;
 import view.ScrumMaster.RequirementsListTasksViewController;
@@ -44,6 +45,7 @@ public class ViewHandler {
   private AddRequirementViewController addRequirementViewController;
   private ProjectListRequirementsViewController projectListRequirementsViewController;
   private RequirementsListViewController requirementsListViewController;
+  private RequirementAssignePersonViewController requirementAssignePersonViewController;
 
   //////////////////////SCRUM//////////////////////////
   private AddTaskViewController addTaskViewController;
@@ -97,6 +99,9 @@ public class ViewHandler {
         break;
       case "AddRequirement":
         root = loadAddRequirement("ProjectOwner/AddRequirementView.fxml");
+        break;
+      case "RequirementAssignePerson":
+        root = loadRequirementAssignePerson("ProjectOwner/RequirementAssignePersonView.fxml");
         break;
       ////////////////////////////////SCRUM///////////////////////////////////
       case "AddTask":
@@ -289,6 +294,21 @@ public class ViewHandler {
       }
     }
     return addRequirementViewController.getRoot();
+  }
+  public Region loadRequirementAssignePerson(String fxmlFile){
+    if(requirementAssignePersonViewController == null) {
+      try {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        root = loader.load();
+        requirementAssignePersonViewController = loader.getController();
+        requirementAssignePersonViewController.init(root,this);
+      }
+      catch (Exception e){
+        e.printStackTrace();
+      }
+    }
+    return requirementAssignePersonViewController.getRoot();
   }
   ////////////////////////SCRUM//////////////////////
   public Region loadAddTask(String fxmlFile){
