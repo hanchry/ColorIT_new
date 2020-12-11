@@ -14,8 +14,11 @@ public class Requirement {
     private String who;
     private String what;
     private Developer responsibleDeveloper;
+    private static final boolean FINISHED = false;
+    private static final boolean APPROVED = false;
+    private static final boolean DISAPPROVED = false;
 
-    public Requirement(String ID, String why, String who, String what){
+    public Requirement(String ID, String why, String who, String what, Time time , StartDate_DeadLine date) {
         this.ID = ID;
         this.why = why;
         this.who = who;
@@ -23,68 +26,76 @@ public class Requirement {
         this.date = date;
         this.time = time;
     }
-    public void setResponsibleDeveloper(Developer developer){
-        if(list.doesDeveloperExist(developer)){
+
+    public void setResponsibleDeveloper(Developer developer) {
+        if (list.doesDeveloperExist(developer)) {
             responsibleDeveloper = developer;
         }
     }
 
-
-    public void addTask(Task task){
+    public void addTask(Task task)
+    {
         tasks.add(task);
     }
-    public Task getTask(int index){
+
+    public Task getTask(int index)
+    {
         return tasks.get(index);
     }
-    public int getTaskListSize(){
+
+    public int getTaskListSize()
+    {
         return tasks.size();
     }
 
-    public String toString(){
-        return " " + ID + " " + why + " " + who + " " + what + " " + responsibleDeveloper + " " + date + " " + time;
-    }
-
-
-    public Developer getResponsibleDeveloper()
-    {
+    public Developer getResponsibleDeveloper() {
         return responsibleDeveloper;
     }
-    public String getResponsibleDeveloperString()
-    {
+
+    public String getResponsibleDeveloperString() {
         return responsibleDeveloper.toString();
     }
 
-    public String getID()
-    {
+    public String getID() {
         return ID;
     }
 
-    public String getWho()
-    {
+    public String getWho() {
         return who;
     }
 
-    public TeamMembers getList()
-    {
+    public TeamMembers getList() {
         return list;
     }
 
-    public String getWhat()
-    {
+    public String getWhat() {
         return what;
     }
 
-    public String getWhy()
-    {
+    public String getWhy() {
         return why;
     }
-    public String getNeededTime()
-    {
+
+    public String getNeededTime() {
         return time.toString();
     }
 
-    public String getDeadLine()
-    {
+    public String getDeadLine() {
         return date.toString();
     }
+
+    public String toString() {
+        return " " + ID + " " + why + " " + who + " " + what + " " + responsibleDeveloper + " " + date + " " + time;
+    }
+
+    public boolean isTaskFinished()
+    {
+        return false;
+    }
+
+    public boolean isTaskApproved()
+    {
+        return false;
+    }
+
 }

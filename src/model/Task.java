@@ -3,7 +3,6 @@ package model;
 public class Task
 {
     private TeamMembers list;
-
     private Time time;
     private StartDate_DeadLine date;
     private String title;
