@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="530.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Developer.ProjectListViewController">
+   <children>
+      <HBox alignment="CENTER" layoutY="400.0" prefHeight="80.0" prefWidth="445.0">
+         <children>
+            <Button fx:id="back" mnemonicParsing="false" onAction="#backOnClick" text="Back">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+      <TableView layoutX="5.0" prefHeight="400.0" prefWidth="438.0">
+         <columns>
+            <TableColumn fx:id="title" prefWidth="75.0" text="title" />
+            <TableColumn fx:id="startDate" prefWidth="75.0" text="start date" />
+            <TableColumn fx:id="deadline" prefWidth="75.0" text="deadline" />
+            <TableColumn fx:id="reqirementsDone" prefWidth="136.0" text="requirements done" />
+            <TableColumn fx:id="status" prefWidth="75.0" text="status" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>
