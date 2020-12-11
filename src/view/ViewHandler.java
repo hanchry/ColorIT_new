@@ -10,10 +10,7 @@ import view.Developer.ProjectListViewController;
 import view.Developer.RequirementListViewController;
 import view.Main.MainViewController;
 import view.ProjectCreator.*;
-import view.ProjectOwner.AddRequirementViewController;
-import view.ProjectOwner.ProjectListRequirementsViewController;
-import view.ProjectOwner.RequirementAssignePersonViewController;
-import view.ProjectOwner.RequirementsListViewController;
+import view.ProjectOwner.*;
 import view.ScrumMaster.*;
 
 public class ViewHandler {
@@ -44,6 +41,7 @@ public class ViewHandler {
   private ProjectListRequirementsViewController projectListRequirementsViewController;
   private RequirementsListViewController requirementsListViewController;
   private RequirementAssignePersonViewController requirementAssignePersonViewController;
+  private EditRequirementViewController editRequirementViewController;
 
   //////////////////////SCRUM//////////////////////////
   private AddTaskViewController addTaskViewController;
@@ -108,6 +106,9 @@ public class ViewHandler {
         break;
       case "RequirementAssignePerson":
         root = loadRequirementAssignePerson("ProjectOwner/RequirementAssignePersonView.fxml");
+        break;
+      case "EditRequirement":
+        root = loadEditRequirement("ProjectOwner/EditRequirementView.fxml");
         break;
       ////////////////////////////////SCRUM///////////////////////////////////
       case "AddTask":
@@ -354,6 +355,21 @@ public class ViewHandler {
       }
     }
     return requirementAssignePersonViewController.getRoot();
+  }
+  public Region loadEditRequirement(String fxmlFile){
+    if(editRequirementViewController == null) {
+      try {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        root = loader.load();
+        editRequirementViewController = loader.getController();
+        editRequirementViewController.init(root,this);
+      }
+      catch (Exception e){
+        e.printStackTrace();
+      }
+    }
+    return editRequirementViewController.getRoot();
   }
   ////////////////////////SCRUM//////////////////////
   public Region loadAddTask(String fxmlFile){
