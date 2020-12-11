@@ -8,6 +8,7 @@ public class Project {
     private TeamMembers teamMembers;
     private boolean isOpened;
     private ArrayList<Requirement> requirements;
+    private Time time;
 
     public Project(String title, StartDate_DeadLine startDeadLine) {
         this.title = title;
@@ -15,7 +16,15 @@ public class Project {
         this.teamMembers = teamMembers;
         this.startDate_deadLine = startDeadLine;
         this.isOpened = false;
+
     }
+    public double getHoursEstimated(){
+        return time.getHoursEstimated();
+    }
+    public double getHoursSpent(){
+        return time.getHoursSpent();
+    }
+
     public void addRequriement(Requirement requirement) {
         requirements.add(requirement);
     }
