@@ -6,12 +6,12 @@ public class TeamMembers {
     private ArrayList<Developer> developers;
     private ProjectCreator creator;
     private ScrumMaster scrum;
-    private ProjectOwner owner;
 
-    public TeamMembers(ProjectCreator creator, ScrumMaster scrum, ProjectOwner owner){
+
+    public TeamMembers(ProjectCreator creator, ScrumMaster scrum){
         this.creator = creator;
         this.scrum = scrum;
-        this.owner = owner;
+
         developers = new ArrayList<>();
     }
     public void addDeveloper(Person person){
@@ -29,9 +29,6 @@ public class TeamMembers {
         return creator;
     }
 
-    public ProjectOwner getOwner() {
-        return owner;
-    }
 
     public ScrumMaster getScrum() {
         return scrum;
