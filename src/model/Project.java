@@ -105,6 +105,6 @@ public class Project {
     }
 
     public String toString() {
-        return " "+title+" " + startDate_deadLine +" " + teamMembers + " " + requirements;
+        return " "+title+ " " + startDate_deadLine;
     }
 }

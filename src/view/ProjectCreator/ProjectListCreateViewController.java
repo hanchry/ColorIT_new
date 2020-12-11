@@ -6,6 +6,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.layout.Region;
 import model.ProjectListModel;
 import view.ViewHandler;
+import view.viewModels.ProjectListViewModel;
 import view.viewModels.ProjectViewModel;
 
 public class ProjectListCreateViewController {
@@ -23,6 +24,8 @@ public class ProjectListCreateViewController {
     private Region root;
     private ViewHandler view;
     private ProjectListModel model;
+    private ProjectListViewModel smodel;
+
 
     public void init(Region root, ViewHandler view, ProjectListModel model) {
         this.root = root;
@@ -63,5 +66,9 @@ public class ProjectListCreateViewController {
 
     public void showPersonOnClick(ActionEvent actionEvent) {
         view.openView("TeamMemberList");
+    }
+
+    public void reset() {
+     smodel.update();
     }
 }
