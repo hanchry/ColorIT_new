@@ -11,9 +11,11 @@ public class Person {
         this.name = name;
         this.id = id;
     }
+
     public void setPhoneNumber(String phoneNumber){
         this.phoneNumber = phoneNumber;
     }
+
     public void setRole(String role){
         this.role = role;
     }
