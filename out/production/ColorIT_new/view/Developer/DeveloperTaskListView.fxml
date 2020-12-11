@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="480.0" prefWidth="545.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Developer.DeveloperTaskListViewController">
+   <children>
+      <HBox fx:id="titleLabel" alignment="CENTER" prefHeight="100.0" prefWidth="529.0" spacing="20.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Requirement:">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Label text="title of requirement">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <TableView layoutY="100.0" prefHeight="253.0" prefWidth="529.0">
+         <columns>
+            <TableColumn fx:id="id" prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="title" prefWidth="75.0" text="title" />
+            <TableColumn fx:id="timeSpent" prefWidth="75.0" text="time spent" />
+            <TableColumn fx:id="timeEstimeted" prefWidth="105.0" text="time estimeted" />
+            <TableColumn fx:id="responsiblePerson" prefWidth="119.0" text="resposible person" />
+            <TableColumn fx:id="status" prefWidth="75.0" text="status" />
+         </columns>
+      </TableView>
+      <HBox alignment="CENTER" layoutX="4.0" layoutY="353.0" prefHeight="100.0" prefWidth="522.0" spacing="50.0">
+         <children>
+            <Button fx:id="back" mnemonicParsing="false" onAction="#backOnClick" prefWidth="120.0" text="Back">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
