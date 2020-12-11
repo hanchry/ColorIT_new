@@ -27,13 +27,12 @@
             <Insets left="20.0" />
          </padding>
       </HBox>
-      <TableView prefHeight="277.0" prefWidth="558.0">
+      <TableView layoutX="69.0" prefHeight="277.0" prefWidth="437.0">
          <columns>
             <TableColumn fx:id="title" prefWidth="75.0" text="title" />
             <TableColumn fx:id="startDate" prefWidth="75.0" text="start date" />
             <TableColumn fx:id="deadline" prefWidth="75.0" text="deadline" />
             <TableColumn fx:id="requirementsDone" prefWidth="136.0" text="requirements done" />
-            <TableColumn fx:id="responsiblePerson" prefWidth="121.0" text="resposible person" />
             <TableColumn fx:id="status" prefWidth="75.0" text="status" />
          </columns>
       </TableView>

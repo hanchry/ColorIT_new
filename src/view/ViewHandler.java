@@ -4,7 +4,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import view.Developer.DeveloperTaskListViewController;
 import view.Developer.ProjectListViewController;
+import view.Developer.RequirementListViewController;
 import view.Main.MainViewController;
 import view.ProjectCreator.AddMemberViewController;
 import view.ProjectCreator.CreateProjectViewController;
@@ -26,6 +28,8 @@ public class ViewHandler {
 
   ///////////////////////DEVELOPER/////////////////////////////
   private ProjectListViewController projectListViewController;
+  private DeveloperTaskListViewController developerTaskListViewController;
+  private RequirementListViewController requirementListViewController;
 
   //////////////////////MAIN VIEW///////////////////////////
   private MainViewController mainViewController;
@@ -60,10 +64,16 @@ public class ViewHandler {
     switch (id) {
       case "Main":
         root = loadMain("Main/MainView.fxml");
-      ////////////////////////DEV///////////////////////////////////
         break;
+      ////////////////////////DEV///////////////////////////////////
       case "ProjectList":
         root = loadProjectList("Developer/ProjectListView.fxml");
+        break;
+      case "DeveloperTaskList":
+        root = loadDeveloperTaskList("Developer/DeveloperTaskListView.fxml");
+        break;
+      case "RequirementList":
+        root = loadRequirementList("Developer/RequirementListView.fxml");
         break;
      ///////////////////////////CREATOR/////////////////////////////////
       case "ProjectListCreate":
@@ -99,7 +109,7 @@ public class ViewHandler {
         root = loadScrumProjectListRequirements("ScrumMaster/ScrumProjectListRequirementsView.fxml");
         break;
       case "TaskList":
-        root = loadTaskList("ScrumMaster/TaskListView.fxml");
+        root = loadTaskList("ScrumMaster/DeveloperTaskListView.fxml");
         break;
     }
     currentScene.setRoot(root);
@@ -142,6 +152,36 @@ public class ViewHandler {
       }
     }
     return projectListViewController.getRoot();
+  }
+  public Region loadDeveloperTaskList(String fxmlFile){
+    if(developerTaskListViewController == null) {
+      try {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        root = loader.load();
+        developerTaskListViewController = loader.getController();
+        developerTaskListViewController.init(root,this);
+      }
+      catch (Exception e){
+        e.printStackTrace();
+      }
+    }
+    return developerTaskListViewController.getRoot();
+  }
+  public Region loadRequirementList(String fxmlFile){
+    if(requirementListViewController == null) {
+      try {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        root = loader.load();
+        requirementListViewController = loader.getController();
+        requirementListViewController.init(root,this);
+      }
+      catch (Exception e){
+        e.printStackTrace();
+      }
+    }
+    return requirementListViewController.getRoot();
   }
   ////////////////////CREATOR/////////////////////////////
   public Region loadProjectListCreate(String fxmlFile){

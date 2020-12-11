@@ -22,4 +22,8 @@ public class ProjectListViewController {
   public void backOnClick(ActionEvent actionEvent) {
     view.openView("Main");
   }
+
+  public void showRequirementOnClick(ActionEvent actionEvent) {
+    view.openView("RequirementList");
+  }
 }

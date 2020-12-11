@@ -9,9 +9,14 @@
 
 <AnchorPane prefHeight="530.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Developer.ProjectListViewController">
    <children>
-      <HBox alignment="CENTER" layoutY="400.0" prefHeight="80.0" prefWidth="445.0">
+      <HBox alignment="CENTER" layoutY="400.0" prefHeight="80.0" prefWidth="445.0" spacing="50.0">
          <children>
             <Button fx:id="back" mnemonicParsing="false" onAction="#backOnClick" text="Back">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Button>
+            <Button fx:id="showRequirement" mnemonicParsing="false" onAction="#showRequirementOnClick" text="Show Requirements">
                <font>
                   <Font size="22.0" />
                </font>
