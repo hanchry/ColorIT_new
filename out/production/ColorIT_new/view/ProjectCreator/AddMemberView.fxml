@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="220.0" prefWidth="290.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ProjectCreator.AddMemberViewController">
+<AnchorPane prefHeight="335.0" prefWidth="290.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ProjectCreator.AddMemberViewController">
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="278.0" spacing="20.0">
          <children>
@@ -23,7 +23,7 @@
             <Insets left="15.0" />
          </padding>
       </HBox>
-      <HBox alignment="CENTER" layoutY="100.0" prefHeight="100.0" prefWidth="258.0" spacing="50.0">
+      <HBox alignment="CENTER" layoutY="193.0" prefHeight="100.0" prefWidth="258.0" spacing="50.0">
          <children>
             <Button fx:id="back" mnemonicParsing="false" onAction="#backOnClick" text="Back">
                <font>
@@ -36,6 +36,19 @@
                </font>
             </Button>
          </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutY="100.0" prefHeight="100.0" prefWidth="278.0" spacing="20.0">
+         <children>
+            <Text fx:id="email" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <TextField fx:id="emailField" />
+         </children>
+         <padding>
+            <Insets left="15.0" />
+         </padding>
       </HBox>
    </children>
 </AnchorPane>

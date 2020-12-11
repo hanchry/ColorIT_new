@@ -8,17 +8,12 @@ import view.Developer.DeveloperTaskListViewController;
 import view.Developer.ProjectListViewController;
 import view.Developer.RequirementListViewController;
 import view.Main.MainViewController;
-import view.ProjectCreator.AddMemberViewController;
-import view.ProjectCreator.CreateProjectViewController;
-import view.ProjectCreator.EditProjectViewController;
-import view.ProjectCreator.ProjectListCreateViewController;
+import view.ProjectCreator.*;
 import view.ProjectOwner.AddRequirementViewController;
 import view.ProjectOwner.ProjectListRequirementsViewController;
+import view.ProjectOwner.RequirementAssignePersonViewController;
 import view.ProjectOwner.RequirementsListViewController;
-import view.ScrumMaster.AddTaskViewController;
-import view.ScrumMaster.RequirementsListTasksViewController;
-import view.ScrumMaster.ScrumProjectListRequirementsViewController;
-import view.ScrumMaster.TaskListViewController;
+import view.ScrumMaster.*;
 
 public class ViewHandler {
 
@@ -39,17 +34,21 @@ public class ViewHandler {
   private CreateProjectViewController createProjectViewController;
   private ProjectListCreateViewController projectListCreateViewController;
   private EditProjectViewController editProjectViewController;
+  private TeamMemberListViewController teamMemberListViewController;
+  private RoleViewController roleViewController;
 
   /////////////////////OWNER/////////////////////////////
   private AddRequirementViewController addRequirementViewController;
   private ProjectListRequirementsViewController projectListRequirementsViewController;
   private RequirementsListViewController requirementsListViewController;
+  private RequirementAssignePersonViewController requirementAssignePersonViewController;
 
   //////////////////////SCRUM//////////////////////////
   private AddTaskViewController addTaskViewController;
   private ScrumProjectListRequirementsViewController scrumProjectListRequirementsViewController;
   private RequirementsListTasksViewController requirementsListTasksViewController;
   private TaskListViewController taskListViewController;
+  private AssignePersonTaskViewController assignePersonTaskViewController;
 
 
   public ViewHandler(){
@@ -88,6 +87,12 @@ public class ViewHandler {
       case "EditProject":
         root = loadEditProject("ProjectCreator/EditProjectView.fxml");
         break;
+      case "TeamMemberList":
+        root = loadTeamMemberList("ProjectCreator/TeamMemberListView.fxml");
+        break;
+      case "Role":
+        root = loadRole("ProjectCreator/RoleView.fxml");
+        break;
       ///////////////////////////////OWNER///////////////////////////////
       case "ProjectListRequirements":
         root = loadProjectListRequirements("ProjectOwner/ProjectListRequirementsView.fxml");
@@ -97,6 +102,9 @@ public class ViewHandler {
         break;
       case "AddRequirement":
         root = loadAddRequirement("ProjectOwner/AddRequirementView.fxml");
+        break;
+      case "RequirementAssignePerson":
+        root = loadRequirementAssignePerson("ProjectOwner/RequirementAssignePersonView.fxml");
         break;
       ////////////////////////////////SCRUM///////////////////////////////////
       case "AddTask":
@@ -109,7 +117,10 @@ public class ViewHandler {
         root = loadScrumProjectListRequirements("ScrumMaster/ScrumProjectListRequirementsView.fxml");
         break;
       case "TaskList":
-        root = loadTaskList("ScrumMaster/DeveloperTaskListView.fxml");
+        root = loadTaskList("ScrumMaster/TaskListView.fxml");
+        break;
+      case "AssignePersonTask":
+        root = loadAssignePersonTask("ScrumMaster/AssignePersonTaskView.fxml");
         break;
     }
     currentScene.setRoot(root);
@@ -244,6 +255,36 @@ public class ViewHandler {
     }
     return editProjectViewController.getRoot();
   }
+  public Region loadTeamMemberList(String fxmlFile){
+    if(teamMemberListViewController == null) {
+      try {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        root = loader.load();
+        teamMemberListViewController = loader.getController();
+        teamMemberListViewController.init(root,this);
+      }
+      catch (Exception e){
+        e.printStackTrace();
+      }
+    }
+    return teamMemberListViewController.getRoot();
+  }
+  public Region loadRole(String fxmlFile){
+    if(roleViewController == null) {
+      try {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        root = loader.load();
+        roleViewController = loader.getController();
+        roleViewController.init(root,this);
+      }
+      catch (Exception e){
+        e.printStackTrace();
+      }
+    }
+    return roleViewController.getRoot();
+  }
   /////////////////////////////////OWNER////////////////////////////
   public Region loadProjectListRequirements(String fxmlFile){
     if(projectListRequirementsViewController == null) {
@@ -289,6 +330,21 @@ public class ViewHandler {
       }
     }
     return addRequirementViewController.getRoot();
+  }
+  public Region loadRequirementAssignePerson(String fxmlFile){
+    if(requirementAssignePersonViewController == null) {
+      try {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        root = loader.load();
+        requirementAssignePersonViewController = loader.getController();
+        requirementAssignePersonViewController.init(root,this);
+      }
+      catch (Exception e){
+        e.printStackTrace();
+      }
+    }
+    return requirementAssignePersonViewController.getRoot();
   }
   ////////////////////////SCRUM//////////////////////
   public Region loadAddTask(String fxmlFile){
@@ -350,5 +406,20 @@ public class ViewHandler {
       }
     }
     return taskListViewController.getRoot();
+  }
+  public Region loadAssignePersonTask(String fxmlFile){
+    if(assignePersonTaskViewController == null) {
+      try {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        root = loader.load();
+        assignePersonTaskViewController = loader.getController();
+        assignePersonTaskViewController.init(root,this);
+      }
+      catch (Exception e){
+        e.printStackTrace();
+      }
+    }
+    return assignePersonTaskViewController.getRoot();
   }
 }

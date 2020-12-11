@@ -1,12 +1,10 @@
-package view.ProjectCreator;
+package view.ScrumMaster;
 
 import javafx.event.ActionEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
 import view.ViewHandler;
 
-public class AddMemberViewController {
-
+public class AssignePersonTaskViewController {
   private Region root;
   private ViewHandler view;
 
@@ -18,13 +16,12 @@ public class AddMemberViewController {
     return root;
   }
 
+
   public void backOnClick(ActionEvent actionEvent) {
-    view.openView("TeamMemberList");
+    view.openView("TaskList");
   }
 
-  public void addOnClick(ActionEvent actionEvent) {
-    view.openView("TeamMemberList");
+  public void assigneOnClick(ActionEvent actionEvent) {
+    view.openView("TaskList");
   }
-
-
 }

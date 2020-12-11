@@ -1,11 +1,10 @@
-package view.ProjectOwner;
+package view.ProjectCreator;
 
 import javafx.event.ActionEvent;
 import javafx.scene.layout.Region;
 import view.ViewHandler;
 
-public class RequirementsListViewController {
-
+public class TeamMemberListViewController {
   private Region root;
   private ViewHandler view;
 
@@ -17,19 +16,19 @@ public class RequirementsListViewController {
     return root;
   }
 
-  public void backOnClick(ActionEvent actionEvent) {
-    view.openView("ProjectListRequirements");
-  }
 
+  public void backOnClick(ActionEvent actionEvent) {
+    view.openView("ProjectListCreate");
+  }
 
   public void addOnClick(ActionEvent actionEvent) {
-    view.openView("AddRequirement");
+    view.openView("AddMember");
   }
 
-  public void deleteOnClick(ActionEvent actionEvent) {
+  public void removeOnClick(ActionEvent actionEvent) {
   }
 
-  public void assignePersonOnClick(ActionEvent actionEvent) {
-    view.openView("RequirementAssignePerson");
+  public void changeOnClick(ActionEvent actionEvent) {
+    view.openView("Role");
   }
 }

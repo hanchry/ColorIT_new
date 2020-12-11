@@ -9,23 +9,25 @@
 
 <AnchorPane prefHeight="598.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ProjectCreator.ProjectListCreateViewController">
    <children>
-      <TableView layoutX="99.0" layoutY="14.0" prefHeight="400.0" prefWidth="437.0">
+      <TableView layoutX="6.0" layoutY="6.0" prefHeight="400.0" prefWidth="634.0">
          <columns>
             <TableColumn fx:id="title" prefWidth="75.0" text="title" />
             <TableColumn fx:id="startDate" prefWidth="75.0" text="start date" />
             <TableColumn fx:id="deadline" prefWidth="75.0" text="deadline" />
+            <TableColumn fx:id="timeSpendet" prefWidth="100.0" text="time spendet" />
+            <TableColumn fx:id="timeEstimeted" prefWidth="100.0" text="time estimeted" />
             <TableColumn fx:id="requirementsDone" prefWidth="136.0" text="requirements done" />
             <TableColumn fx:id="status" prefWidth="75.0" text="status" />
          </columns>
       </TableView>
-      <HBox alignment="CENTER" layoutY="488.0" prefHeight="79.0" prefWidth="634.0" spacing="20.0">
+      <HBox alignment="CENTER" layoutY="488.0" prefHeight="79.0" prefWidth="634.0" spacing="10.0">
          <children>
             <Button fx:id="back" mnemonicParsing="false" onAction="#backOnClick" prefHeight="51.0" prefWidth="200.0" text="Back">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button fx:id="addPerson" mnemonicParsing="false" onAction="#addPersonOnClick" prefHeight="51.0" prefWidth="200.0" text="Add Person">
+            <Button fx:id="showPerson" layoutX="337.0" layoutY="24.0" mnemonicParsing="false" onAction="#showPersonOnClick" prefHeight="51.0" prefWidth="200.0" text="Show Person">
                <font>
                   <Font size="24.0" />
                </font>

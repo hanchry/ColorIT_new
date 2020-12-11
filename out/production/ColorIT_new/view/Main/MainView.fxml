@@ -22,7 +22,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="293.0" prefWidth="300.0" spacing="50.0">
                <children>
-                  <Button fx:id="ProjectCreato" mnemonicParsing="false" onAction="#ProjectCreatorOnClick" prefHeight="51.0" prefWidth="193.0" text="Project Creator">
+                  <Button fx:id="ProjectCreator" mnemonicParsing="false" onAction="#ProjectCreatorOnClick" prefHeight="51.0" prefWidth="193.0" text="Project Creator">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -36,7 +36,7 @@
             </VBox>
             <VBox alignment="CENTER" layoutX="160.0" layoutY="10.0" prefHeight="293.0" prefWidth="300.0" spacing="50.0">
                <children>
-                  <Button fx:id="ProjectOwner" mnemonicParsing="false" onAction="#ProjectOwnerOnCLick" prefHeight="51.0" prefWidth="189.0" text="Project Owner">
+                  <Button fx:id="ProductOwner" mnemonicParsing="false" onAction="#ProjectOwnerOnCLick" prefHeight="51.0" prefWidth="196.0" text="Product Owner">
                      <font>
                         <Font size="24.0" />
                      </font>

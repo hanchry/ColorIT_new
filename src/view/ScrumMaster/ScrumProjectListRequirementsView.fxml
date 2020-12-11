@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="590.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ScrumMaster.ScrumProjectListRequirementsViewController">
+<AnchorPane prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ScrumMaster.ScrumProjectListRequirementsViewController">
     <children>
-        <HBox alignment="CENTER" layoutY="277.0" prefHeight="75.0" prefWidth="558.0" spacing="50.0">
+        <HBox alignment="CENTER" layoutY="277.0" prefHeight="75.0" prefWidth="634.0" spacing="50.0">
             <children>
                 <Button fx:id="back" mnemonicParsing="false" onAction="#backOnClick" prefWidth="100.0" text="Back">
                     <font>
@@ -27,15 +27,16 @@
                 <Insets left="20.0" />
             </padding>
         </HBox>
-        <TableView prefHeight="277.0" prefWidth="558.0">
-            <columns>
-                <TableColumn fx:id="title" prefWidth="75.0" text="title" />
-                <TableColumn fx:id="startDate" prefWidth="75.0" text="start date" />
-                <TableColumn fx:id="deadline" prefWidth="75.0" text="deadline" />
-                <TableColumn fx:id="requirementsDone" prefWidth="136.0" text="requirements done" />
-                <TableColumn fx:id="responsiblePerson" prefWidth="121.0" text="resposible person" />
-                <TableColumn fx:id="status" prefWidth="75.0" text="status" />
-            </columns>
-        </TableView>
+      <TableView prefHeight="280.0" prefWidth="634.0">
+         <columns>
+            <TableColumn fx:id="title" prefWidth="75.0" text="title" />
+            <TableColumn fx:id="startDate" prefWidth="75.0" text="start date" />
+            <TableColumn fx:id="deadline" prefWidth="75.0" text="deadline" />
+            <TableColumn fx:id="timeSpendet" prefWidth="100.0" text="time spendet" />
+            <TableColumn fx:id="timeEstimeted" prefWidth="100.0" text="time estimeted" />
+            <TableColumn fx:id="requirementsDone" prefWidth="136.0" text="requirements done" />
+            <TableColumn fx:id="status" prefWidth="75.0" text="status" />
+         </columns>
+      </TableView>
     </children>
 </AnchorPane>
