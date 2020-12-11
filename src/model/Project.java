@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Project {
     private StartDate_DeadLine startDate_deadLine;
     private String title;
-    private TeamMembers teamMembers;
+    private ArrayList<TeamMembers> teamMembers;
     private boolean isOpened;
     private ArrayList<Requirement> requirements;
     private Time time;
@@ -13,14 +13,14 @@ public class Project {
     private static boolean NOT_STARTED = true;
     private static boolean STARTED = false;
 
-    public Project(String title, StartDate_DeadLine startDeadLine) {
+    public Project(String title, StartDate_DeadLine startDeadLine ) {
         this.title = title;
         this.requirements = new ArrayList<>();
-        this.teamMembers = teamMembers;
+        teamMembers = new ArrayList<>();
         this.startDate_deadLine = startDeadLine;
         this.isOpened = false;
-
     }
+
     public void setStatus(String status){
         if (status.equals("started")){
             FINISHED = false;
@@ -38,6 +38,7 @@ public class Project {
             STARTED = false;
         }
     }
+
     public String getStatus(){
         if(FINISHED){
             return "finished";
@@ -46,11 +47,12 @@ public class Project {
             return "started";
         }
         return "not started";
-
     }
+
     public String getHoursEstimated(){
         return time.toStringHoursEstimated();
     }
+
     public String getHoursSpent(){
         return time.toStringHoursSpent();
     }
@@ -64,10 +66,11 @@ public class Project {
     }
 
 
-    public TeamMembers getTeamMembers()
+    public TeamMembers getTeamMembers(int index)
     {
-        return teamMembers;
+        return teamMembers.get(index);
     }
+
     public String getTitle(){return title;}
 
 
