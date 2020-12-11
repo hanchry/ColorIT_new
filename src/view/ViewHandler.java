@@ -8,10 +8,7 @@ import view.Developer.DeveloperTaskListViewController;
 import view.Developer.ProjectListViewController;
 import view.Developer.RequirementListViewController;
 import view.Main.MainViewController;
-import view.ProjectCreator.AddMemberViewController;
-import view.ProjectCreator.CreateProjectViewController;
-import view.ProjectCreator.EditProjectViewController;
-import view.ProjectCreator.ProjectListCreateViewController;
+import view.ProjectCreator.*;
 import view.ProjectOwner.AddRequirementViewController;
 import view.ProjectOwner.ProjectListRequirementsViewController;
 import view.ProjectOwner.RequirementAssignePersonViewController;
@@ -37,6 +34,8 @@ public class ViewHandler {
   private CreateProjectViewController createProjectViewController;
   private ProjectListCreateViewController projectListCreateViewController;
   private EditProjectViewController editProjectViewController;
+  private TeamMemberListViewController teamMemberListViewController;
+  private RoleViewController roleViewController;
 
   /////////////////////OWNER/////////////////////////////
   private AddRequirementViewController addRequirementViewController;
@@ -87,6 +86,12 @@ public class ViewHandler {
         break;
       case "EditProject":
         root = loadEditProject("ProjectCreator/EditProjectView.fxml");
+        break;
+      case "TeamMemberList":
+        root = loadTeamMemberList("ProjectCreator/TeamMemberListView.fxml");
+        break;
+      case "Role":
+        root = loadRole("ProjectCreator/RoleView.fxml");
         break;
       ///////////////////////////////OWNER///////////////////////////////
       case "ProjectListRequirements":
@@ -249,6 +254,36 @@ public class ViewHandler {
       }
     }
     return editProjectViewController.getRoot();
+  }
+  public Region loadTeamMemberList(String fxmlFile){
+    if(teamMemberListViewController == null) {
+      try {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        root = loader.load();
+        teamMemberListViewController = loader.getController();
+        teamMemberListViewController.init(root,this);
+      }
+      catch (Exception e){
+        e.printStackTrace();
+      }
+    }
+    return teamMemberListViewController.getRoot();
+  }
+  public Region loadRole(String fxmlFile){
+    if(roleViewController == null) {
+      try {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        root = loader.load();
+        roleViewController = loader.getController();
+        roleViewController.init(root,this);
+      }
+      catch (Exception e){
+        e.printStackTrace();
+      }
+    }
+    return roleViewController.getRoot();
   }
   /////////////////////////////////OWNER////////////////////////////
   public Region loadProjectListRequirements(String fxmlFile){

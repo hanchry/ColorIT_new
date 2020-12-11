@@ -1,12 +1,10 @@
 package view.ProjectCreator;
 
 import javafx.event.ActionEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
 import view.ViewHandler;
 
-public class AddMemberViewController {
-
+public class RoleViewController {
   private Region root;
   private ViewHandler view;
 
@@ -18,13 +16,12 @@ public class AddMemberViewController {
     return root;
   }
 
+
   public void backOnClick(ActionEvent actionEvent) {
     view.openView("TeamMemberList");
   }
 
-  public void addOnClick(ActionEvent actionEvent) {
+  public void setOnClick(ActionEvent actionEvent) {
     view.openView("TeamMemberList");
   }
-
-
 }

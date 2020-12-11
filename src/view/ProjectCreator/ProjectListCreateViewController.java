@@ -30,10 +30,12 @@ public class ProjectListCreateViewController {
     view.openView("CreateProject");
   }
 
-  public void addPersonOnClick(ActionEvent actionEvent) {
-    view.openView("AddMember");
-  }
+
 
   public void deleteProjectOnClick(ActionEvent actionEvent) {
+  }
+
+  public void showPersonOnClick(ActionEvent actionEvent) {
+    view.openView("TeamMemberList");
   }
 }

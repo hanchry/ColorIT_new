@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="380.0" prefWidth="515.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ProjectCreator.TeamMemberListViewController">
+   <children>
+      <TableView layoutX="116.0" prefHeight="274.0" prefWidth="276.0">
+        <columns>
+          <TableColumn fx:id="name" prefWidth="75.0" text="name" />
+          <TableColumn fx:id="role" prefWidth="75.0" text="role" />
+            <TableColumn fx:id="email" prefWidth="125.0" text="email" />
+        </columns>
+      </TableView>
+      <HBox alignment="CENTER" layoutX="7.0" layoutY="275.0" prefHeight="73.0" prefWidth="500.0" spacing="10.0">
+         <children>
+            <Button fx:id="back" mnemonicParsing="false" onAction="#backOnClick" prefWidth="110.0" text="Back">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="add" layoutX="204.0" layoutY="33.0" mnemonicParsing="false" onAction="#addOnClick" prefWidth="110.0" text="Add">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="change" layoutX="210.0" layoutY="31.0" mnemonicParsing="false" onAction="#changeOnClick" prefWidth="110.0" text="Change Role">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="remove" layoutX="247.0" layoutY="33.0" mnemonicParsing="false" onAction="#removeOnClick" prefWidth="110.0" text="Remove">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
