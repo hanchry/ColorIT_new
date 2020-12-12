@@ -51,8 +51,9 @@ public class ViewHandler {
   private AssignePersonTaskViewController assignePersonTaskViewController;
 
 
-  public ViewHandler(){
+  public ViewHandler(ProjectListModel model){
     currentScene = new Scene(new javafx.scene.layout.Region());
+    this.model = model;
   }
   public void start(Stage primaryStage){
     this.primaryStage = primaryStage;
@@ -126,6 +127,7 @@ public class ViewHandler {
         root = loadAssignePersonTask("ScrumMaster/AssignePersonTaskView.fxml");
         break;
     }
+
     currentScene.setRoot(root);
     primaryStage.setScene(currentScene);
     primaryStage.setTitle(id);
@@ -210,6 +212,8 @@ public class ViewHandler {
       catch (Exception e){
         e.printStackTrace();
       }
+    }else {
+      projectListCreateViewController.reset();
     }
     return projectListCreateViewController.getRoot();
   }
@@ -220,11 +224,14 @@ public class ViewHandler {
         loader.setLocation(getClass().getResource(fxmlFile));
         root = loader.load();
         createProjectViewController = loader.getController();
-        createProjectViewController.init(root,this);
+        createProjectViewController.init(root,this,model);
       }
       catch (Exception e){
         e.printStackTrace();
       }
+    }
+    else {
+      createProjectViewController.reset();
     }
     return createProjectViewController.getRoot();
   }

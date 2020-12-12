@@ -46,22 +46,21 @@ public class Task
     public String getTitle() {
         return title;
     }
+
     public void setTimeSpent(double hours){
         time.setHoursSpent(hours);
     }
 
-    public boolean isStarted()
+    public boolean isTaskStarted()
     {
         return true;
     }
 
-    public boolean isFinished()
+    public boolean isTaskFinished()
     {
         return true;
     }
-    public void updateTaskStatus()
-    {
 
-    }
+
 
 }

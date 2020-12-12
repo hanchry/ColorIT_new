@@ -15,11 +15,11 @@ public class ProjectViewModel {
 
  public ProjectViewModel(Project project){
    projectTitle = new SimpleStringProperty(project.getTitle());
-   projectStartDate = new SimpleStringProperty(project.getStart_deadLine().getMyDateStartDate().getDate());
-   projectDeadline = new SimpleStringProperty(project.getStart_deadLine().getMyDateDeadline().getDate());
-   projectTimeSpent = new SimpleStringProperty(project.getHoursSpent());
-   projectTimeEstimeted = new SimpleStringProperty(project.getHoursEstimated());
-   projectStatus = new SimpleStringProperty(project.getStatus());
+//   projectStartDate = new SimpleStringProperty(project.getStart_deadLine().getMyDateStartDate().getDate());
+ //  projectDeadline = new SimpleStringProperty(project.getStart_deadLine().getMyDateDeadline().getDate());
+ //  projectTimeSpent = new SimpleStringProperty(project.getHoursSpent());
+ //  projectTimeEstimeted = new SimpleStringProperty(project.getHoursEstimated());
+ //  projectStatus = new SimpleStringProperty(project.getStatus());
  }
 
   public StringProperty getProjectDeadline() {
