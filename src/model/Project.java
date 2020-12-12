@@ -125,4 +125,10 @@ public class Project {
     public String toString() {
         return " "+title+ " " + startDate_deadLine;
     }
+
+    public boolean isProjectDone()
+    {
+        return true;
+    }
+
 }
