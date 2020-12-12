@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 
 public class Project {
+    private ArrayList<Person> people;
     private StartDate_DeadLine startDate_deadLine;
     private String title;
     private ArrayList<TeamMembers> teamMembers;
@@ -19,6 +20,16 @@ public class Project {
         teamMembers = new ArrayList<>();
         this.startDate_deadLine = startDeadLine;
         this.isOpened = false;
+    }
+
+    public void removePerson(Person person)
+    {
+        people.remove(person);
+    }
+
+    public void addPerson(Person person)
+    {
+      people.add(person);
     }
 
     public void setStatus(String status){
