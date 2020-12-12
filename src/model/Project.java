@@ -16,12 +16,11 @@ public class Project {
     private static boolean NOT_STARTED = true;
     private static boolean STARTED = false;
 
-    public Project(String title) {
+    public Project(String title,StartDate_DeadLine startDeadLine) {
         this.title = title;
         this.requirements = new ArrayList<>();
         teamMembers = new ArrayList<>();
-     //   , StartDate_DeadLine startDeadLine
-       // this.startDate_deadLine = startDeadLine;
+   this.startDate_deadLine = startDeadLine;
         this.isOpened = false;
     }
 
