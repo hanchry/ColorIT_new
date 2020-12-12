@@ -6,6 +6,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.layout.Region;
 import model.Project;
 import model.ProjectListModel;
+import model.StartDate_DeadLine;
 import view.ViewHandler;
 import view.viewModels.ProjectListViewModel;
 import view.viewModels.ProjectViewModel;
@@ -26,7 +27,6 @@ public class ProjectListCreateViewController {
     private ViewHandler view;
     private ProjectListModel model;
     private ProjectListViewModel smodel;
-
 
     public void init(Region root, ViewHandler view, ProjectListModel model) {
         this.root = root;
@@ -77,7 +77,11 @@ public class ProjectListCreateViewController {
 
 
     public void deleteProjectOnClick(ActionEvent actionEvent) {
-
+        ProjectViewModel selectedItem = ProjectList.getSelectionModel().getSelectedItem();
+        Project project = new Project(selectedItem.getProjectTitle().get(), selectedItem.getProjectDeadline().get());
+        smodel.remove(project);
+        model.removeProject(project);
+        ProjectList.getSelectionModel().clearSelection();
     }
 
     public void showPersonOnClick(ActionEvent actionEvent) {

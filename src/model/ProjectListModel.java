@@ -28,6 +28,7 @@ public interface ProjectListModel {
     void addRequirement(Requirement requirement);
     boolean isProjectOpened(int index);
     void setProjectOpened(int index, boolean isOpened);
+    void removeProject(Project project);
 
 
 

@@ -2,177 +2,151 @@ package model;
 
 import java.util.ArrayList;
 
-public class Project
-{
+public class Project {
 
-  private ArrayList<Person> people;
-  private ProjectCreator projectCreator;
-  private StartDate_DeadLine startDate_deadLine;
-  private String title;
-  private ArrayList<TeamMembers> teamMembers;
-  private boolean isOpened;
-  private ArrayList<Requirement> requirements;
-  private Time time;
-  private static boolean FINISHED = false;
-  private static boolean NOT_STARTED = true;
-  private static boolean STARTED = false;
+    private ArrayList<Person> people;
+    private ProjectCreator projectCreator;
+    private StartDate_DeadLine startDate_deadLine;
+    private String title;
+    private ArrayList<TeamMembers> teamMembers;
+    private boolean isOpened;
+    private ArrayList<Requirement> requirements;
+    private Time time;
+    private static boolean FINISHED = false;
+    private static boolean NOT_STARTED = true;
+    private static boolean STARTED = false;
 
-  public Project(String title, StartDate_DeadLine startDeadLine)
-  {
-    this.title = title;
-    this.requirements = new ArrayList<>();
-    teamMembers = new ArrayList<>();
-    this.startDate_deadLine = startDeadLine;
-    this.isOpened = false;
+    public Project(String title,StartDate_DeadLine startDeadLine) {
+        this.title = title;
+        this.requirements = new ArrayList<>();
+        teamMembers = new ArrayList<>();
+   this.startDate_deadLine = startDeadLine;
+        this.isOpened = false;
+    }
+
+  public Project(String title, String s) { /////////////////////////////////////HEEEEEEEEEEEEEEEEEEEEERE
   }
 
   public ProjectCreator getProjectCreator()
-  {
-    return projectCreator;
-  }
-
-  public void removePerson(Person person)
-  {
-    people.remove(person);
-  }
-
-  public void createProject(String title, StartDate_DeadLine startDate_deadLine,
-      ArrayList<TeamMembers> role, ArrayList<Person> people)
-  {
-    this.title = title;
-    this.startDate_deadLine = startDate_deadLine;
-    this.teamMembers = role;
-    this.people = people;
-  }
-
-  public void addPerson(Person person)
-  {
-    people.add(person);
-  }
-
-  public void setStatus(String status)
-  {
-    if (status.equals("started"))
     {
-      FINISHED = false;
-      NOT_STARTED = false;
-      STARTED = true;
+        return projectCreator;
     }
-    else if (status.equals("finished"))
+
+    public void removePerson(Person person)
     {
-      FINISHED = true;
-      NOT_STARTED = false;
-      STARTED = false;
+        people.remove(person);
     }
-    else
+
+    public void createProject(String title,StartDate_DeadLine startDate_deadLine, ArrayList<TeamMembers> role, ArrayList<Person> people)
     {
-      FINISHED = false;
-      NOT_STARTED = true;
-      STARTED = false;
+        this.title = title;
+        this.startDate_deadLine = startDate_deadLine;
+        this.teamMembers = role;
+        this.people = people;
     }
-  }
 
-  public String getStatus()
-  {
-    if (FINISHED)
+    public void addPerson(Person person)
     {
-      return "finished";
+      people.add(person);
     }
-    if (STARTED)
+
+    public void setStatus(String status){
+        if (status.equals("started")){
+            FINISHED = false;
+            NOT_STARTED = false;
+            STARTED = true;
+        }
+        else if (status.equals("finished")){
+            FINISHED = true;
+            NOT_STARTED = false;
+            STARTED = false;
+        }
+        else {
+            FINISHED = false;
+            NOT_STARTED = true;
+            STARTED = false;
+        }
+    }
+
+    public String getStatus(){
+        if(FINISHED){
+            return "finished";
+        }
+        if(STARTED){
+            return "started";
+        }
+        return "not started";
+    }
+
+    public String getHoursEstimated(){
+        return time.toStringHoursEstimated();
+    }
+
+    public String getHoursSpent(){
+        return time.toStringHoursSpent();
+    }
+
+    public void addRequriement(Requirement requirement) {
+        requirements.add(requirement);
+    }
+
+    public StartDate_DeadLine getStart_deadLine() {
+        return startDate_deadLine;
+    }
+
+    public void setStartDate_deadLine(StartDate_DeadLine deadline)
     {
-      return "started";
+        this.startDate_deadLine = deadline;
     }
-    return "not started";
-  }
 
-  public String getHoursEstimated()
-  {
-    return time.toStringHoursEstimated();
-  }
+    public TeamMembers getTeamMembers(int index)
+    {
+        return teamMembers.get(index);
+    }
 
-  public String getHoursSpent()
-  {
-    return time.toStringHoursSpent();
-  }
+    public String getTitle(){return title;}
 
-  public void addRequriement(Requirement requirement)
-  {
-    requirements.add(requirement);
-  }
+    public void setTitle(String title)
+    {
+        this.title = title;
+    }
 
-  public StartDate_DeadLine getStart_deadLine()
-  {
-    return startDate_deadLine;
-  }
 
-  public void setStartDate_deadLine(StartDate_DeadLine deadline)
-  {
-    this.startDate_deadLine = deadline;
-  }
+    public void Edit(String title, Requirement requirement, StartDate_DeadLine startDeadLine) {
+        this.title = title;
+        this.addRequriement(requirement);
+        this.startDate_deadLine = startDeadLine;
+    }
 
-  public TeamMembers getTeamMembers(int index)
-  {
-    return teamMembers.get(index);
-  }
+    public Requirement getRequirement(String title)
+    {
+        return null;
+    }
 
-  public String getTitle()
-  {
-    return title;
-  }
+    public ArrayList<Requirement> getRequirements(){
+        return requirements;
+    }
 
-  public void setTitle(String title)
-  {
-    this.title = title;
-  }
+    public Requirement getRequirement(int index)
+    {
+        return requirements.get(index);
+    }
 
-  public void Edit(String title, Requirement requirement,
-      StartDate_DeadLine startDeadLine)
-  {
-    this.title = title;
-    this.addRequriement(requirement);
-    this.startDate_deadLine = startDeadLine;
-  }
+    public boolean isOpened() {
+        return isOpened;
+    }
 
-  public Requirement getRequirement(String title)
-  {
-    return null;
-  }
+    public void setOpened(boolean opened) {
+        isOpened = opened;
+    }
 
-  public ArrayList<Requirement> getRequirements()
-  {
-    return requirements;
-  }
+    public String toString() {
+        return " "+title+ " " + startDate_deadLine;
+    }
 
-  public Requirement getRequirement(int index)
-  {
-    return requirements.get(index);
-  }
-
-  public boolean isOpened()
-  {
-    return isOpened;
-  }
-
-  public void setOpened(boolean opened)
-  {
-    isOpened = opened;
-    isOpened = true;
-  }
-
-  public void setClosed(boolean closed)
-
-  {
-    isOpened = false;
-  }
-
-  public String toString()
-  {
-    return " " + title + " " + startDate_deadLine;
-  }
-
-  public boolean isProjectDone()
-  {
-    return true;
-  }
+    public boolean isProjectDone()
+    {
+        return true;
+    }
 
 }
