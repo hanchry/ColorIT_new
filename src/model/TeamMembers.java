@@ -20,6 +20,7 @@ public class TeamMembers {
     public ArrayList<Developer> getDevelopers() {
         return developers;
     }
+
     public Developer getDeveloper(int index){
         return developers.get(index);
     }
@@ -28,10 +29,10 @@ public class TeamMembers {
         return owner;
     }
 
-
     public ScrumMaster getScrum() {
         return scrum;
     }
+
     public boolean doesDeveloperExist(Developer developer){
         for (int x = 0; x < developers.size(); x++){
             if(developers.get(x) == developer){

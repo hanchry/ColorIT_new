@@ -65,6 +65,10 @@ public class Project {
         return startDate_deadLine;
     }
 
+    public void setStartDate_deadLine(StartDate_DeadLine deadline)
+    {
+        this.startDate_deadLine = deadline;
+    }
 
     public TeamMembers getTeamMembers(int index)
     {
@@ -73,13 +77,16 @@ public class Project {
 
     public String getTitle(){return title;}
 
+    public void setTitle(String title)
+    {
+        this.title = title;
+    }
 
 
     public void Edit(String title, Requirement requirement, StartDate_DeadLine startDeadLine) {
         this.title = title;
         this.addRequriement(requirement);
         this.startDate_deadLine = startDeadLine;
-
     }
 
     public Requirement getRequirement(String title)
