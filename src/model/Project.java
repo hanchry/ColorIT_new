@@ -35,6 +35,14 @@ public class Project {
         people.remove(person);
     }
 
+    public void createProject(String title,StartDate_DeadLine startDate_deadLine, ArrayList<TeamMembers> role, ArrayList<Person> people)
+    {
+        this.title = title;
+        this.startDate_deadLine = startDate_deadLine;
+        this.teamMembers = role;
+        this.people = people;
+    }
+
     public void addPerson(Person person)
     {
       people.add(person);
