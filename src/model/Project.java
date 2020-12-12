@@ -24,7 +24,10 @@ public class Project {
         this.isOpened = false;
     }
 
-    public ProjectCreator getProjectCreator()
+  public Project(String title, String s) { /////////////////////////////////////HEEEEEEEEEEEEEEEEEEEEERE
+  }
+
+  public ProjectCreator getProjectCreator()
     {
         return projectCreator;
     }
