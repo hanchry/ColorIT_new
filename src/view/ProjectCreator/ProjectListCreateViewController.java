@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Region;
+import model.Project;
 import model.ProjectListModel;
 import view.ViewHandler;
 import view.viewModels.ProjectListViewModel;
@@ -31,6 +32,7 @@ public class ProjectListCreateViewController {
         this.root = root;
         this.view = view;
         this.model = model;
+        this.smodel = new ProjectListViewModel(model);
 
         title.setCellValueFactory(cellData -> cellData.getValue().getProjectTitle());
         startDate.setCellValueFactory(cellData -> cellData.getValue().getProjectStartDate());
@@ -40,6 +42,7 @@ public class ProjectListCreateViewController {
         //requirementsDone.setCellValueFactory(cellData -> cellData.getValue());
         status.setCellValueFactory(cellData -> cellData.getValue().getProjectStatus());
 
+        ProjectList.setItems(smodel.getList());
 
     }
 
@@ -62,6 +65,7 @@ public class ProjectListCreateViewController {
 
 
     public void deleteProjectOnClick(ActionEvent actionEvent) {
+
     }
 
     public void showPersonOnClick(ActionEvent actionEvent) {
