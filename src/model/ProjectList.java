@@ -41,6 +41,17 @@ public class ProjectList {
         return null;
     }
 
+    public void removeProject(Project project){
+        for (int i = 0; i < projects.size(); i++)
+        {
+            if (projects.get(i).getTitle().equals(project.getTitle()))
+            {
+                projects.remove(i);
+                break;
+            }
+        }
+    }
+
     public Project getByScrumMaster(ScrumMaster scrumMaster) {
         for (int i = 0; i < projects.size(); i++) {
             if (projects.get(i).getTeamMembers(i).getScrum() == scrumMaster) {

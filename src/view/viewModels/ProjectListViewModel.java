@@ -22,6 +22,17 @@ public class ProjectListViewModel {
             list.add(new ProjectViewModel(model.getProject(i)));
         }
     }
+    public void remove(Project project)
+    {
+        for (int i = 0; i < list.size(); i++)
+        {
+            if (list.get(i).getProjectTitle().get().equals(project.getTitle()))
+            {
+                list.remove(i);
+                break;
+            }
+        }
+    }
     public ObservableList<ProjectViewModel> getList() {
         return list;
     }

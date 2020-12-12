@@ -120,4 +120,8 @@ public class ProjectListModelManager implements ProjectListModel {
     public void setProjectOpened(int index, boolean isOpened) {
 
     }
+
+    @Override public void removeProject(Project project) {
+        list.removeProject(project);
+    }
 }

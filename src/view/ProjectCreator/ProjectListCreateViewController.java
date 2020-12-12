@@ -27,7 +27,6 @@ public class ProjectListCreateViewController {
     private ProjectListModel model;
     private ProjectListViewModel smodel;
 
-
     public void init(Region root, ViewHandler view, ProjectListModel model) {
         this.root = root;
         this.view = view;
@@ -65,7 +64,11 @@ public class ProjectListCreateViewController {
 
 
     public void deleteProjectOnClick(ActionEvent actionEvent) {
-
+        ProjectViewModel selectedItem = ProjectList.getSelectionModel().getSelectedItem();
+        Project project = new Project(selectedItem.getProjectTitle().get());
+        smodel.remove(project);
+        model.removeProject(project);
+        ProjectList.getSelectionModel().clearSelection();
     }
 
     public void showPersonOnClick(ActionEvent actionEvent) {
