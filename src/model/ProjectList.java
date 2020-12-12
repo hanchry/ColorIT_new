@@ -31,6 +31,7 @@ public class ProjectList {
         return null;
     }
 
+
     public Project getByProjectOwner(ProjectOwner owner) {
         for (int i = 0; i < projects.size(); i++) {
             if (projects.get(i).getTeamMembers(i).getOwner() == owner) {
