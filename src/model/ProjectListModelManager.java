@@ -19,11 +19,12 @@ public class ProjectListModelManager implements ProjectListModel {
     }
     @Override
     public ProjectList getProjects() {
-        return null;
+       return  list;
     }
 
     @Override
-    public Project getProject(String title) {return null;
+    public Project getProject(String title) {
+        return list.getByTitle(title);
     }
 
     @Override
@@ -43,7 +44,6 @@ public class ProjectListModelManager implements ProjectListModel {
 
     @Override
     public void addTask(Task task) {
-
     }
 
     @Override

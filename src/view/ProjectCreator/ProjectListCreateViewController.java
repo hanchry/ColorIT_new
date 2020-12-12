@@ -55,8 +55,20 @@ public class ProjectListCreateViewController {
         view.openView("Main");
     }
 
-    public void editProjectOnClick(ActionEvent actionEvent) {
-        view.openView("EditProject");
+    public void editProjectOnClick(ActionEvent actionEvent)
+    {
+        ProjectViewModel selectedProject = ProjectList.getSelectionModel().getSelectedItem();
+        if (selectedProject != null)
+        {
+            for (int x = 0; x < model.getProjects().getSize(); x++)
+            {
+                if (model.getProject(x).getTitle().equals(selectedProject.getProjectTitle().get()))
+                {
+                    model.getProject(x).setOpened(true);
+                }
+            }
+            view.openView("EditProject");
+        }
     }
 
     public void createProjectOnClick(ActionEvent actionEvent) {
@@ -76,3 +88,5 @@ public class ProjectListCreateViewController {
      smodel.update();
     }
 }
+
+
