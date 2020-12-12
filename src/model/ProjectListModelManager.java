@@ -23,13 +23,12 @@ public class ProjectListModelManager implements ProjectListModel {
     }
 
     @Override
-    public Project getProject(String title) {
-        return null;
+    public Project getProject(String title) {return null;
     }
 
     @Override
     public Project getProject(int index) {
-        return null;
+      return list.get(index);
     }
 
     @Override
@@ -99,7 +98,7 @@ public class ProjectListModelManager implements ProjectListModel {
 
     @Override
     public int projectListSize() {
-        return 0;
+       return list.getSize();
     }
 
     @Override
