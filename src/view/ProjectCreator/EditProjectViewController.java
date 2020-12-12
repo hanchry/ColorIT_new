@@ -42,7 +42,7 @@ public class EditProjectViewController
     for (int i = 0; model.getProjects().getSize() > i; i++)
       if (model.getProject(i).isOpened())
       {
-        model.getProject(i).setClosed(false);
+        model.getProject(i).setOpened(false);
         model.getProject(i).setTitle(title.getText());
         MyDate date2 = new MyDate(deadline.getValue().getDayOfMonth(),
             deadline.getValue().getMonthValue(), deadline.getValue().getYear());
