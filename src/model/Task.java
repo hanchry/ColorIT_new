@@ -7,16 +7,18 @@ public class Task
     private StartDate_DeadLine date;
     private String title;
     private String taskID;
+    private int estimatedTime;
     private Developer responsibleDeveloper;
     private static final boolean FINISHED = false;
     private static final boolean NOT_STARTED = true;
     private static final boolean STARTED = false;
 
 
-    public Task(String taskID, String title, int timeEstimatedInHours){
+    public Task(String taskID, String title, int estimatedTime){
         this.taskID = taskID;
         this.title = title;
-        time = new Time(timeEstimatedInHours);
+        this.estimatedTime = estimatedTime;
+
     }
     public void setResponsibleDeveloper(Developer developer){
         if(list.doesDeveloperExist(developer)){
@@ -24,15 +26,13 @@ public class Task
         }
     }
 
+    public String getEstimatedTime()
+    {
+        return estimatedTime+"";
+    }
 
     public Developer getResponsibleDeveloper(){
         return responsibleDeveloper;
-    }
-    public String getTimeEstimated(){
-        return "" + time.getHoursEstimated();
-    }
-    public String getTimeSpent(){
-        return "" + time.getHoursSpent();
     }
 
     public String getTaskID() {
@@ -60,7 +60,6 @@ public class Task
     {
         return true;
     }
-
 
 
 }

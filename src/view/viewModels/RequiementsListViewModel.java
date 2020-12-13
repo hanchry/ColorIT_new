@@ -5,11 +5,13 @@ import javafx.collections.ObservableList;
 import model.ProjectListModel;
 import model.Requirement;
 
-public class RequiementsListViewModel {
+public class RequiementsListViewModel
+{
   private ObservableList<RequiementsViewModel> list;
   private ProjectListModel model;
 
-  public RequiementsListViewModel(ProjectListModel model){
+  public RequiementsListViewModel(ProjectListModel model)
+  {
     this.model = model;
     this.list = FXCollections.observableArrayList();
     update();
@@ -18,11 +20,14 @@ public class RequiementsListViewModel {
   public void update()
   {
     list.clear();
-    for (int x = 0; x < model.projectListSize(); x++){
-      if (model.isProjectOpened(x)){
+    for (int x = 0; x < model.projectListSize(); x++)
+    {
+      if (model.isProjectOpened(x))
+      {
         for (int i = 0; i < model.getProject(x).getRequirements().size(); i++)
         {
-          list.add(new RequiementsViewModel(model.getProject(x).getRequirement(i)));
+          list.add(
+              new RequiementsViewModel(model.getProject(x).getRequirement(i)));
         }
       }
     }
@@ -33,12 +38,15 @@ public class RequiementsListViewModel {
     return list;
   }
 
-
   public void add(Requirement requirement)
-  {for (int x = 0; x < model.projectListSize(); x++){
-    if (model.isProjectOpened(x)){
-      list.add(new RequiementsViewModel(model.getProject(x).getRequirement(model.getProject(x).getRequirements().size()-1)));
-    }
+  {
+    for (int x = 0; x < model.projectListSize(); x++)
+    {
+      if (model.isProjectOpened(x))
+      {
+        list.add(new RequiementsViewModel(model.getProject(x)
+            .getRequirement(model.getProject(x).getRequirements().size() - 1)));
+      }
     }
   }
 

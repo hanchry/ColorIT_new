@@ -78,7 +78,7 @@ public class ProjectListCreateViewController {
 
     public void deleteProjectOnClick(ActionEvent actionEvent) {
         ProjectViewModel selectedItem = ProjectList.getSelectionModel().getSelectedItem();
-        Project project = new Project(selectedItem.getProjectTitle().get(), selectedItem.getProjectDeadline().get());
+        Project project = new Project(selectedItem.getProjectTitle().get());
         smodel.remove(project);
         model.removeProject(project);
         ProjectList.getSelectionModel().clearSelection();
