@@ -257,7 +257,7 @@ public class ViewHandler {
         loader.setLocation(getClass().getResource(fxmlFile));
         root = loader.load();
         editProjectViewController = loader.getController();
-        editProjectViewController.init(root,this);
+        editProjectViewController.init(root,this,model);
       }
       catch (Exception e){
         e.printStackTrace();

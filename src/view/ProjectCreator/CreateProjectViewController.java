@@ -13,45 +13,46 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class CreateProjectViewController {
-    public DatePicker deadline;
-    public TextField title;
-    private ProjectListModel model;
-    private Region root;
-    private ViewHandler view;
-    private ProjectListViewModel smodel;
+public class CreateProjectViewController
+{
+  public DatePicker deadline;
+  public TextField title;
+  private ProjectListModel model;
+  private Region root;
+  private ViewHandler view;
+  private ProjectListViewModel pmodel;
 
+  public void init(Region root, ViewHandler view, ProjectListModel model)
+  {
+    this.root = root;
+    this.view = view;
+    this.pmodel = new ProjectListViewModel(model);
+    this.model = model;
+  }
 
-    public void init(Region root, ViewHandler view, ProjectListModel model) {
-        this.root = root;
-        this.view = view;
-        this.model = model;
-    }
+  public Region getRoot()
+  {
+    return root;
+  }
 
-    public Region getRoot() {
-        return root;
-    }
+  public void backOnClick(ActionEvent actionEvent)
+  {
+    view.openView("ProjectListCreate");
+  }
 
+  public void createOnClick(ActionEvent actionEvent)
+  {
 
-    public void backOnClick(ActionEvent actionEvent) {
-        view.openView("ProjectListCreate");
-    }
-
-    public void createOnClick(ActionEvent actionEvent) {
-
-
-        MyDate date2 = new MyDate(deadline.getValue().getDayOfMonth(), deadline.getValue().getMonthValue(), deadline.getValue().getYear());
-        StartDate_DeadLine startDate_deadLine = new StartDate_DeadLine(date2);
-        Project pt = new Project(title.getText(), startDate_deadLine);
-        model.addProject(pt);
-        title.setText("");
-
-        view.openView("ProjectCreatorView");
-
-
-    }
-
-    public void reset() {
-        smodel.update();
-    }
+    MyDate date2 = new MyDate(deadline.getValue().getDayOfMonth(),
+       deadline.getValue().getMonthValue(), deadline.getValue().getYear());
+    StartDate_DeadLine startDate_deadLine = new StartDate_DeadLine(date2);
+    Project pt = new Project(title.getText(),startDate_deadLine);
+    model.addProject(pt);
+    title.setText("");
+    view.openView("ProjectListCreate");
+  }
+  public void reset()
+  {
+    pmodel.update();
+  }
 }

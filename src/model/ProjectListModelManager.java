@@ -19,17 +19,17 @@ public class ProjectListModelManager implements ProjectListModel {
     }
     @Override
     public ProjectList getProjects() {
-        return null;
+       return  list;
     }
 
     @Override
     public Project getProject(String title) {
-        return null;
+        return list.getByTitle(title);
     }
 
     @Override
     public Project getProject(int index) {
-        return null;
+      return list.get(index);
     }
 
     @Override
@@ -44,7 +44,6 @@ public class ProjectListModelManager implements ProjectListModel {
 
     @Override
     public void addTask(Task task) {
-
     }
 
     @Override
@@ -99,7 +98,7 @@ public class ProjectListModelManager implements ProjectListModel {
 
     @Override
     public int projectListSize() {
-        return 0;
+       return list.getSize();
     }
 
     @Override
@@ -120,5 +119,9 @@ public class ProjectListModelManager implements ProjectListModel {
     @Override
     public void setProjectOpened(int index, boolean isOpened) {
 
+    }
+
+    @Override public void removeProject(Project project) {
+        list.removeProject(project);
     }
 }

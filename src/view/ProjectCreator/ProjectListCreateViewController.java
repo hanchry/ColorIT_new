@@ -4,7 +4,9 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Region;
+import model.Project;
 import model.ProjectListModel;
+import model.StartDate_DeadLine;
 import view.ViewHandler;
 import view.viewModels.ProjectListViewModel;
 import view.viewModels.ProjectViewModel;
@@ -26,11 +28,11 @@ public class ProjectListCreateViewController {
     private ProjectListModel model;
     private ProjectListViewModel smodel;
 
-
     public void init(Region root, ViewHandler view, ProjectListModel model) {
         this.root = root;
         this.view = view;
         this.model = model;
+        this.smodel = new ProjectListViewModel(model);
 
         title.setCellValueFactory(cellData -> cellData.getValue().getProjectTitle());
         startDate.setCellValueFactory(cellData -> cellData.getValue().getProjectStartDate());
@@ -40,6 +42,7 @@ public class ProjectListCreateViewController {
         //requirementsDone.setCellValueFactory(cellData -> cellData.getValue());
         status.setCellValueFactory(cellData -> cellData.getValue().getProjectStatus());
 
+        ProjectList.setItems(smodel.getList());
 
     }
 
@@ -52,8 +55,20 @@ public class ProjectListCreateViewController {
         view.openView("Main");
     }
 
-    public void editProjectOnClick(ActionEvent actionEvent) {
-        view.openView("EditProject");
+    public void editProjectOnClick(ActionEvent actionEvent)
+    {
+        ProjectViewModel selectedProject = ProjectList.getSelectionModel().getSelectedItem();
+        if (selectedProject != null)
+        {
+            for (int x = 0; x < model.getProjects().getSize(); x++)
+            {
+                if (model.getProject(x).getTitle().equals(selectedProject.getProjectTitle().get()))
+                {
+                    model.getProject(x).setOpened(true);
+                }
+            }
+            view.openView("EditProject");
+        }
     }
 
     public void createProjectOnClick(ActionEvent actionEvent) {
@@ -62,6 +77,11 @@ public class ProjectListCreateViewController {
 
 
     public void deleteProjectOnClick(ActionEvent actionEvent) {
+        ProjectViewModel selectedItem = ProjectList.getSelectionModel().getSelectedItem();
+        Project project = new Project(selectedItem.getProjectTitle().get(), selectedItem.getProjectDeadline().get());
+        smodel.remove(project);
+        model.removeProject(project);
+        ProjectList.getSelectionModel().clearSelection();
     }
 
     public void showPersonOnClick(ActionEvent actionEvent) {
@@ -72,3 +92,5 @@ public class ProjectListCreateViewController {
      smodel.update();
     }
 }
+
+
