@@ -1,12 +1,13 @@
 package model;
 
 
+import java.sql.Struct;
 import java.util.ArrayList;
 
 public class Requirement {
 
     private TeamMembers list;
-    private ArrayList<Task> tasks;
+    private TaskList tasks;
     private int neededtime;
     private StartDate_DeadLine date;
     private String ID;
@@ -15,9 +16,9 @@ public class Requirement {
     private String what;
     private boolean isOpened;
     private Developer responsibleDeveloper;
-    private static final boolean FINISHED = false;
-    private static final boolean APPROVED = false;
-    private static final boolean DISAPPROVED = false;
+    private  boolean finished;
+    private  boolean approved;
+    private  boolean dispparoved;
 
     public Requirement(String ID, String why, String who, String what, int neededtime , StartDate_DeadLine date) {
         this.ID = ID;
@@ -27,6 +28,41 @@ public class Requirement {
         this.date = date;
         this.neededtime = neededtime;
         this.tasks = new ArrayList<>();
+        this.finished = false;
+        this.approved = false;
+        this.dispparoved = false;
+    }
+
+    public void setRequirementApproved()
+    {
+        if (dispparoved)
+        {
+            approved = false;
+        }
+        approved = true;
+    }
+
+    public void setRequirementFinished()
+    {
+        for (int i = 0; i < tasks.getSize(); i++)
+        {
+            if (tasks.getTask(i).isFinished() == false)
+            {
+                this.finished = false;
+            }
+            this.finished = true;
+        }
+    }
+
+        //// change spelling on disapprove
+
+    public void setRequirementDisapproved()
+    {
+        if (approved)
+        {
+            dispparoved = false;
+        }
+        dispparoved = true;
     }
 
     public void setResponsibleDeveloper(Developer developer) {
@@ -105,14 +141,9 @@ public class Requirement {
         return " " + ID + " " + why + " " + who + " " + what + " " + responsibleDeveloper + " " + date + " " + neededtime;
     }
 
-    public boolean isTaskFinished()
+    public boolean isTaskFinished(Task task)
     {
-        return false;
-    }
-
-    public boolean isTaskApproved()
-    {
-        return false;
+        return tasks.specificTask(task).isFinished();
     }
 
 }
