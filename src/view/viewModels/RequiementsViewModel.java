@@ -25,7 +25,6 @@ public class RequiementsViewModel {
     what = new SimpleStringProperty(requirement.getWhat());
     neededTime = new SimpleStringProperty(requirement.getNeededtime());
     DeadLine = new SimpleStringProperty(requirement.getDeadLine());
-    //responsibleDeveloper = new SimpleStringProperty(requirement.getResponsibleDeveloperString());
 
   }
 

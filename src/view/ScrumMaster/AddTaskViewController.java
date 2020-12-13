@@ -36,16 +36,15 @@ public class AddTaskViewController {
       {
         for(int p = 0; p < model.getProject(i).getRequirements().size();p++)
         {
-         if( model.getProject(i).getRequirement(p).isOpened())
+         if(model.getProject(i).getRequirement(p).isOpened())
          {
-           model.getProject(i).getRequirement(p).addTask(new Task("id",title.getText(),Integer.parseInt(timer.getText())));
+           int lo = Integer.parseInt(timer.getText());
+           model.getProject(i).getRequirement(p).addTask(new Task("id",title.getText(),lo));
          }
         }
       }
     }
     view.openView("TaskList");
-    System.out.println(model.getProject(0).getRequirement(0).getTaskListSize());
-    System.out.println(model.getProject(1).getRequirement(0).getTaskListSize());
   }
   public void reset()
   {
