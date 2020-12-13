@@ -24,7 +24,8 @@ public class Project {
         this.isOpened = false;
     }
 
-  public Project(String title, String s) { /////////////////////////////////////HEEEEEEEEEEEEEEEEEEEEERE
+  public Project(String title) {
+this.title= title;
   }
 
   public ProjectCreator getProjectCreator()

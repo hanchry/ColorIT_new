@@ -7,24 +7,26 @@ public class Requirement {
 
     private TeamMembers list;
     private ArrayList<Task> tasks;
-    private Time time;
+    private int neededtime;
     private StartDate_DeadLine date;
     private String ID;
     private String why;
     private String who;
     private String what;
+    private boolean isOpened;
     private Developer responsibleDeveloper;
     private static final boolean FINISHED = false;
     private static final boolean APPROVED = false;
     private static final boolean DISAPPROVED = false;
 
-    public Requirement(String ID, String why, String who, String what, Time time , StartDate_DeadLine date) {
+    public Requirement(String ID, String why, String who, String what, int neededtime , StartDate_DeadLine date) {
         this.ID = ID;
         this.why = why;
         this.who = who;
         this.what = what;
         this.date = date;
-        this.time = time;
+        this.neededtime = neededtime;
+        this.tasks = new ArrayList<>();
     }
 
     public void setResponsibleDeveloper(Developer developer) {
@@ -76,16 +78,31 @@ public class Requirement {
         return why;
     }
 
-    public String getNeededTime() {
-        return time.toString();
+    public String getStartDate()
+    {
+        return date.getMyDateStartDate().toString();
+    }
+    public String getDeadLine() {
+        return  date.getMyDateDeadline().toString();
     }
 
-    public String getDeadLine() {
-        return date.toString();
+    public String getNeededtime()
+    {
+        return neededtime+"";
+    }
+
+    public boolean isOpened()
+    {
+        return isOpened;
+    }
+
+    public void setOpened(boolean opened)
+    {
+        isOpened = opened;
     }
 
     public String toString() {
-        return " " + ID + " " + why + " " + who + " " + what + " " + responsibleDeveloper + " " + date + " " + time;
+        return " " + ID + " " + why + " " + who + " " + what + " " + responsibleDeveloper + " " + date + " " + neededtime;
     }
 
     public boolean isTaskFinished()
