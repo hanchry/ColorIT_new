@@ -29,8 +29,19 @@ public interface ProjectListModel {
     boolean isProjectOpened(int index);
     void setProjectOpened(int index, boolean isOpened);
     void removeProject(Project project);
-
-
-
-
+    void addPerson(Person person);
+    Developer getDeveloper(int index);
+    void removeDeveloper(int index);
+    int devSize();
+    void addScrum(ScrumMaster scrum);
+    void addOwner(ProjectOwner owner);
+    ArrayList<Developer> getDevelopers();
+    ArrayList<ScrumMaster> getScrums();
+    ArrayList<ProjectOwner> getOwners();
+    ScrumMaster getScrum(int index);
+    ProjectCreator getCreator();
+    ProjectOwner getOwner(int index);
+    void removeScrum(int index);
+    void removeOwner(int index);
+    void setCreator(ProjectCreator creator);
 }

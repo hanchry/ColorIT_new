@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="530.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Developer.ProjectListViewController">
    <children>
@@ -23,7 +20,7 @@
             </Button>
          </children>
       </HBox>
-      <TableView layoutX="8.0" prefHeight="400.0" prefWidth="634.0">
+      <TableView fx:id="ProjectList" layoutX="8.0" prefHeight="400.0" prefWidth="634.0">
          <columns>
             <TableColumn fx:id="title" prefWidth="75.0" text="title" />
             <TableColumn fx:id="startDate" prefWidth="75.0" text="start date" />

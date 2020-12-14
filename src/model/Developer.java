@@ -1,7 +1,7 @@
 package model;
 
 public class Developer extends Person {
-    public Developer(String name, String id) {
-        super(name, id);
+    public Developer(String name, String email, String role) {
+        super(name, email, role);
     }
 }

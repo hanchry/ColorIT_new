@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="380.0" prefWidth="515.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ProjectCreator.TeamMemberListViewController">
+<AnchorPane prefHeight="400.0" prefWidth="535.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ProjectCreator.TeamMemberListViewController">
    <children>
-      <TableView layoutX="116.0" prefHeight="274.0" prefWidth="276.0">
+      <TableView fx:id="table" layoutX="26.0" layoutY="14.0" prefHeight="274.0" prefWidth="464.0">
         <columns>
-          <TableColumn fx:id="name" prefWidth="75.0" text="name" />
-          <TableColumn fx:id="role" prefWidth="75.0" text="role" />
-            <TableColumn fx:id="email" prefWidth="125.0" text="email" />
+          <TableColumn fx:id="name" prefWidth="124.0" text="name" />
+          <TableColumn fx:id="role" prefWidth="164.0" text="role" />
+            <TableColumn fx:id="email" prefWidth="175.0" text="email" />
         </columns>
       </TableView>
       <HBox alignment="CENTER" layoutX="7.0" layoutY="275.0" prefHeight="73.0" prefWidth="500.0" spacing="10.0">

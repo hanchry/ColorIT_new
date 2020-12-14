@@ -2,18 +2,25 @@ package model;
 
 
 public class Person {
-    private String phoneNumber;
     private String name;
     private String role;
-    private String id;
+    private String email;
+    private boolean isOpened;
 
-    public Person(String name,String id){
+
+    public Person(String name,String email, String role){
         this.name = name;
-        this.id = id;
+        this.email = email;
+        this.role = role;
+        this.isOpened = false;
     }
 
-    public void setPhoneNumber(String phoneNumber){
-        this.phoneNumber = phoneNumber;
+    public void setOpened(boolean isOpened){
+        this.isOpened = isOpened;
+    }
+
+    public boolean isOpened() {
+        return isOpened;
     }
 
     public void setRole(String role){
@@ -24,22 +31,19 @@ public class Person {
         return name;
     }
 
-    public String getId() {
-        return id;
+    public String getEmail() {
+        return email;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
+
 
     public String getRole() {
         return role;
     }
 
-    // Adding toString to test!
 
     public String toString()
     {
-        return phoneNumber + "" + name + " " + id + "" + getRole();
+        return  name + " " + email + "" + getRole();
     }
 }

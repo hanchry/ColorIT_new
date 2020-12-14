@@ -8,11 +8,19 @@ public class ProjectListModelManager implements ProjectListModel
   private TeamMembers members;
   private RequirementsList requirementsList;
   private TaskList taskList;
+  private ProjectCreator creator;
+
+  public void setCreator(ProjectCreator creator){
+    this.creator = creator;
+  }
+
 
   public ProjectListModelManager()
   {
+    creator = null;
     requirementsList = new RequirementsList();
     list = new ProjectList();
+    members = new TeamMembers();
   }
 
   @Override public ArrayList<Requirement> getRequirementListOfProject(
@@ -141,6 +149,64 @@ public class ProjectListModelManager implements ProjectListModel
   @Override public void removeProject(Project project)
   {
     list.removeProject(project);
+  }
+
+  @Override public void addPerson(Person person) {
+    members.addDeveloper(person);
+  }
+
+  @Override public Developer getDeveloper(int index) {
+    return members.getDeveloper(index);
+  }
+
+
+  @Override public void removeDeveloper(int index) {
+    members.removeDeveloper(index);
+  }
+
+  @Override public int devSize() {
+    return members.getDevSize();
+  }
+
+  @Override public void addScrum(ScrumMaster scrum) {
+    members.addScrum(scrum);
+  }
+
+  @Override public void addOwner(ProjectOwner owner) {
+    members.addOwner(owner);
+  }
+
+  @Override public ArrayList<Developer> getDevelopers() {
+    return members.getDevelopers();
+  }
+
+  @Override public ArrayList<ScrumMaster> getScrums() {
+    return members.getScrums();
+  }
+
+  @Override public ArrayList<ProjectOwner> getOwners() {
+    return members.getOwners();
+  }
+
+  @Override public ScrumMaster getScrum(int index) {
+    return members.getScrum(index);
+  }
+
+  @Override public ProjectCreator getCreator() {
+    return creator;
+  }
+
+
+  @Override public ProjectOwner getOwner(int index) {
+    return members.getOwner(index);
+  }
+
+  @Override public void removeScrum(int index) {
+    members.removeScrum(index);
+  }
+
+  @Override public void removeOwner(int index) {
+    members.removeOwner(index);
   }
 
 }

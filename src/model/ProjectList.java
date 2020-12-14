@@ -32,14 +32,6 @@ public class ProjectList {
     }
 
 
-    public Project getByProjectOwner(ProjectOwner owner) {
-        for (int i = 0; i < projects.size(); i++) {
-            if (projects.get(i).getTeamMembers(i).getOwner() == owner) {
-                return projects.get(i);
-            }
-        }
-        return null;
-    }
 
     public void removeProject(Project project){
         for (int i = 0; i < projects.size(); i++)
@@ -52,14 +44,7 @@ public class ProjectList {
         }
     }
 
-    public Project getByScrumMaster(ScrumMaster scrumMaster) {
-        for (int i = 0; i < projects.size(); i++) {
-            if (projects.get(i).getTeamMembers(i).getScrum() == scrumMaster) {
-                return projects.get(i);
-            }
-        }
-        return null;
-    }
+
 
     public Project getByDeveloper(Developer developer) {
         for (int i = 0; i < projects.size(); i++) {

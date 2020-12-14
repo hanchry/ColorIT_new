@@ -182,12 +182,15 @@ public class ViewHandler
         loader.setLocation(getClass().getResource(fxmlFile));
         root = loader.load();
         teamMembersViewController = loader.getController();
-        teamMembersViewController.init(root, this);
+        teamMembersViewController.init(root, this, model);
       }
       catch (Exception e)
       {
         e.printStackTrace();
       }
+    }
+    else{
+      teamMembersViewController.reset();
     }
     return teamMembersViewController.getRoot();
   }
@@ -203,12 +206,15 @@ public class ViewHandler
         loader.setLocation(getClass().getResource(fxmlFile));
         root = loader.load();
         projectListViewController = loader.getController();
-        projectListViewController.init(root, this);
+        projectListViewController.init(root, this, model);
       }
       catch (Exception e)
       {
         e.printStackTrace();
       }
+    }
+    else {
+      projectListViewController.reset();
     }
     return projectListViewController.getRoot();
   }
@@ -223,12 +229,15 @@ public class ViewHandler
         loader.setLocation(getClass().getResource(fxmlFile));
         root = loader.load();
         developerTaskListViewController = loader.getController();
-        developerTaskListViewController.init(root, this);
+        developerTaskListViewController.init(root, this, model);
       }
       catch (Exception e)
       {
         e.printStackTrace();
       }
+    }
+    else {
+      developerTaskListViewController.reset();
     }
     return developerTaskListViewController.getRoot();
   }
@@ -243,12 +252,15 @@ public class ViewHandler
         loader.setLocation(getClass().getResource(fxmlFile));
         root = loader.load();
         requirementListViewController = loader.getController();
-        requirementListViewController.init(root, this);
+        requirementListViewController.init(root, this, model);
       }
       catch (Exception e)
       {
         e.printStackTrace();
       }
+    }
+    else {
+      requirementListViewController.reset();
     }
     return requirementListViewController.getRoot();
   }
@@ -312,12 +324,15 @@ public class ViewHandler
         loader.setLocation(getClass().getResource(fxmlFile));
         root = loader.load();
         addMemberViewController = loader.getController();
-        addMemberViewController.init(root, this);
+        addMemberViewController.init(root, this, model);
       }
       catch (Exception e)
       {
         e.printStackTrace();
       }
+    }
+    else {
+      addMemberViewController.reset();
     }
     return addMemberViewController.getRoot();
   }
@@ -353,12 +368,15 @@ public class ViewHandler
         loader.setLocation(getClass().getResource(fxmlFile));
         root = loader.load();
         teamMemberListViewController = loader.getController();
-        teamMemberListViewController.init(root, this);
+        teamMemberListViewController.init(root, this, model);
       }
       catch (Exception e)
       {
         e.printStackTrace();
       }
+    }
+    else {
+      teamMemberListViewController.reset();
     }
     return teamMemberListViewController.getRoot();
   }
@@ -373,7 +391,7 @@ public class ViewHandler
         loader.setLocation(getClass().getResource(fxmlFile));
         root = loader.load();
         roleViewController = loader.getController();
-        roleViewController.init(root, this);
+        roleViewController.init(root, this, model);
       }
       catch (Exception e)
       {

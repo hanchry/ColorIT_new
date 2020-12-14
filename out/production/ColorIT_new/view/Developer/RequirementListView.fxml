@@ -34,7 +34,7 @@
             </Button>
          </children>
       </HBox>
-      <TableView layoutX="5.0" layoutY="110.0" prefHeight="320.0" prefWidth="990.0">
+      <TableView fx:id="RequirementsList" layoutX="5.0" layoutY="110.0" prefHeight="320.0" prefWidth="990.0">
          <columns>
             <TableColumn fx:id="id" prefWidth="75.0" text="ID" />
             <TableColumn fx:id="title" prefWidth="75.0" text="title" />
@@ -44,7 +44,7 @@
             <TableColumn fx:id="startedDate" prefWidth="108.0" text="started date" />
             <TableColumn fx:id="deadline" prefWidth="75.0" text="deadline" />
             <TableColumn fx:id="spendetTime" prefWidth="108.0" text="spendet time" />
-            <TableColumn fx:id="estimatedTime1" prefWidth="108.0" text="estimeted time" />
+            <TableColumn fx:id="estimatedTime" prefWidth="108.0" text="estimeted time" />
             <TableColumn fx:id="responsiblePerson" prefWidth="137.0" text="responsible person" />
             <TableColumn fx:id="status" prefWidth="75.0" text="status" />
          </columns>
