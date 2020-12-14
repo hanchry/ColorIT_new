@@ -18,24 +18,23 @@ public class Requirement {
     private Developer responsibleDeveloper;
     private  boolean finished;
     private  boolean approved;
-    private  boolean dispparoved;
+    private  boolean disapproved;
 
-    public Requirement(String ID, String why, String who, String what, int neededtime , StartDate_DeadLine date) {
+    public Requirement(String ID, String why, String who, String what, int neededtime , StartDate_DeadLine date  ) {
         this.ID = ID;
         this.why = why;
         this.who = who;
         this.what = what;
         this.date = date;
         this.neededtime = neededtime;
-        this.tasks = new ArrayList<>();
         this.finished = false;
         this.approved = false;
-        this.dispparoved = false;
+        this.disapproved = false;
     }
 
     public void setRequirementApproved()
     {
-        if (dispparoved)
+        if (disapproved)
         {
             approved = false;
         }
@@ -46,7 +45,7 @@ public class Requirement {
     {
         for (int i = 0; i < tasks.getSize(); i++)
         {
-            if (tasks.getTask(i).isFinished() == false)
+            if (!tasks.getTask(i).isFinished())
             {
                 this.finished = false;
             }
@@ -60,9 +59,9 @@ public class Requirement {
     {
         if (approved)
         {
-            dispparoved = false;
+            disapproved = false;
         }
-        dispparoved = true;
+        disapproved = true;
     }
 
     public void setResponsibleDeveloper(Developer developer) {
@@ -78,12 +77,12 @@ public class Requirement {
 
     public Task getTask(int index)
     {
-        return tasks.get(index);
+        return tasks.getTasks().get(index);
     }
 
     public int getTaskListSize()
     {
-        return tasks.size();
+        return tasks.getSize();
     }
 
     public Developer getResponsibleDeveloper() {
