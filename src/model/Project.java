@@ -16,7 +16,8 @@ public class Project {
     private boolean finished;
 
 
-    public Project(String title,StartDate_DeadLine startDeadLine) {
+    public Project(String title,StartDate_DeadLine startDeadLine, Time estimetedTime) {
+        this.time = estimetedTime;
         this.title = title;
         this.requirements = new ArrayList<>();
         teamMembers = new ArrayList<>();

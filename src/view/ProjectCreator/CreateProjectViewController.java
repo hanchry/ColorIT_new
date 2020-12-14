@@ -17,6 +17,7 @@ public class CreateProjectViewController
 {
   public DatePicker deadline;
   public TextField title;
+  public TextField estimetedTime;
   private ProjectListModel model;
   private Region root;
   private ViewHandler view;
@@ -43,10 +44,10 @@ public class CreateProjectViewController
   public void createOnClick(ActionEvent actionEvent)
   {
 
-    MyDate date2 = new MyDate(deadline.getValue().getDayOfMonth(),
-       deadline.getValue().getMonthValue(), deadline.getValue().getYear());
+    MyDate date2 = new MyDate(deadline.getValue().getDayOfMonth(), deadline.getValue().getMonthValue(), deadline.getValue().getYear());
     StartDate_DeadLine startDate_deadLine = new StartDate_DeadLine(date2);
-    Project pt = new Project(title.getText(),startDate_deadLine);
+    Time time = new Time(Double.parseDouble(estimetedTime.getText()));
+    Project pt = new Project(title.getText(),startDate_deadLine, time);
     pt.setOpened(false);
     model.addProject(pt);
     title.setText("");
