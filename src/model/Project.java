@@ -14,30 +14,30 @@ public class Project {
     private Time time;
 
     private boolean finished;
-    private boolean started;
+
 
     public Project(String title,StartDate_DeadLine startDeadLine) {
         this.title = title;
         this.requirements = new ArrayList<>();
         teamMembers = new ArrayList<>();
-   this.startDate_deadLine = startDeadLine;
+        this.startDate_deadLine = startDeadLine;
         this.isOpened = false;
+
+        this.finished = false;
     }
 
-
-
-    public void setStartedProject()
+    public void setFinishProject()
     {
-        this.started = true;
+        this.finished = true;
     }
 
-    public boolean isStartedProject()
+    public boolean isFinishedProject()
     {
-        return started;
+        return finished;
     }
 
   public Project(String title) {
-this.title= title;
+  this.title= title;
   }
 
   public ProjectCreator getProjectCreator()

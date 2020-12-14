@@ -54,7 +54,6 @@ public class Requirement {
         }
     }
 
-
     public void setRequirementDisapproved()
     {
         if (approved)
