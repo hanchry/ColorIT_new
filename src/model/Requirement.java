@@ -16,9 +16,9 @@ public class Requirement {
     private boolean isOpened;
     private Developer responsibleDeveloper;
 
-    private static final boolean FINISHED = false;
-    private static final boolean APPROVED = false;
-    private static final boolean DISAPPROVED = false;
+    private  boolean finished;
+    private  boolean approved;
+    private  boolean disapproved;
 
     public Requirement(String ID, String why, String who, String what, int neededtime , StartDate_DeadLine date) {
         this.ID = ID;
@@ -28,6 +28,40 @@ public class Requirement {
         this.date = date;
         this.neededtime = neededtime;
         this.tasks = new ArrayList<>();
+        this.finished = false;
+        this.approved = false;
+        this.disapproved = false;
+    }
+
+    public void setRequirementApproved()
+    {
+        if (disapproved)
+        {
+            approved = false;
+        }
+        approved = true;
+    }
+
+    public void setRequirementFinished()
+    {
+        for (int i = 0; i < tasks.size(); i++)
+        {
+            if (!tasks.get(i).isFinished())
+            {
+                this.finished = false;
+            }
+            this.finished = true;
+        }
+    }
+
+
+    public void setRequirementDisapproved()
+    {
+        if (approved)
+        {
+            disapproved = false;
+        }
+        disapproved = true;
     }
 
     public void setResponsibleDeveloper(Developer developer) {
