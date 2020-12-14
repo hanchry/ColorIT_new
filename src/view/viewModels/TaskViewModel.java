@@ -8,7 +8,7 @@ import model.Task;
 
 public class TaskViewModel
 {
-  private int taskID;
+  private StringProperty taskID;
   private StringProperty taskTitle;
   private StringProperty member;
   private StringProperty taskTimeSpent;
@@ -16,12 +16,12 @@ public class TaskViewModel
 
   public TaskViewModel(Task task)
   {
-    taskID = task.getTaskID();
+    taskID = new SimpleStringProperty(task.getTaskID());
     taskTimeEstimated = new SimpleStringProperty(task.getEstimatedTime());
     taskTitle = new SimpleStringProperty(task.getTitle());
   }
 
-  public int getTaskID() {
+  public StringProperty getTaskID() {
     return taskID;
   }
 

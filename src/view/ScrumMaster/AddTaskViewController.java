@@ -39,7 +39,7 @@ public class AddTaskViewController {
          if(model.getProject(i).getRequirement(p).isOpened())
          {
            int lo = Integer.parseInt(timer.getText());
-           model.getProject(i).getRequirement(p).addTask(new Task(5,title.getText(),lo));
+           model.getProject(i).getRequirement(p).addTask(new Task("id",title.getText(),lo));
          }
         }
       }

@@ -6,13 +6,13 @@ public class Task
     private Time time;
     private StartDate_DeadLine date;
     private String title;
-    private int taskID;
+    private String taskID;
     private int estimatedTime;
     private Developer responsibleDeveloper;
 
     private boolean finished;
 
-    public Task(int taskID, String title, int estimatedTime){
+    public Task(String taskID, String title, int estimatedTime){
         this.taskID = taskID;
         this.title = title;
         this.estimatedTime = estimatedTime;
@@ -35,9 +35,6 @@ public class Task
         }
     }
 
-
-
-
     public String getEstimatedTime()
     {
         return estimatedTime+"";
@@ -47,11 +44,11 @@ public class Task
         return responsibleDeveloper;
     }
 
-    public int getTaskID() {
+    public String getTaskID() {
         return taskID;
     }
 
-    public void setTaskID(int ID)
+    public void setTaskID(String ID)
     {
         this.taskID = ID;
     }
