@@ -9,6 +9,7 @@ import view.Developer.DeveloperTaskListViewController;
 import view.Developer.ProjectListViewController;
 import view.Developer.RequirementListViewController;
 import view.Main.MainViewController;
+import view.Main.TeamMembersViewController;
 import view.ProjectCreator.*;
 import view.ProjectOwner.*;
 import view.ScrumMaster.*;
@@ -28,6 +29,7 @@ public class ViewHandler
 
   //////////////////////MAIN VIEW///////////////////////////
   private MainViewController mainViewController;
+  private TeamMembersViewController teamMembersViewController;
 
   //////////////////////CREATOR////////////////////////////
   private AddMemberViewController addMemberViewController;
@@ -70,6 +72,9 @@ public class ViewHandler
     {
       case "Main":
         root = loadMain("Main/MainView.fxml");
+        break;
+      case "TeamMembers":
+        root = loadTeamMembers("Main/TeamMembersView.fxml");
         break;
       ////////////////////////DEV///////////////////////////////////
       case "ProjectList":
@@ -166,6 +171,26 @@ public class ViewHandler
       }
     }
     return mainViewController.getRoot();
+  }
+
+  public Region loadTeamMembers(String fxmlFile)
+  {
+    if (teamMembersViewController == null)
+    {
+      try
+      {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        root = loader.load();
+        teamMembersViewController = loader.getController();
+        teamMembersViewController.init(root, this);
+      }
+      catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+    return teamMembersViewController.getRoot();
   }
 
   /////////////////DEVELOPER///////////////////////////////

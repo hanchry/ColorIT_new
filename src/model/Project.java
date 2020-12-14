@@ -20,7 +20,7 @@ public class Project {
         this.title = title;
         this.requirements = new ArrayList<>();
         teamMembers = new ArrayList<>();
-   this.startDate_deadLine = startDeadLine;
+        this.startDate_deadLine = startDeadLine;
         this.isOpened = false;
     }
 

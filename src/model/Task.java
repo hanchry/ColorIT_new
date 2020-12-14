@@ -6,25 +6,37 @@ public class Task
     private Time time;
     private StartDate_DeadLine date;
     private String title;
-    private String taskID;
+    private int taskID;
     private int estimatedTime;
     private Developer responsibleDeveloper;
-    private static final boolean FINISHED = false;
-    private static final boolean NOT_STARTED = true;
-    private static final boolean STARTED = false;
 
+    private boolean finished;
 
-    public Task(String taskID, String title, int estimatedTime){
+    public Task(int taskID, String title, int estimatedTime){
         this.taskID = taskID;
         this.title = title;
         this.estimatedTime = estimatedTime;
-
+        this.finished = false;
     }
+
+    public boolean isFinished()
+    {
+        return finished;
+    }
+
+    public void finishTask()
+    {
+        this.finished = true;
+    }
+
     public void setResponsibleDeveloper(Developer developer){
         if(list.doesDeveloperExist(developer)){
             responsibleDeveloper = developer;
         }
     }
+
+
+
 
     public String getEstimatedTime()
     {
@@ -35,10 +47,11 @@ public class Task
         return responsibleDeveloper;
     }
 
-    public String getTaskID() {
+    public int getTaskID() {
         return taskID;
     }
-    public void setTaskID(String ID)
+
+    public void setTaskID(int ID)
     {
         this.taskID = ID;
     }
