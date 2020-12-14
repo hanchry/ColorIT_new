@@ -11,7 +11,7 @@ import view.ViewHandler;
 public class AddTaskViewController {
 
   public TextField title;
-  public TextField timer;
+  public TextField timers;
   private Region root;
   private ViewHandler view;
   private ProjectListModel model;
@@ -38,7 +38,7 @@ public class AddTaskViewController {
         {
          if(model.getProject(i).getRequirement(p).isOpened())
          {
-           int lo = Integer.parseInt(timer.getText());
+           int lo = Integer.parseInt(timers.getText());
            model.getProject(i).getRequirement(p).addTask(new Task("id",title.getText(),lo));
          }
         }
