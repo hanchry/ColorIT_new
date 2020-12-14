@@ -16,7 +16,7 @@ public class TaskViewModel
 
   public TaskViewModel(Task task){
     taskID = new SimpleStringProperty(task.getTaskID());
-    taskTimeEstimated = new SimpleStringProperty(task.getEstimatedTime());
+    taskTimeEstimated = new SimpleStringProperty(task.toStringEstimatedTime());
     taskTitle = new SimpleStringProperty(task.getTitle());
   }
 

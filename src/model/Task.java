@@ -26,9 +26,9 @@ public class Task
         }
     }
 
-    public String getEstimatedTime()
+    public int getEstimatedTime()
     {
-        return estimatedTime+"";
+        return estimatedTime;
     }
 
     public Developer getResponsibleDeveloper(){
@@ -61,5 +61,8 @@ public class Task
         return true;
     }
 
+    public String toStringEstimatedTime(){
+        return estimatedTime+"";
+    }
 
 }
