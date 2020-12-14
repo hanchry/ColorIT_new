@@ -32,4 +32,8 @@ public class MainViewController {
   public void DeveloperOnCLick(ActionEvent actionEvent) {
     view.openView("ProjectList");
   }
+
+  public void teamMembersOnClick(ActionEvent actionEvent) {
+    view.openView("TeamMembers");
+  }
 }
