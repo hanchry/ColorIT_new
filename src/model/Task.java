@@ -9,17 +9,27 @@ public class Task
     private String taskID;
     private int estimatedTime;
     private Developer responsibleDeveloper;
-    private static final boolean FINISHED = false;
-    private static final boolean NOT_STARTED = true;
-    private static final boolean STARTED = false;
+
+    private boolean finished;
 
 
     public Task(String taskID, String title, int estimatedTime){
         this.taskID = taskID;
         this.title = title;
         this.estimatedTime = estimatedTime;
-
+        this.finished = false;
     }
+
+    public boolean isFinished()
+    {
+        return finished;
+    }
+
+    public void finishTask()
+    {
+        this.finished = true;
+    }
+
     public void setResponsibleDeveloper(Developer developer){
         if(list.doesDeveloperExist(developer)){
             responsibleDeveloper = developer;

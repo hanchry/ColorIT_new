@@ -12,9 +12,9 @@ public class Project {
     private boolean isOpened;
     private ArrayList<Requirement> requirements;
     private Time time;
-    private static boolean FINISHED = false;
-    private static boolean NOT_STARTED = true;
-    private static boolean STARTED = false;
+
+    private boolean finished;
+    private boolean started;
 
     public Project(String title,StartDate_DeadLine startDeadLine) {
         this.title = title;
@@ -22,6 +22,18 @@ public class Project {
         teamMembers = new ArrayList<>();
    this.startDate_deadLine = startDeadLine;
         this.isOpened = false;
+    }
+
+
+
+    public void setStartedProject()
+    {
+        this.started = true;
+    }
+
+    public boolean isStartedProject()
+    {
+        return started;
     }
 
   public Project(String title) {
@@ -51,33 +63,6 @@ this.title= title;
       people.add(person);
     }
 
-    public void setStatus(String status){
-        if (status.equals("started")){
-            FINISHED = false;
-            NOT_STARTED = false;
-            STARTED = true;
-        }
-        else if (status.equals("finished")){
-            FINISHED = true;
-            NOT_STARTED = false;
-            STARTED = false;
-        }
-        else {
-            FINISHED = false;
-            NOT_STARTED = true;
-            STARTED = false;
-        }
-    }
-
-    public String getStatus(){
-        if(FINISHED){
-            return "finished";
-        }
-        if(STARTED){
-            return "started";
-        }
-        return "not started";
-    }
 
     public String getHoursEstimated(){
         return time.toStringHoursEstimated();
@@ -145,9 +130,5 @@ this.title= title;
         return " "+title+ " " + startDate_deadLine;
     }
 
-    public boolean isProjectDone()
-    {
-        return true;
-    }
 
 }

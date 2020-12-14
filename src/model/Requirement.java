@@ -15,6 +15,7 @@ public class Requirement {
     private String what;
     private boolean isOpened;
     private Developer responsibleDeveloper;
+
     private static final boolean FINISHED = false;
     private static final boolean APPROVED = false;
     private static final boolean DISAPPROVED = false;
