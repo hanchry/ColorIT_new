@@ -51,6 +51,7 @@ public class CreateProjectViewController
     pt.setOpened(false);
     model.addProject(pt);
     title.setText("");
+    estimetedTime.setText("");
     view.openView("ProjectListCreate");
     deadline.setValue(null);
 

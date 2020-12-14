@@ -74,7 +74,7 @@ public class ProjectListModelManager implements ProjectListModel
 
   @Override public Requirement getRequirement(int index)
   {
-    return requirementsList.SpeicficReq(index);
+    return requirementsList.getRequirements().get(index);
   }
 
   @Override public void addDeveloper(String title, Person person)

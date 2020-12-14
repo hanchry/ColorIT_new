@@ -9,6 +9,7 @@ public class Requirement {
     private ArrayList<Task> tasks;
     private int neededtime;
     private StartDate_DeadLine date;
+    private String title;
     private String ID;
     private String why;
     private String who;
@@ -20,8 +21,9 @@ public class Requirement {
     private  boolean approved;
     private  boolean disapproved;
 
-    public Requirement(String ID, String why, String who, String what, int neededtime , StartDate_DeadLine date) {
-        this.ID = ID;
+    public Requirement(String title, String why, String who, String what, int neededtime , StartDate_DeadLine date) {
+        this.title = title;
+        //this.ID = ID;
         this.why = why;
         this.who = who;
         this.what = what;
@@ -40,6 +42,39 @@ public class Requirement {
             approved = false;
         }
         approved = true;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+
+    public void setWhat(String what) {
+        this.what = what;
+    }
+
+    public void setWho(String who) {
+        this.who = who;
+    }
+
+    public void setWhy(String why) {
+        this.why = why;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDate(StartDate_DeadLine date) {
+        this.date = date;
+    }
+
+    public void setNeededtime(int neededtime) {
+        this.neededtime = neededtime;
     }
 
     public boolean setRequirementFinished()

@@ -7,6 +7,7 @@ import model.Requirement;
 import model.StartDate_DeadLine;
 
 public class RequiementsViewModel {
+  private StringProperty title;
   private StringProperty why;
   private StringProperty who;
   private StringProperty what;
@@ -18,6 +19,7 @@ public class RequiementsViewModel {
 
   public RequiementsViewModel(Requirement requirement){
 
+    title = new SimpleStringProperty(requirement.getTitle());
     who = new SimpleStringProperty(requirement.getWho());
     StartDate = new SimpleStringProperty(requirement.getStartDate());
     why = new SimpleStringProperty(requirement.getWhy());
@@ -31,7 +33,9 @@ public class RequiementsViewModel {
   public StringProperty getWho() {
     return who;
   }
-
+  public StringProperty getTitle(){
+    return title;
+  }
   public StringProperty getID()
   {
     return ID;

@@ -20,7 +20,7 @@ public class RequirementsListViewController
   public TableColumn<RequiementsViewModel,String>  who;
   public TableColumn<RequiementsViewModel,String>  why;
   public TableColumn<RequiementsViewModel,String>  startedDate;
-  public TableColumn<RequiementsViewModel, StartDate_DeadLine>  deadline;
+  public TableColumn<RequiementsViewModel, String>  deadline;
   public TableColumn<RequiementsViewModel,String>  spendetTime;
   public TableColumn<RequiementsViewModel,String>  estimatedTime1;
   public TableColumn<RequiementsViewModel,String>  responsiblePerson;
@@ -44,9 +44,9 @@ public class RequirementsListViewController
     who.setCellValueFactory(cellData -> cellData.getValue().getWho());
     what.setCellValueFactory(cellData -> cellData.getValue().getWhat());
     why.setCellValueFactory(cellData -> cellData.getValue().getWhy());
-    id.setCellValueFactory(cellData -> cellData.getValue().getID());
+    title.setCellValueFactory(cellData -> cellData.getValue().getTitle());
     startedDate.setCellValueFactory(cellData -> cellData.getValue().startDateProperty());
-    //deadline.setCellValueFactory(cellData -> cellData.getValue().deadLineProperty());
+    deadline.setCellValueFactory(cellData -> cellData.getValue().deadLineProperty());
     estimatedTime1.setCellValueFactory(cellData ->cellData.getValue().neededTimeProperty());
 
 
@@ -90,7 +90,22 @@ public class RequirementsListViewController
 
   public void editOnClick(ActionEvent actionEvent)
   {
-    view.openView("EditRequirement");
+    RequiementsViewModel selectedRequirement = RequirementsList.getSelectionModel().getSelectedItem();
+    if (selectedRequirement != null)
+    {
+      for (int x = 0; x < model.getProjects().getSize(); x++)
+      {
+        if (model.getProject(x).isOpened()){
+          for (int y = 0; y < model.getProject(x).getRequirements().size(); y++){
+            if (model.getProject(x).getRequirement(y).getTitle().equals(selectedRequirement.getTitle().get())){
+              model.getProject(x).getRequirement(y).setOpened(true);
+            }
+          }
+        }
+      }
+      view.openView("EditRequirement");
+    }
+
   }
 
   public void reset()

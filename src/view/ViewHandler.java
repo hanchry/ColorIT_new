@@ -501,7 +501,7 @@ public class ViewHandler
         loader.setLocation(getClass().getResource(fxmlFile));
         root = loader.load();
         editRequirementViewController = loader.getController();
-        editRequirementViewController.init(root, this);
+        editRequirementViewController.init(root, this, model);
       }
       catch (Exception e)
       {
