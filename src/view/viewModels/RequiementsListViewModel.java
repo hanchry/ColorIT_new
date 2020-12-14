@@ -2,6 +2,7 @@ package view.viewModels;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import model.Project;
 import model.ProjectListModel;
 import model.Requirement;
 
@@ -49,5 +50,6 @@ public class RequiementsListViewModel
       }
     }
   }
+
 
 }

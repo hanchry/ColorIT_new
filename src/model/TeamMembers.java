@@ -60,6 +60,8 @@ public class TeamMembers {
         return scrum.get(index);
     }
 
+
+
     public boolean doesDeveloperExist(Developer developer){
         for (int x = 0; x < developers.size(); x++){
             if(developers.get(x) == developer){
@@ -71,5 +73,15 @@ public class TeamMembers {
 
     public void removeDeveloper(int index){
         developers.remove(index);
+    }
+
+    public String toString()
+    {
+        String s = " " + owner + " " + scrum + " ";
+        for (Developer developer : developers)
+        {
+            s += developer.toString();
+        }
+        return null;
     }
 }

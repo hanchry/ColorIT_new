@@ -16,6 +16,7 @@ public interface ProjectListModel {
     int RequirementsListSize();
     Requirement getRequirement(int index);
     void addDeveloper(String title,Person person);
+    public void setTimeEstimated(String timeEstimated);
     Time showTimeSpentOnRequirement();
     Time showTimeSpentOnTask();
     void setRoleOfTeamMember(Person person,String role);

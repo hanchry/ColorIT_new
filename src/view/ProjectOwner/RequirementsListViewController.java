@@ -4,9 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Region;
-import model.ProjectList;
-import model.ProjectListModel;
-import model.Requirement;
+import model.*;
 import view.ViewHandler;
 import view.viewModels.ProjectListViewModel;
 import view.viewModels.ProjectViewModel;
@@ -22,7 +20,7 @@ public class RequirementsListViewController
   public TableColumn<RequiementsViewModel,String>  who;
   public TableColumn<RequiementsViewModel,String>  why;
   public TableColumn<RequiementsViewModel,String>  startedDate;
-  public TableColumn<RequiementsViewModel,String>  deadline;
+  public TableColumn<RequiementsViewModel, StartDate_DeadLine>  deadline;
   public TableColumn<RequiementsViewModel,String>  spendetTime;
   public TableColumn<RequiementsViewModel,String>  estimatedTime1;
   public TableColumn<RequiementsViewModel,String>  responsiblePerson;
@@ -48,7 +46,7 @@ public class RequirementsListViewController
     why.setCellValueFactory(cellData -> cellData.getValue().getWhy());
     id.setCellValueFactory(cellData -> cellData.getValue().getID());
     startedDate.setCellValueFactory(cellData -> cellData.getValue().startDateProperty());
-    deadline.setCellValueFactory(cellData -> cellData.getValue().deadLineProperty());
+    //deadline.setCellValueFactory(cellData -> cellData.getValue().deadLineProperty());
     estimatedTime1.setCellValueFactory(cellData ->cellData.getValue().neededTimeProperty());
 
 
@@ -82,6 +80,7 @@ public class RequirementsListViewController
 
   public void deleteOnClick(ActionEvent actionEvent)
   {
+
   }
 
   public void assignePersonOnClick(ActionEvent actionEvent)

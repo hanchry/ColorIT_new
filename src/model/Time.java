@@ -1,5 +1,7 @@
 package model;
 
+import static java.lang.Double.parseDouble;
+
 public class Time
 {
   private double hoursEstimated;
@@ -15,6 +17,13 @@ public class Time
   {
     return hoursEstimated;
   }
+
+  public void setHoursEstimated(String time)
+  {
+    this.hoursEstimated = parseDouble(time);
+  }
+
+
 
   public void setHoursSpent(double hours)
   {

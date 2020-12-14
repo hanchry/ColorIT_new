@@ -1,8 +1,10 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Task
 {
-    private TeamMembers list;
+    private ArrayList<TeamMembers> list;
     private Time time;
     private StartDate_DeadLine date;
     private String title;
@@ -30,15 +32,26 @@ public class Task
         this.finished = true;
     }
 
-    public void setResponsibleDeveloper(Developer developer){
-        if(list.doesDeveloperExist(developer)){
-            responsibleDeveloper = developer;
+    public boolean doesTeamMemberExist(TeamMembers member) {
+        for (TeamMembers teamMembers : list) {
+            if (teamMembers == member) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void setResponisbleTeamMember(TeamMembers member)
+    {
+        if (doesTeamMemberExist(member))
+        {
+            list.add(member);
         }
     }
 
     public String getEstimatedTime()
     {
-        return estimatedTime+"";
+        return estimatedTime + " ";
     }
 
     public Developer getResponsibleDeveloper(){
@@ -55,10 +68,6 @@ public class Task
 
     public String getTitle() {
         return title;
-    }
-
-    public void setTimeSpent(double hours){
-        time.setHoursSpent(hours);
     }
 
     public boolean isTaskStarted()

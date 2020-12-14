@@ -82,6 +82,11 @@ public class ProjectListModelManager implements ProjectListModel
 
   }
 
+  @Override
+  public void setTimeEstimated(String timeEstimated) {
+
+  }
+
   @Override public Time showTimeSpentOnRequirement()
   {
     return null;

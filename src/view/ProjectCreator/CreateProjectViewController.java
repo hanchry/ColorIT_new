@@ -53,6 +53,7 @@ public class CreateProjectViewController
     title.setText("");
     view.openView("ProjectListCreate");
     deadline.setValue(null);
+
   }
   public void reset()
   {

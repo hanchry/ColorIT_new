@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Requirement {
 
-    private TeamMembers list;
+    private ArrayList<TeamMembers> list;
     private ArrayList<Task> tasks;
     private int neededtime;
     private StartDate_DeadLine date;
@@ -42,7 +42,7 @@ public class Requirement {
         approved = true;
     }
 
-    public void setRequirementFinished()
+    public boolean setRequirementFinished()
     {
         for (int i = 0; i < tasks.size(); i++)
         {
@@ -52,6 +52,7 @@ public class Requirement {
             }
             this.finished = true;
         }
+        return false;
     }
 
     public void setRequirementDisapproved()
@@ -62,10 +63,20 @@ public class Requirement {
         }
         disapproved = true;
     }
+    public boolean doesTeamMemberExist(TeamMembers member) {
+        for (TeamMembers teamMembers : list) {
+            if (teamMembers == member) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-    public void setResponsibleDeveloper(Developer developer) {
-        if (list.doesDeveloperExist(developer)) {
-            responsibleDeveloper = developer;
+    public void setResponisbleTeamMember(TeamMembers member)
+    {
+        if (doesTeamMemberExist(member))
+        {
+            list.add(member);
         }
     }
 
@@ -100,7 +111,7 @@ public class Requirement {
         return who;
     }
 
-    public TeamMembers getList() {
+    public ArrayList<TeamMembers> getList() {
         return list;
     }
 

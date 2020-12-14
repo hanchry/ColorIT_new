@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Project {
 
+    public Time time;
     private ArrayList<Person> people;
     private ProjectCreator projectCreator;
     private StartDate_DeadLine startDate_deadLine;
@@ -11,65 +12,66 @@ public class Project {
     private ArrayList<TeamMembers> teamMembers;
     private boolean isOpened;
     private ArrayList<Requirement> requirements;
-    private Time time;
+    private RequirementsList requirementsList;
+
 
     private boolean finished;
 
 
-    public Project(String title,StartDate_DeadLine startDeadLine, Time estimetedTime) {
+    public Project(String title, StartDate_DeadLine startDeadLine, Time estimetedTime) {
         this.time = estimetedTime;
         this.title = title;
         this.requirements = new ArrayList<>();
         teamMembers = new ArrayList<>();
         this.startDate_deadLine = startDeadLine;
         this.isOpened = false;
-
         this.finished = false;
     }
 
-    public void setFinishProject()
-    {
-        this.finished = true;
+
+    public void setFinishProject() {
+        for (int i = 0; i < requirements.size(); i++) {
+            if (requirements.get(i).setRequirementFinished()) {
+                this.finished = true;
+            }
+        }
+        this.finished = false;
     }
 
-    public boolean isFinishedProject()
-    {
-        return finished;
+    public Project(String title) {
+        this.title = title;
     }
 
-  public Project(String title) {
-  this.title= title;
-  }
-
-  public ProjectCreator getProjectCreator()
-    {
+    public ProjectCreator getProjectCreator() {
         return projectCreator;
     }
 
-    public void removePerson(Person person)
-    {
+    public void removePerson(Person person) {
         people.remove(person);
     }
 
-    public void createProject(String title,StartDate_DeadLine startDate_deadLine, ArrayList<TeamMembers> role, ArrayList<Person> people)
-    {
+    public void createProject(String title, StartDate_DeadLine startDate_deadLine, ArrayList<TeamMembers> role, ArrayList<Person> people) {
         this.title = title;
         this.startDate_deadLine = startDate_deadLine;
         this.teamMembers = role;
         this.people = people;
     }
 
-    public void addPerson(Person person)
-    {
-      people.add(person);
+    public void addPerson(Person person) {
+        people.add(person);
     }
 
 
-    public String getHoursEstimated(){
+    public String getHoursEstimated() {
         return time.toStringHoursEstimated();
     }
 
-    public String getHoursSpent(){
+    public void setTimeEstimated(String timeEstimated) {
+        time.setHoursEstimated(timeEstimated);
+    }
+
+
+    public String getHoursSpent() {
         return time.toStringHoursSpent();
     }
 
@@ -81,20 +83,19 @@ public class Project {
         return startDate_deadLine;
     }
 
-    public void setStartDate_deadLine(StartDate_DeadLine deadline)
-    {
+    public void setStartDate_deadLine(StartDate_DeadLine deadline) {
         this.startDate_deadLine = deadline;
     }
 
-    public TeamMembers getTeamMembers(int index)
-    {
+    public TeamMembers getTeamMembers(int index) {
         return teamMembers.get(index);
     }
 
-    public String getTitle(){return title;}
+    public String getTitle() {
+        return title;
+    }
 
-    public void setTitle(String title)
-    {
+    public void setTitle(String title) {
         this.title = title;
     }
 
@@ -105,17 +106,15 @@ public class Project {
         this.startDate_deadLine = startDeadLine;
     }
 
-    public Requirement getRequirement(String title)
-    {
+    public Requirement getRequirement(String title) {
         return null;
     }
 
-    public ArrayList<Requirement> getRequirements(){
+    public ArrayList<Requirement> getRequirements() {
         return requirements;
     }
 
-    public Requirement getRequirement(int index)
-    {
+    public Requirement getRequirement(int index) {
         return requirements.get(index);
     }
 
@@ -128,7 +127,7 @@ public class Project {
     }
 
     public String toString() {
-        return " "+title+ " " + startDate_deadLine;
+        return " " + title + " " + startDate_deadLine;
     }
 
 

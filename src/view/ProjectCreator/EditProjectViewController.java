@@ -18,6 +18,7 @@ public class EditProjectViewController
   private Region root;
   private ViewHandler view;
   private ProjectListModel model;
+  public TextField estimetedTime;
 
   public void init(Region root, ViewHandler view, ProjectListModel model)
   {
@@ -44,6 +45,7 @@ public class EditProjectViewController
       {
         model.getProject(i).setOpened(false);
         model.getProject(i).setTitle(title.getText());
+        model.getProject(i).setTimeEstimated(estimetedTime.getText());
         MyDate date2 = new MyDate(deadline.getValue().getDayOfMonth(),
             deadline.getValue().getMonthValue(), deadline.getValue().getYear());
         StartDate_DeadLine startDate_deadLine = new StartDate_DeadLine(date2);
