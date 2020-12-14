@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Main.MainViewController">
+<AnchorPane prefHeight="460.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Main.MainViewController">
    <children>
       <HBox alignment="CENTER" layoutY="7.0" prefHeight="100.0" prefWidth="600.0">
          <children>
@@ -18,7 +18,7 @@
             </Text>
          </children>
       </HBox>
-      <HBox alignment="CENTER" layoutY="107.0" prefHeight="293.0" prefWidth="600.0">
+      <HBox alignment="CENTER" layoutY="107.0" prefHeight="207.0" prefWidth="600.0">
          <children>
             <VBox alignment="CENTER" prefHeight="293.0" prefWidth="300.0" spacing="50.0">
                <children>
@@ -48,6 +48,15 @@
                   </Button>
                </children>
             </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutY="314.0" prefHeight="91.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="teamMembers" mnemonicParsing="false" onAction="#teamMembersOnCLick" prefHeight="51.0" prefWidth="213.0" text="TeamMembers">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
          </children>
       </HBox>
    </children>
