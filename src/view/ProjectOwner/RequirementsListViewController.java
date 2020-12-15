@@ -53,6 +53,7 @@ public class RequirementsListViewController
     responsiblePerson.setCellValueFactory(cellData ->cellData.getValue().responsibleDeveloperProperty());
     id.setCellValueFactory(cellData ->cellData.getValue().getID());
     spendetTime.setCellValueFactory(cellData ->cellData.getValue().getTimeSpent());
+    status.setCellValueFactory(cellData ->cellData.getValue().getStatus());
 
     RequirementsList.setItems(smodel.getList());
     for (int x = 0; x < model.getProjects().getSize(); x++){
@@ -146,6 +147,41 @@ public class RequirementsListViewController
     for (int x = 0; x < model.getProjects().getSize(); x++){
       if (model.getProject(x).isOpened()){
         titleLabel.setText(model.getProject(x).getTitle());
+      }
+    }
+    smodel.update();
+  }
+
+  public void disaproveOnClick(ActionEvent actionEvent) {
+    RequiementsViewModel selectedRequirement = RequirementsList.getSelectionModel().getSelectedItem();
+    if (selectedRequirement != null) {
+      for (int x = 0; x < model.getProjects().getSize(); x++) {
+        if (model.getProject(x).isOpened()) {
+          for (int y = 0; y < model.getProject(x).getRequirements().size(); y++) {
+            if (model.getProject(x).getRequirement(y).getTitle().equals(selectedRequirement.getTitle().get())) {
+              model.getProject(x).getRequirement(y).setApproved(false);
+              model.getProject(x).getRequirement(y).setDisapproved(true);
+              model.getProject(x).getRequirement(y).removeTasks();
+            }
+          }
+        }
+      }
+    }
+    smodel.update();
+  }
+
+  public void approveOnClick(ActionEvent actionEvent) {
+    RequiementsViewModel selectedRequirement = RequirementsList.getSelectionModel().getSelectedItem();
+    if (selectedRequirement != null) {
+      for (int x = 0; x < model.getProjects().getSize(); x++) {
+        if (model.getProject(x).isOpened()) {
+          for (int y = 0; y < model.getProject(x).getRequirements().size(); y++) {
+            if (model.getProject(x).getRequirement(y).getTitle().equals(selectedRequirement.getTitle().get())) {
+              model.getProject(x).getRequirement(y).setApproved(true);
+              model.getProject(x).getRequirement(y).setDisapproved(false);
+            }
+          }
+        }
       }
     }
     smodel.update();

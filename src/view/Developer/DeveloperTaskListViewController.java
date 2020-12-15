@@ -46,6 +46,7 @@ public class DeveloperTaskListViewController {
     timeEstimeted.setCellValueFactory(cellData -> cellData.getValue().getTaskTimeEstimated());
     id.setCellValueFactory(cellData -> cellData.getValue().getTaskID());
     responsiblePerson.setCellValueFactory(cellData -> cellData.getValue().getMember());
+    status.setCellValueFactory(cellData -> cellData.getValue().getTaskStatus());
 
     TaskList.setItems(tmodel.getList());
     TaskList.setEditable(true);

@@ -39,7 +39,7 @@ public class ProjectListCreateViewController {
         deadline.setCellValueFactory(cellData -> cellData.getValue().getProjectDeadline());
         timeEstimeted.setCellValueFactory(cellData -> cellData.getValue().getProjectTimeEstimeted());
         timeSpendet.setCellValueFactory(cellData -> cellData.getValue().getProjectTimeSpent());
-        //requirementsDone.setCellValueFactory(cellData -> cellData.getValue());
+        requirementsDone.setCellValueFactory(cellData -> cellData.getValue().getProjectRequirementsDone());
         status.setCellValueFactory(cellData -> cellData.getValue().getProjectStatus());
 
         ProjectList.setItems(smodel.getList());

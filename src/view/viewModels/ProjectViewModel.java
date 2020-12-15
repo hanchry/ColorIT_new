@@ -10,7 +10,7 @@ public class ProjectViewModel {
  private SimpleStringProperty projectDeadline;
  private SimpleStringProperty projectTimeSpent;
  private SimpleStringProperty projectTimeEstimeted;
- //private SimpleStringProperty projectRequirementsDone;
+ private SimpleStringProperty projectRequirementsDone;
  private SimpleStringProperty projectStatus;
 
  public ProjectViewModel(Project project){
@@ -19,7 +19,8 @@ projectStartDate = new SimpleStringProperty(project.getStart_deadLine().getMyDat
 projectDeadline = new SimpleStringProperty(project.getStart_deadLine().getMyDateDeadline().getDate());
    projectTimeSpent = new SimpleStringProperty(project.getTimeSpendet() + "");
    projectTimeEstimeted = new SimpleStringProperty(project.getHoursEstimated());
- //  projectStatus = new SimpleStringProperty(project.getStatus());
+   projectStatus = new SimpleStringProperty(project.getStatus());
+   projectRequirementsDone = new SimpleStringProperty((project.getAmountOfApprovedRequirements()));
  }
 
   public StringProperty getProjectDeadline() {
@@ -44,5 +45,9 @@ projectDeadline = new SimpleStringProperty(project.getStart_deadLine().getMyDate
 
   public StringProperty getProjectTitle() {
     return projectTitle;
+  }
+
+  public StringProperty getProjectRequirementsDone() {
+    return projectRequirementsDone;
   }
 }

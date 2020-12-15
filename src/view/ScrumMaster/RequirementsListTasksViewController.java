@@ -52,6 +52,7 @@ public class RequirementsListTasksViewController
     responsiblePerson.setCellValueFactory(cellData ->cellData.getValue().responsibleDeveloperProperty());
     id.setCellValueFactory(cellData ->cellData.getValue().getID());
     spendetTime.setCellValueFactory(cellData ->cellData.getValue().getTimeSpent());
+    status.setCellValueFactory(cellData ->cellData.getValue().getStatus());
 
     RequirementsList.setItems(smodel.getList());
     for (int x = 0; x < model.getProjects().getSize(); x++){

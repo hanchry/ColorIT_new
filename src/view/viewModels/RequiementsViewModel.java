@@ -17,6 +17,7 @@ public class RequiementsViewModel {
   private StringProperty DeadLine;
   private StringProperty StartDate;
   private StringProperty responsibleDeveloper;
+  private StringProperty status;
 
   public RequiementsViewModel(Requirement requirement){
 
@@ -29,6 +30,7 @@ public class RequiementsViewModel {
     neededTime = new SimpleStringProperty(requirement.getNeededtime());
     DeadLine = new SimpleStringProperty(requirement.getDeadLine());
     timeSpent = new SimpleStringProperty(requirement.getTimeSpent() + "");
+    status = new SimpleStringProperty(requirement.getRequirementStatus());
 
     if(requirement.getResponsibleDeveloper() == null){
       responsibleDeveloper = new SimpleStringProperty("none");
@@ -82,5 +84,9 @@ public class RequiementsViewModel {
 
   public StringProperty getTimeSpent() {
     return timeSpent;
+  }
+
+  public StringProperty getStatus() {
+    return status;
   }
 }

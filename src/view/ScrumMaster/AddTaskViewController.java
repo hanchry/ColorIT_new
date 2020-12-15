@@ -43,6 +43,7 @@ public class AddTaskViewController {
          {
            int lo = Integer.parseInt(timer.getText());
            model.getProject(i).getRequirement(p).addTask(new Task(title.getText(),lo));
+           model.getProject(i).getRequirement(p).setDisapproved(false);
          }
         }
       }

@@ -51,6 +51,7 @@ public class RequirementListViewController {
     estimatedTime.setCellValueFactory(cellData -> cellData.getValue().neededTimeProperty());
     id.setCellValueFactory(cellData -> cellData.getValue().getID());
     responsiblePerson.setCellValueFactory(cellData -> cellData.getValue().responsibleDeveloperProperty());
+    status.setCellValueFactory(cellData ->cellData.getValue().getStatus());
 
 
     RequirementsList.setItems(smodel.getList());

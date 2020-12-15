@@ -47,14 +47,6 @@ public class Project {
         this.timeSpendet = timeSpendet;
     }
 
-    public void setFinishProject() {
-        for (int i = 0; i < requirements.size(); i++) {
-            if (requirements.get(i).setRequirementFinished()) {
-                this.finished = true;
-            }
-        }
-        this.finished = false;
-    }
 
     public Project(String title) {
         this.title = title;
@@ -169,5 +161,33 @@ public class Project {
         return " " + title + " " + startDate_deadLine;
     }
 
+    public String getStatus(){
+        int approved = 0;
+        if(requirements.size() > 0) {
+            for (int x = 0; x < requirements.size(); x++) {
+                if (requirements.get(x).getApproved()) {
+                    approved++;
+                }
+            }
+            if (approved == requirements.size()) {
+                return "finished";
+            }
+        }
+        if (0 >= timeSpendet){
+            return "not started";
+        }
+        return "in progress";
+    }
+    public String getAmountOfApprovedRequirements(){
+        int approved = 0;
+        if(requirements.size() > 0) {
+            for (int x = 0; x < requirements.size(); x++) {
+                if (requirements.get(x).getApproved()) {
+                    approved++;
+                }
+            }
+        }
+        return approved + "/" + requirements.size();
+    }
 
 }

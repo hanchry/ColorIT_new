@@ -22,7 +22,9 @@ public class Requirement {
     private Random r;
     private int id;
 
-    private  boolean finished;
+    private boolean isApproved;
+    private boolean isDisapproved;
+
     private  boolean approved;
     private  boolean disapproved;
 
@@ -41,10 +43,8 @@ public class Requirement {
         this.neededtime = 0;
         this.timeSpent = 0;
         this.tasks = new ArrayList<>();
-        this.finished = false;
-        this.approved = false;
-        this.disapproved = false;
-
+        this.isApproved = false;
+        this.isDisapproved = false;
     }
     public Requirement(String title, String who){
         this.title = title;
@@ -115,18 +115,7 @@ public class Requirement {
         }
     }
 
-    public boolean setRequirementFinished()
-    {
-        for (int i = 0; i < tasks.size(); i++)
-        {
-            if (!tasks.get(i).isFinished())
-            {
-                this.finished = false;
-            }
-            this.finished = true;
-        }
-        return false;
-    }
+
 
     public void setRequirementDisapproved()
     {
@@ -245,6 +234,41 @@ public class Requirement {
     public boolean isTaskApproved()
     {
         return false;
+    }
+
+    public void setApproved(boolean approved) {
+        isApproved = approved;
+    }
+
+    public void setDisapproved(boolean disapproved) {
+        isDisapproved = disapproved;
+    }
+    public boolean getApproved(){
+        return isApproved;
+    }
+    public boolean getDisaproved(){
+        return isDisapproved;
+    }
+
+    public String getRequirementStatus(){
+        if (isApproved){
+            return "finished";
+        }
+        if (isDisapproved){
+            return "disapproved";
+        }
+        if (timeSpent <= 0){
+            return "not started";
+        }
+        if (timeSpent < neededtime){
+            return "in progress";
+        }
+        return "to approve";
+    }
+    public void removeTasks(){
+        for(int x = 0; x < tasks.size(); x++){
+            tasks.remove(x);
+        }
     }
 
 }

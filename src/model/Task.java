@@ -108,4 +108,14 @@ public class Task
     public void setIsOpened(boolean isOpened){
         this.isOpened = isOpened;
     }
+
+    public String getTaskStatus(){
+        if (timeDone == 0){
+            return "not started";
+        }
+        if (timeDone < estimatedTime){
+            return "in progress";
+        }
+        return "finished";
+    }
 }

@@ -43,7 +43,7 @@ public class ProjectListRequirementsViewController
         cellData -> cellData.getValue().getProjectTimeEstimeted());
     timeSpendet.setCellValueFactory(
         cellData -> cellData.getValue().getProjectTimeSpent());
-    //requirementsDone.setCellValueFactory(cellData -> cellData.getValue());
+    requirementsDone.setCellValueFactory(cellData -> cellData.getValue().getProjectRequirementsDone());
     status.setCellValueFactory(
         cellData -> cellData.getValue().getProjectStatus());
 

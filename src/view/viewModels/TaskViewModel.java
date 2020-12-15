@@ -13,12 +13,14 @@ public class TaskViewModel
   private StringProperty member;
   private StringProperty taskTimeSpent;
   private StringProperty taskTimeEstimated;
+  private StringProperty taskStatus;
 
   public TaskViewModel(Task task){
     taskID = new SimpleStringProperty(task.getTaskID());
     taskTimeEstimated = new SimpleStringProperty(task.getEstimatedTime());
     taskTitle = new SimpleStringProperty(task.getTitle());
     taskTimeSpent = new SimpleStringProperty(task.getTimeDone() + "");
+    taskStatus = new SimpleStringProperty(task.getTaskStatus());
 
     if(task.getResponsibleDeveloper() == null){
       member = new SimpleStringProperty("none");
@@ -50,5 +52,9 @@ public class TaskViewModel
 
   public StringProperty getMember() {
     return member;
+  }
+
+  public StringProperty getTaskStatus() {
+    return taskStatus;
   }
 }

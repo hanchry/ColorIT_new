@@ -46,6 +46,7 @@ public class TaskListViewController
     responsiblePerson.setCellValueFactory(cellData -> cellData.getValue().getMember());
     id.setCellValueFactory(cellData -> cellData.getValue().getTaskID());
     timeSpent.setCellValueFactory(cellData -> cellData.getValue().getTaskTimeSpent());
+    status.setCellValueFactory(cellData -> cellData.getValue().getTaskStatus());
 
     TaskList.setItems(tmodel.getList());
 
