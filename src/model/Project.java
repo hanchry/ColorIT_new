@@ -12,7 +12,7 @@ public class Project {
     private ArrayList<TeamMembers> teamMembers;
     private boolean isOpened;
     private ArrayList<Requirement> requirements;
-    private RequirementsList requirementsList;
+
 
 
     private boolean finished;
@@ -77,6 +77,14 @@ public class Project {
 
     public void addRequriement(Requirement requirement) {
         requirements.add(requirement);
+    }
+
+    public void removeRequirement(String title, String who){
+        for(int x = 0; x < requirements.size(); x++){
+            if (requirements.get(x).getTitle().equals(title) && requirements.get(x).getWho().equals(who)){
+                requirements.remove(x);
+            }
+        }
     }
 
     public StartDate_DeadLine getStart_deadLine() {

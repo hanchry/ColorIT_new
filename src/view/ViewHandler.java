@@ -481,12 +481,15 @@ public class ViewHandler
         loader.setLocation(getClass().getResource(fxmlFile));
         root = loader.load();
         requirementAssignePersonViewController = loader.getController();
-        requirementAssignePersonViewController.init(root, this);
+        requirementAssignePersonViewController.init(root, this, model);
       }
       catch (Exception e)
       {
         e.printStackTrace();
       }
+    }
+    else {
+      requirementAssignePersonViewController.reset();
     }
     return requirementAssignePersonViewController.getRoot();
   }

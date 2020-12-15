@@ -1,6 +1,7 @@
 package view.Developer;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Region;
@@ -25,6 +26,7 @@ public class RequirementListViewController {
   public TableColumn<RequiementsViewModel,String>  estimatedTime;
   public TableColumn<RequiementsViewModel,String>  responsiblePerson;
   public TableColumn<RequiementsViewModel,String>  status;
+  public Label titleLabel;
   private Region root;
   private ViewHandler view;
   private ProjectListModel model;
@@ -50,6 +52,11 @@ public class RequirementListViewController {
 
 
     RequirementsList.setItems(smodel.getList());
+    for (int x = 0; x < model.getProjects().getSize(); x++){
+      if (model.getProject(x).isOpened()){
+        titleLabel.setText(model.getProject(x).getTitle());
+      }
+    }
   }
 
   public Region getRoot()
@@ -93,6 +100,11 @@ public class RequirementListViewController {
 
   public void reset()
   {
+    for (int x = 0; x < model.getProjects().getSize(); x++){
+      if (model.getProject(x).isOpened()){
+        titleLabel.setText(model.getProject(x).getTitle());
+      }
+    }
     smodel.update();
   }
 }

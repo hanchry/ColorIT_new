@@ -33,6 +33,11 @@ public class Requirement {
         this.finished = false;
         this.approved = false;
         this.disapproved = false;
+
+    }
+    public Requirement(String title, String who){
+        this.title = title;
+        this.who = who;
     }
 
     public void setRequirementApproved()
@@ -107,12 +112,9 @@ public class Requirement {
         return false;
     }
 
-    public void setResponisbleTeamMember(TeamMembers member)
+    public void setResponsibleDeveloper(Developer developer)
     {
-        if (doesTeamMemberExist(member))
-        {
-            list.add(member);
-        }
+        responsibleDeveloper = developer;
     }
 
     public void addTask(Task task)

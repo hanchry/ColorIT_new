@@ -28,6 +28,12 @@ public class RequiementsViewModel {
     neededTime = new SimpleStringProperty(requirement.getNeededtime());
     DeadLine = new SimpleStringProperty(requirement.getDeadLine());
 
+    if(requirement.getResponsibleDeveloper() == null){
+      responsibleDeveloper = new SimpleStringProperty("none");
+    }
+    else {
+      responsibleDeveloper = new SimpleStringProperty(requirement.getResponsibleDeveloper().getName());
+    }
   }
 
   public StringProperty getWho() {
