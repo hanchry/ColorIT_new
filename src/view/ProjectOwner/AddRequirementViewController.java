@@ -19,9 +19,7 @@ public class AddRequirementViewController
   public TextField what;
   public TextField who;
   public TextField why;
-  public TextField estimatedTime;
   public DatePicker deadline;
-  public TextField status;
 
   private Region root;
   private ViewHandler view;
@@ -50,22 +48,19 @@ public class AddRequirementViewController
     {
       if (model.isProjectOpened(i))
       {
-        int d = Integer.parseInt(estimatedTime.getText());
         MyDate date2 = new MyDate(deadline.getValue().getDayOfMonth(),
             deadline.getValue().getMonthValue(), deadline.getValue().getYear());
         StartDate_DeadLine startDate_deadLine = new StartDate_DeadLine(date2);
         model.getProject(i).addRequriement(
             new Requirement(title.getText(), why.getText(), who.getText(),
-                what.getText(),d, startDate_deadLine));
+                what.getText(), startDate_deadLine));
       }
     }
     title.setText("");
     what.setText("");
     who.setText("");
     why.setText("");
-    estimatedTime.setText("");
     deadline.setValue(null);
-    status.setText("");
     view.openView("RequirementsList");
   }
 

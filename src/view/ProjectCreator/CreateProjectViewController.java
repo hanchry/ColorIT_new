@@ -46,12 +46,10 @@ public class CreateProjectViewController
 
     MyDate date2 = new MyDate(deadline.getValue().getDayOfMonth(), deadline.getValue().getMonthValue(), deadline.getValue().getYear());
     StartDate_DeadLine startDate_deadLine = new StartDate_DeadLine(date2);
-    Time time = new Time(Double.parseDouble(estimetedTime.getText()));
-    Project pt = new Project(title.getText(),startDate_deadLine, time);
+    Project pt = new Project(title.getText(),startDate_deadLine);
     pt.setOpened(false);
     model.addProject(pt);
     title.setText("");
-    estimetedTime.setText("");
     view.openView("ProjectListCreate");
     deadline.setValue(null);
 

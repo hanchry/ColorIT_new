@@ -12,6 +12,7 @@ public class RequiementsViewModel {
   private StringProperty who;
   private StringProperty what;
   private StringProperty ID;
+  private StringProperty timeSpent;
   private StringProperty neededTime;
   private StringProperty DeadLine;
   private StringProperty StartDate;
@@ -27,6 +28,7 @@ public class RequiementsViewModel {
     what = new SimpleStringProperty(requirement.getWhat());
     neededTime = new SimpleStringProperty(requirement.getNeededtime());
     DeadLine = new SimpleStringProperty(requirement.getDeadLine());
+    timeSpent = new SimpleStringProperty(requirement.getTimeSpent() + "");
 
     if(requirement.getResponsibleDeveloper() == null){
       responsibleDeveloper = new SimpleStringProperty("none");
@@ -78,4 +80,7 @@ public class RequiementsViewModel {
     return getList();
   }
 
+  public StringProperty getTimeSpent() {
+    return timeSpent;
+  }
 }

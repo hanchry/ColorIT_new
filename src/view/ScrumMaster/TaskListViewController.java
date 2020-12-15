@@ -7,7 +7,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import model.Developer;
+import model.Project;
 import model.ProjectListModel;
+import model.Task;
 import view.ViewHandler;
 import view.viewModels.*;
 
@@ -42,6 +44,9 @@ public class TaskListViewController
     timeEstimeted.setCellValueFactory(
         cellData -> cellData.getValue().getTaskTimeEstimated());
     responsiblePerson.setCellValueFactory(cellData -> cellData.getValue().getMember());
+    id.setCellValueFactory(cellData -> cellData.getValue().getTaskID());
+    timeSpent.setCellValueFactory(cellData -> cellData.getValue().getTaskTimeSpent());
+
     TaskList.setItems(tmodel.getList());
 
     for (int x = 0; x < model.getProjects().getSize(); x++){
@@ -85,6 +90,22 @@ public class TaskListViewController
 
   public void deleteOnClick(ActionEvent actionEvent)
   {
+    TaskViewModel selectedItem = TaskList.getSelectionModel().getSelectedItem();
+    Task task = new Task(selectedItem.getTaskTitle().get(), Integer.parseInt(selectedItem.getTaskTimeEstimated().get()));
+    for(int x = 0; x < model.getProjects().getSize(); x++){
+      if(model.getProject(x).isOpened()){
+        for(int y = 0; y < model.getProject(x).getRequirements().size(); y++){
+          if(model.getProject(x).getRequirement(y).isOpened()){
+            for (int z = 0; z < model.getProject(x).getRequirement(y).getTaskListSize(); z++){
+              if(model.getProject(x).getRequirement(y).getTask(z).getTitle().equals(task.getTitle())){
+                model.getProject(x).getRequirement(y).removeTask(z);
+              }
+            }
+          }
+        }
+      }
+    }
+    smodel.update();
   }
 
   public void assignePersonOnClick(ActionEvent actionEvent)

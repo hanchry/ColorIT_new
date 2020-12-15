@@ -45,7 +45,7 @@ public class EditProjectViewController
       {
         model.getProject(i).setOpened(false);
         model.getProject(i).setTitle(title.getText());
-        model.getProject(i).setTimeEstimated(estimetedTime.getText());
+        model.getProject(i).setTimeEstimated();
         MyDate date2 = new MyDate(deadline.getValue().getDayOfMonth(),
             deadline.getValue().getMonthValue(), deadline.getValue().getYear());
         StartDate_DeadLine startDate_deadLine = new StartDate_DeadLine(date2);

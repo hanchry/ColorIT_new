@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Task
 {
@@ -12,13 +13,23 @@ public class Task
     private int estimatedTime;
     private Developer responsibleDeveloper;
     private boolean isOpened;
+    private int timeDone;
+
+    private Random r;
+    private int id;
 
     private boolean finished;
 
 
-    public Task(String taskID, String title, int estimatedTime){
-        this.taskID = taskID;
+    public Task( String title, int estimatedTime){
+        r = new Random();
+        id = r.nextInt();
+        if (id < 0){
+            id *= -1;
+        }
         this.title = title;
+        this.timeDone = 0;
+        this.taskID = "" + id;
         this.estimatedTime = estimatedTime;
         this.finished = false;
         this.isOpened = false;
@@ -32,6 +43,14 @@ public class Task
     public void finishTask()
     {
         this.finished = true;
+    }
+
+    public void setTimeDone(int timeDone) {
+        this.timeDone = timeDone;
+    }
+
+    public int getTimeDone() {
+        return timeDone;
     }
 
     public boolean doesTeamMemberExist(TeamMembers member) {
@@ -50,7 +69,11 @@ public class Task
 
     public String getEstimatedTime()
     {
-        return estimatedTime + " ";
+        return estimatedTime + "";
+    }
+
+    public int getTime(){
+        return estimatedTime;
     }
 
     public Developer getResponsibleDeveloper(){

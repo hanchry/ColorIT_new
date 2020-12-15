@@ -6,14 +6,14 @@
 
 <AnchorPane prefHeight="480.0" prefWidth="545.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Developer.DeveloperTaskListViewController">
    <children>
-      <HBox fx:id="titleLabel" alignment="CENTER" prefHeight="100.0" prefWidth="529.0" spacing="20.0">
+      <HBox fx:id="" alignment="CENTER" prefHeight="100.0" prefWidth="529.0" spacing="20.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Requirement:">
                <font>
                   <Font size="25.0" />
                </font>
             </Text>
-            <Label text="title of requirement">
+            <Label fx:id="titleLabel" text="title of requirement">
                <font>
                   <Font size="25.0" />
                </font>
@@ -24,7 +24,7 @@
          <columns>
             <TableColumn fx:id="id" prefWidth="75.0" text="ID" />
             <TableColumn fx:id="title" prefWidth="75.0" text="title" />
-            <TableColumn fx:id="timeSpent" prefWidth="75.0" text="time spent" />
+            <TableColumn fx:id="timeSpent" editable="true" onEditCommit="#editOnEdit" prefWidth="75.0" text="time spent" />
             <TableColumn fx:id="timeEstimeted" prefWidth="105.0" text="time estimeted" />
             <TableColumn fx:id="responsiblePerson" prefWidth="119.0" text="resposible person" />
             <TableColumn fx:id="status" prefWidth="75.0" text="status" />

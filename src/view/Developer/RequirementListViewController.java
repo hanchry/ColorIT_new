@@ -41,7 +41,7 @@ public class RequirementListViewController {
     this.pmodel = new ProjectListViewModel(model);
     this.model = model;
 
-
+    spendetTime.setCellValueFactory(cellData -> cellData.getValue().getTimeSpent());
     who.setCellValueFactory(cellData -> cellData.getValue().getWho());
     what.setCellValueFactory(cellData -> cellData.getValue().getWhat());
     why.setCellValueFactory(cellData -> cellData.getValue().getWhy());
@@ -49,6 +49,8 @@ public class RequirementListViewController {
     startedDate.setCellValueFactory(cellData -> cellData.getValue().startDateProperty());
     deadline.setCellValueFactory(cellData -> cellData.getValue().deadLineProperty());
     estimatedTime.setCellValueFactory(cellData -> cellData.getValue().neededTimeProperty());
+    id.setCellValueFactory(cellData -> cellData.getValue().getID());
+    responsiblePerson.setCellValueFactory(cellData -> cellData.getValue().responsibleDeveloperProperty());
 
 
     RequirementsList.setItems(smodel.getList());

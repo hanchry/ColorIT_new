@@ -2,6 +2,7 @@ package model;
 
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Requirement {
 
@@ -16,19 +17,29 @@ public class Requirement {
     private String what;
     private boolean isOpened;
     private Developer responsibleDeveloper;
+    private int timeSpent;
+
+    private Random r;
+    private int id;
 
     private  boolean finished;
     private  boolean approved;
     private  boolean disapproved;
 
-    public Requirement(String title, String why, String who, String what, int neededtime , StartDate_DeadLine date) {
+    public Requirement(String title, String why, String who, String what, StartDate_DeadLine date) {
+        r = new Random();
+        id = r.nextInt();
+        if (id < 0){
+            id *= -1;
+        }
         this.title = title;
-        //this.ID = ID;
+        this.ID = "" + id;
         this.why = why;
         this.who = who;
         this.what = what;
         this.date = date;
-        this.neededtime = neededtime;
+        this.neededtime = 0;
+        this.timeSpent = 0;
         this.tasks = new ArrayList<>();
         this.finished = false;
         this.approved = false;
@@ -47,6 +58,26 @@ public class Requirement {
             approved = false;
         }
         approved = true;
+    }
+
+    public void setTimeSpent(int timeSpent) {
+        this.timeSpent = timeSpent;
+    }
+    public void removeTask(int index){
+        tasks.remove(index);
+    }
+
+    public int getTimeSpent() {
+        if(tasks != null){
+            this.timeSpent = 0;
+            for(int x = 0; x < tasks.size(); x++){
+                this.timeSpent += tasks.get(x).getTimeDone();
+            }
+        }
+        else {
+            timeSpent = 0;
+        }
+        return timeSpent;
     }
 
     public String getTitle() {
@@ -78,8 +109,10 @@ public class Requirement {
         this.date = date;
     }
 
-    public void setNeededtime(int neededtime) {
-        this.neededtime = neededtime;
+    public void setNeededtime() {
+        for(int x = 0; x < tasks.size(); x++){
+            this.neededtime += tasks.get(x).getTime();
+        }
     }
 
     public boolean setRequirementFinished()
@@ -170,8 +203,25 @@ public class Requirement {
 
     public String getNeededtime()
     {
+        if(tasks != null){
+            neededtime = 0;
+            for(int x = 0; x < tasks.size(); x++){
+                neededtime += tasks.get(x).getTime();
+            }
+        }
         return neededtime+"";
     }
+    public int getTime()
+    {
+        if(tasks != null){
+            neededtime = 0;
+            for(int x = 0; x < tasks.size(); x++){
+                neededtime += tasks.get(x).getTime();
+            }
+        }
+        return neededtime;
+    }
+
 
     public boolean isOpened()
     {

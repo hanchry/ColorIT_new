@@ -52,7 +52,7 @@ public class EditRequirementViewController {
             deadlinee.set(deadline.getValue().getDayOfMonth(), deadline.getValue().getMonth().getValue(), deadline.getValue().getYear());
             StartDate_DeadLine date = new StartDate_DeadLine(deadlinee);
             model.getProject(x).getRequirement(y).setDate(date);
-            model.getProject(x).getRequirement(y).setNeededtime(Integer.parseInt(estimatedTime.getText()));
+            model.getProject(x).getRequirement(y).setNeededtime();
           }
         }
       }

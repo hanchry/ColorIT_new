@@ -50,7 +50,8 @@ public class RequirementsListTasksViewController
     deadline.setCellValueFactory(cellData -> cellData.getValue().deadLineProperty());
     estimatedTime1.setCellValueFactory(cellData -> cellData.getValue().neededTimeProperty());
     responsiblePerson.setCellValueFactory(cellData ->cellData.getValue().responsibleDeveloperProperty());
-
+    id.setCellValueFactory(cellData ->cellData.getValue().getID());
+    spendetTime.setCellValueFactory(cellData ->cellData.getValue().getTimeSpent());
 
     RequirementsList.setItems(smodel.getList());
     for (int x = 0; x < model.getProjects().getSize(); x++){

@@ -1,15 +1,19 @@
 package view.Developer;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.Region;
 import model.ProjectListModel;
+import model.Task;
+import model.TaskList;
 import view.ViewHandler;
-import view.viewModels.ProjectListViewModel;
-import view.viewModels.RequiementsListViewModel;
-import view.viewModels.TaskListViewModel;
-import view.viewModels.TaskViewModel;
+import view.viewModels.*;
 
 public class DeveloperTaskListViewController {
 
@@ -20,6 +24,7 @@ public class DeveloperTaskListViewController {
   public TableColumn<TaskViewModel, String> timeEstimeted;
   public TableColumn<TaskViewModel, String> responsiblePerson;
   public TableColumn<TaskViewModel, String> status;
+  public Label titleLabel;
   private Region root;
   private ViewHandler view;
   private ProjectListModel model;
@@ -36,11 +41,25 @@ public class DeveloperTaskListViewController {
     this.model = model;
     this.tmodel = new TaskListViewModel(model);
 
+    timeSpent.setCellValueFactory(cellData -> cellData.getValue().getTaskTimeSpent());
     title.setCellValueFactory(cellData -> cellData.getValue().getTaskTitle());
-    timeEstimeted.setCellValueFactory(
-        cellData -> cellData.getValue().getTaskTimeEstimated());
+    timeEstimeted.setCellValueFactory(cellData -> cellData.getValue().getTaskTimeEstimated());
+    id.setCellValueFactory(cellData -> cellData.getValue().getTaskID());
+    responsiblePerson.setCellValueFactory(cellData -> cellData.getValue().getMember());
 
     TaskList.setItems(tmodel.getList());
+    TaskList.setEditable(true);
+    timeSpent.setCellFactory(TextFieldTableCell.forTableColumn());
+
+    for (int x = 0; x < model.getProjects().getSize(); x++){
+      if (model.getProject(x).isOpened()){
+        for (int y = 0; y < model.getProject(x).getRequirements().size(); y++){
+          if ( model.getProject(x).getRequirement(y).isOpened()){
+            titleLabel.setText(model.getProject(x).getRequirement(y).getTitle());
+          }
+        }
+      }
+    }
 
   }
 
@@ -68,5 +87,40 @@ public class DeveloperTaskListViewController {
   public void reset()
   {
     tmodel.update();
+    for (int x = 0; x < model.getProjects().getSize(); x++){
+      if (model.getProject(x).isOpened()){
+        for (int y = 0; y < model.getProject(x).getRequirements().size(); y++){
+          if ( model.getProject(x).getRequirement(y).isOpened()){
+            titleLabel.setText(model.getProject(x).getRequirement(y).getTitle());
+          }
+        }
+      }
+    }
+  }
+
+  public void editOnEdit(TableColumn.CellEditEvent<TaskViewModel, String> taskViewModelStringCellEditEvent) {
+    TaskViewModel task = TaskList.getSelectionModel().getSelectedItem();
+    if (task != null)
+    {
+      for (int x = 0; x < model.getProjects().getSize(); x++) {
+        if(model.getProject(x).isOpened())
+        for (int y = 0; y < model.getProject(x).getRequirements().size(); y++){
+          if (model.getProject(x).getRequirement(y).isOpened())
+          for (int z = 0; z < model.getProject(x).getRequirement(y).getTaskListSize(); z++){
+            if(model.getProject(x).getRequirement(y).getTask(z).getTitle().equals(task.getTaskTitle().get()) && model.getProject(x).getRequirement(y).getTask(z).getTaskID().equals(task.getTaskID().get())){
+              task.setTaskTimeSpent(new SimpleStringProperty(taskViewModelStringCellEditEvent.getNewValue()));
+              if(Integer.parseInt(task.getTaskTimeSpent().get()) < Integer.parseInt(task.getTaskTimeEstimated().get())) {
+                model.getProject(x).getRequirement(y).getTask(z).setTimeDone(Integer.parseInt(task.getTaskTimeSpent().get()));
+              }
+              else{
+                task.setTaskTimeSpent(task.getTaskTimeEstimated());
+                model.getProject(x).getRequirement(y).getTask(z).setTimeDone(Integer.parseInt(task.getTaskTimeEstimated().get()));
+              }
+            }
+          }
+      }
+    }
+    }
+    smodel.update();
   }
 }

@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="382.0" prefWidth="392.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ProjectCreator.CreateProjectViewController">
+<AnchorPane prefHeight="296.0" prefWidth="392.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ProjectCreator.CreateProjectViewController">
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="90.0" prefWidth="342.0" spacing="20.0">
          <children>
@@ -33,7 +33,7 @@
             <Insets left="22.0" />
          </padding>
       </HBox>
-      <HBox alignment="CENTER" layoutY="259.0" prefHeight="78.0" prefWidth="392.0" spacing="20.0">
+      <HBox alignment="CENTER" layoutY="169.0" prefHeight="78.0" prefWidth="392.0" spacing="20.0">
          <children>
             <Button fx:id="back" mnemonicParsing="false" onAction="#backOnClick" prefWidth="120.0" text="Back">
                <font>
@@ -46,19 +46,6 @@
                </font>
             </Button>
          </children>
-      </HBox>
-      <HBox alignment="CENTER_LEFT" layoutY="169.0" prefHeight="90.0" prefWidth="342.0" spacing="20.0">
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Estimeted time:">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Text>
-            <TextField fx:id="estimetedTime" />
-         </children>
-         <padding>
-            <Insets left="20.0" />
-         </padding>
       </HBox>
    </children>
 </AnchorPane>

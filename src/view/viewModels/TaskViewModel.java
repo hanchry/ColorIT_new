@@ -18,6 +18,7 @@ public class TaskViewModel
     taskID = new SimpleStringProperty(task.getTaskID());
     taskTimeEstimated = new SimpleStringProperty(task.getEstimatedTime());
     taskTitle = new SimpleStringProperty(task.getTitle());
+    taskTimeSpent = new SimpleStringProperty(task.getTimeDone() + "");
 
     if(task.getResponsibleDeveloper() == null){
       member = new SimpleStringProperty("none");
@@ -25,6 +26,10 @@ public class TaskViewModel
     else {
       member = new SimpleStringProperty(task.getResponsibleDeveloper().getName());
     }
+  }
+
+  public void setTaskTimeSpent(StringProperty x){
+    taskTimeSpent = x;
   }
 
   public StringProperty getTaskID() {

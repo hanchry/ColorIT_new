@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Project {
 
-    public Time time;
+    public int time;
     private ArrayList<Person> people;
     private ProjectCreator projectCreator;
     private StartDate_DeadLine startDate_deadLine;
@@ -12,14 +12,16 @@ public class Project {
     private ArrayList<TeamMembers> teamMembers;
     private boolean isOpened;
     private ArrayList<Requirement> requirements;
+    private int timeSpendet;
 
 
 
     private boolean finished;
 
 
-    public Project(String title, StartDate_DeadLine startDeadLine, Time estimetedTime) {
-        this.time = estimetedTime;
+    public Project(String title, StartDate_DeadLine startDeadLine) {
+        this.time = 0;
+        this.timeSpendet = 0;
         this.title = title;
         this.requirements = new ArrayList<>();
         teamMembers = new ArrayList<>();
@@ -28,6 +30,22 @@ public class Project {
         this.finished = false;
     }
 
+    public int getTimeSpendet() {
+        if (requirements != null){
+            timeSpendet = 0;
+            for(int x = 0; x < requirements.size(); x++){
+                timeSpendet += requirements.get(x).getTimeSpent();
+            }
+        }
+        else {
+            timeSpendet = 0;
+        }
+        return timeSpendet;
+    }
+
+    public void setTimeSpendet(int timeSpendet) {
+        this.timeSpendet = timeSpendet;
+    }
 
     public void setFinishProject() {
         for (int i = 0; i < requirements.size(); i++) {
@@ -63,17 +81,30 @@ public class Project {
 
 
     public String getHoursEstimated() {
-        return time.toStringHoursEstimated();
+
+        if(requirements != null){
+            this.time = 0;
+            for(int x = 0; x < requirements.size(); x++){
+                this.time += requirements.get(x).getTime();
+            }
+        }
+
+        return time + "";
     }
 
-    public void setTimeEstimated(String timeEstimated) {
-        time.setHoursEstimated(timeEstimated);
+    public void setTimeEstimated() {
+        if(requirements != null){
+            this.time = 0;
+            for(int x = 0; x < requirements.size(); x++){
+                this.time += requirements.get(x).getTime();
+            }
+        }
+        else {
+            this.time = 0;
+        }
     }
 
 
-    public String getHoursSpent() {
-        return time.toStringHoursSpent();
-    }
 
     public void addRequriement(Requirement requirement) {
         requirements.add(requirement);
