@@ -618,12 +618,15 @@ public class ViewHandler
         loader.setLocation(getClass().getResource(fxmlFile));
         root = loader.load();
         assignePersonTaskViewController = loader.getController();
-        assignePersonTaskViewController.init(root, this);
+        assignePersonTaskViewController.init(root, this, model);
       }
       catch (Exception e)
       {
         e.printStackTrace();
       }
+    }
+    else{
+      assignePersonTaskViewController.reset();
     }
     return assignePersonTaskViewController.getRoot();
   }

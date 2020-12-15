@@ -45,10 +45,11 @@ public class RequirementsListTasksViewController
     who.setCellValueFactory(cellData -> cellData.getValue().getWho());
     what.setCellValueFactory(cellData -> cellData.getValue().getWhat());
     why.setCellValueFactory(cellData -> cellData.getValue().getWhy());
-    id.setCellValueFactory(cellData -> cellData.getValue().getID());
+    title.setCellValueFactory(cellData -> cellData.getValue().getTitle());
     startedDate.setCellValueFactory(cellData -> cellData.getValue().startDateProperty());
     deadline.setCellValueFactory(cellData -> cellData.getValue().deadLineProperty());
     estimatedTime1.setCellValueFactory(cellData -> cellData.getValue().neededTimeProperty());
+    responsiblePerson.setCellValueFactory(cellData ->cellData.getValue().responsibleDeveloperProperty());
 
 
     RequirementsList.setItems(smodel.getList());

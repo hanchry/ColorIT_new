@@ -35,6 +35,13 @@ public class TeamMembersListViewModel {
       list.add(new TeamMembersViewModel(model.getCreator()));
     }
   }
+  public void updateDevelopers(){
+    list.clear();
+    for (int x = 0; x < model.getDevelopers().size(); x++)
+    {
+      list.add(new TeamMembersViewModel(model.getDeveloper(x)));
+    }
+  }
 
 
   public ObservableList<TeamMembersViewModel> getList()

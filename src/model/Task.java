@@ -11,6 +11,7 @@ public class Task
     private String taskID;
     private int estimatedTime;
     private Developer responsibleDeveloper;
+    private boolean isOpened;
 
     private boolean finished;
 
@@ -20,6 +21,7 @@ public class Task
         this.title = title;
         this.estimatedTime = estimatedTime;
         this.finished = false;
+        this.isOpened = false;
     }
 
     public boolean isFinished()
@@ -41,12 +43,9 @@ public class Task
         return false;
     }
 
-    public void setResponisbleTeamMember(TeamMembers member)
+    public void setResponsibleDeveloper(Developer developer)
     {
-        if (doesTeamMemberExist(member))
-        {
-            list.add(member);
-        }
+        responsibleDeveloper = developer;
     }
 
     public String getEstimatedTime()
@@ -80,5 +79,10 @@ public class Task
         return true;
     }
 
-
+    public boolean isOpened(){
+        return isOpened;
+    }
+    public void setIsOpened(boolean isOpened){
+        this.isOpened = isOpened;
+    }
 }

@@ -18,6 +18,13 @@ public class TaskViewModel
     taskID = new SimpleStringProperty(task.getTaskID());
     taskTimeEstimated = new SimpleStringProperty(task.getEstimatedTime());
     taskTitle = new SimpleStringProperty(task.getTitle());
+
+    if(task.getResponsibleDeveloper() == null){
+      member = new SimpleStringProperty("none");
+    }
+    else {
+      member = new SimpleStringProperty(task.getResponsibleDeveloper().getName());
+    }
   }
 
   public StringProperty getTaskID() {

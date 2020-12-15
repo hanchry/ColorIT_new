@@ -75,20 +75,20 @@ public class RoleViewController {
     for (int i = 0; i < model.getOwners().size(); i++) {
       if (model.getOwner(i).isOpened()) {
         model.getOwner(i).setOpened(false);
-        model.setCreator(new ProjectCreator(model.getOwner(i).getName(),model.getOwner(i).getEmail(),"ScrumMaster"));
+        model.setCreator(new ProjectCreator(model.getOwner(i).getName(),model.getOwner(i).getEmail(),"ProjectCreator"));
         model.removeOwner(i);
       }
     }
     for (int i = 0; i < model.getScrums().size(); i++) {
       if (model.getScrum(i).isOpened()) {
         model.getScrum(i).setOpened(false);
-        model.setCreator(new ProjectCreator(model.getScrum(i).getName(),model.getScrum(i).getEmail(),"ScrumMaster"));
+        model.setCreator(new ProjectCreator(model.getScrum(i).getName(),model.getScrum(i).getEmail(),"ProjectCreator"));
         model.removeScrum(i);
       }
     }
     if(model.getCreator() != null && model.getCreator().isOpened()) {
       model.getCreator().setOpened(false);
-      model.getCreator().setRole("ProjectOwner");
+      model.getCreator().setRole("ProjectCreator");
     }
     view.openView("TeamMemberList");
   }
@@ -116,7 +116,7 @@ public class RoleViewController {
     }
     if(model.getCreator() != null && model.getCreator().isOpened()) {
       model.getCreator().setOpened(false);
-      model.addOwner(new ProjectOwner(model.getCreator().getName(),model.getCreator().getEmail(),"ScrumMaster"));
+      model.addOwner(new ProjectOwner(model.getCreator().getName(),model.getCreator().getEmail(),"ProjectOwner"));
       model.setCreator(null);
     }
     view.openView("TeamMemberList");
@@ -132,20 +132,20 @@ public class RoleViewController {
     for (int i = 0; i < model.getOwners().size(); i++) {
       if (model.getOwner(i).isOpened()) {
         model.getOwner(i).setOpened(false);
-        model.addPerson(new Developer(model.getOwner(i).getName(),model.getOwner(i).getEmail(),"ScrumMaster"));
+        model.addPerson(new Developer(model.getOwner(i).getName(),model.getOwner(i).getEmail(),"Developer"));
         model.removeOwner(i);
       }
     }
     for (int i = 0; i < model.getScrums().size(); i++) {
       if (model.getScrum(i).isOpened()) {
         model.getScrum(i).setOpened(false);
-        model.addPerson(new Developer(model.getScrum(i).getName(),model.getScrum(i).getEmail(),"ProjectOwner"));
+        model.addPerson(new Developer(model.getScrum(i).getName(),model.getScrum(i).getEmail(),"Developer"));
         model.removeScrum(i);
       }
     }
     if(model.getCreator() != null && model.getCreator().isOpened()) {
       model.getCreator().setOpened(false);
-      model.addPerson(new Developer(model.getCreator().getName(),model.getCreator().getEmail(),"ScrumMaster"));
+      model.addPerson(new Developer(model.getCreator().getName(),model.getCreator().getEmail(),"Developer"));
       model.setCreator(null);
     }
     view.openView("TeamMemberList");

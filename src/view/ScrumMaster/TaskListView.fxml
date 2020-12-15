@@ -17,14 +17,14 @@
         </columns>
       </TableView>
       <Label layoutX="251.0" layoutY="23.0" />
-      <HBox fx:id="titleLabel" alignment="CENTER" layoutX="6.0" prefHeight="100.0" prefWidth="529.0" spacing="20.0">
+      <HBox alignment="CENTER" layoutX="6.0" prefHeight="100.0" prefWidth="529.0" spacing="20.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Requirement:">
                <font>
                   <Font size="25.0" />
                </font>
             </Text>
-            <Label text="title of requirement">
+            <Label fx:id="titleLabel" text="title of requirement">
                <font>
                   <Font size="25.0" />
                </font>
