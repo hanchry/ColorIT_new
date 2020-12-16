@@ -110,6 +110,8 @@ public class DeveloperTaskListViewController {
           for (int z = 0; z < model.getProject(x).getRequirement(y).getTaskListSize(); z++){
             if(model.getProject(x).getRequirement(y).getTask(z).getTitle().equals(task.getTaskTitle().get()) && model.getProject(x).getRequirement(y).getTask(z).getTaskID().equals(task.getTaskID().get())){
               task.setTaskTimeSpent(new SimpleStringProperty(taskViewModelStringCellEditEvent.getNewValue()));
+              if (Integer.parseInt(new SimpleStringProperty(taskViewModelStringCellEditEvent.getNewValue()).get()) < 0)
+                task.setTaskTimeSpent(new SimpleStringProperty("0"));
               if(Integer.parseInt(task.getTaskTimeSpent().get()) < Integer.parseInt(task.getTaskTimeEstimated().get())) {
                 model.getProject(x).getRequirement(y).getTask(z).setTimeDone(Integer.parseInt(task.getTaskTimeSpent().get()));
               }
@@ -122,6 +124,6 @@ public class DeveloperTaskListViewController {
       }
     }
     }
-    smodel.update();
+    tmodel.update();
   }
 }

@@ -242,6 +242,12 @@ public class Project {
         }
         return "in progress";
     }
+
+    /**
+     * getter for amount of approved requirements
+     *
+     * @return how many requirements were approved
+     */
     public String getAmountOfApprovedRequirements(){
         int approved = 0;
         if(requirements.size() > 0) {
