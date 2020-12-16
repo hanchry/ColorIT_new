@@ -18,6 +18,7 @@ public class Requirement {
     private boolean isOpened;
     private Developer responsibleDeveloper;
     private int timeSpent;
+    private String requirementStatus;
 
     private Random r;
     private int id;
@@ -45,6 +46,7 @@ public class Requirement {
         this.tasks = new ArrayList<>();
         this.isApproved = false;
         this.isDisapproved = false;
+        this.requirementStatus = "not started";
     }
     public Requirement(String title, String who){
         this.title = title;
@@ -201,20 +203,33 @@ public class Requirement {
         return isApproved;
     }
 
-    public String getRequirementStatus(){
+    public String getStatus(){
+        return requirementStatus;
+    }
+
+    public void setRequirementStatus(){
         if (isApproved){
-            return "finished";
+            requirementStatus = "finished";
+            return;
         }
         if (isDisapproved){
-            return "disapproved";
+            requirementStatus = "disapproved";
+            return;
         }
         if (timeSpent <= 0){
-            return "not started";
+            requirementStatus = "not started";
+            return;
         }
         if (timeSpent < neededtime){
-            return "in progress";
+            requirementStatus = "in progress";
+            return;
         }
-        return "to approve";
+        requirementStatus = "to approve";
+    }
+
+    public String getRequirementStatus(){
+        this.setRequirementStatus();
+        return this.getStatus();
     }
     public void removeTasks(){
         for(int x = 0; x < tasks.size(); x++){

@@ -113,9 +113,10 @@ public class Project {
 
     /**
      * remove requirement from list method
+     * finds requirement by parameters given and removes it
      *
      * @param title title of requirement
-     * @param who
+     * @param who who of requirement
      */
     public void removeRequirement(String title, String who){
         for(int x = 0; x < requirements.size(); x++){
@@ -126,6 +127,7 @@ public class Project {
     }
 
     /**
+     * startDate_deadline getter
      *
      * @return start and deadline
      */
@@ -133,48 +135,96 @@ public class Project {
         return startDate_deadLine;
     }
 
+    /**
+     * startDate_deadline setter
+     *
+     * @param deadline deadline to set
+     */
     public void setStartDate_deadLine(StartDate_DeadLine deadline) {
         this.startDate_deadLine = deadline;
     }
 
+    /**
+     * team member getter
+     *
+     * @param index index of specific team member in team member list
+     * @return team member from list
+     */
     public TeamMembers getTeamMembers(int index) {
         return teamMembers.get(index);
     }
 
+    /**
+     * title getter
+     *
+     * @return title of project
+     */
     public String getTitle() {
         return title;
     }
 
+    /**
+     * title setter
+     *
+     * @param title title to set in project
+     */
     public void setTitle(String title) {
         this.title = title;
     }
 
-
-
-    public Requirement getRequirement(String title) {
-        return null;
-    }
-
+    /**
+     * requirements list getter
+     *
+     * @return all requirements of project
+     */
     public ArrayList<Requirement> getRequirements() {
         return requirements;
     }
 
+    /**
+     * specific requirement getter
+     *
+     * @param index list index of requirement
+     * @return requirement
+     */
     public Requirement getRequirement(int index) {
         return requirements.get(index);
     }
 
+    /**
+     * isOpened getter
+     *
+     * @return if project is opened
+     */
     public boolean isOpened() {
         return isOpened;
     }
 
+    /**
+     * isOpened setter
+     *
+     * @param opened variable (boolean) which sets if project is opened
+     */
     public void setOpened(boolean opened) {
         isOpened = opened;
     }
 
+    /**
+     * toString method
+     *
+     * @return project variables
+     */
     public String toString() {
         return " " + title + " " + startDate_deadLine;
     }
 
+    /**
+     * status getter
+     * compares time spent and time estimeted to set status
+     * compares approved requirements in project to set status
+     *
+     * @return status of project
+     */
     public String getStatus(){
         int approved = 0;
         if(requirements.size() > 0) {
