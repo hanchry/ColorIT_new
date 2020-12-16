@@ -7,23 +7,24 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="515.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Main.TeamMembersViewController">
+
+<AnchorPane prefHeight="410.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Main.TeamMembersViewController">
    <children>
-      <HBox alignment="CENTER" layoutY="288.0" prefHeight="69.0" prefWidth="498.0">
+      <TableView layoutX="14.0" layoutY="14.0" prefHeight="274.0" prefWidth="276.0">
+         <columns>
+            <TableColumn fx:id="name" prefWidth="75.0" text="name" />
+            <TableColumn fx:id="role" prefWidth="75.0" text="role" />
+            <TableColumn fx:id="email" prefWidth="125.0" text="email" />
+         </columns>
+      </TableView>
+      <HBox alignment="CENTER" layoutX="-1.0" layoutY="306.0" prefHeight="60.0" prefWidth="306.0">
          <children>
-            <Button fx:id="back" mnemonicParsing="false" onAction="#backOnCLick" prefHeight="51.0" prefWidth="150.0" text="Back">
+            <Button fx:id="back" mnemonicParsing="false" onAction="#backOnClick" text="Back">
                <font>
-                  <Font size="24.0" />
+                  <Font size="25.0" />
                </font>
             </Button>
          </children>
       </HBox>
-      <TableView fx:id="table" layoutX="17.0" layoutY="14.0" prefHeight="274.0" prefWidth="464.0">
-         <columns>
-            <TableColumn fx:id="name" prefWidth="124.0" text="name" />
-            <TableColumn fx:id="role" prefWidth="164.0" text="role" />
-            <TableColumn fx:id="email" prefWidth="175.0" text="email" />
-         </columns>
-      </TableView>
    </children>
 </AnchorPane>

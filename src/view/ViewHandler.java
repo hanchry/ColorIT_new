@@ -195,6 +195,26 @@ public class ViewHandler
     return teamMembersViewController.getRoot();
   }
 
+  public Region loadTeamMembers(String fxmlFile)
+  {
+    if (teamMembersViewController == null)
+    {
+      try
+      {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        root = loader.load();
+        teamMembersViewController = loader.getController();
+        teamMembersViewController.init(root, this);
+      }
+      catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+    return teamMembersViewController.getRoot();
+  }
+
   /////////////////DEVELOPER///////////////////////////////
   public Region loadProjectList(String fxmlFile)
   {

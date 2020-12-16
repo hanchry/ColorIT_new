@@ -33,7 +33,7 @@ public class MainViewController {
     view.openView("ProjectList");
   }
 
-  public void teamMembersOnCLick(ActionEvent actionEvent) {
+  public void teamMembersOnClick(ActionEvent actionEvent) {
     view.openView("TeamMembers");
   }
 }

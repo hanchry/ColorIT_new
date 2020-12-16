@@ -7,22 +7,19 @@ import model.ProjectListModel;
 import model.Task;
 import model.Time;
 import view.ViewHandler;
-import view.viewModels.TaskListViewModel;
 
 public class AddTaskViewController {
 
   public TextField title;
-  public TextField timer;
+  public TextField timers;
   private Region root;
   private ViewHandler view;
   private ProjectListModel model;
-  private TaskListViewModel smodel;
 
   public void init(Region root, ViewHandler view,ProjectListModel model){
     this.root = root;
     this.view = view;
     this.model = model;
-    this.smodel = new TaskListViewModel(model);
   }
   public Region getRoot(){
     return root;
@@ -41,9 +38,8 @@ public class AddTaskViewController {
         {
          if(model.getProject(i).getRequirement(p).isOpened())
          {
-           int lo = Integer.parseInt(timer.getText());
-           model.getProject(i).getRequirement(p).addTask(new Task(title.getText(),lo));
-           model.getProject(i).getRequirement(p).setDisapproved(false);
+           int lo = Integer.parseInt(timers.getText());
+           model.getProject(i).getRequirement(p).addTask(new Task("id",title.getText(),lo));
          }
         }
       }
@@ -52,7 +48,6 @@ public class AddTaskViewController {
   }
   public void reset()
   {
-    smodel.update();
-  }
 
+  }
 }

@@ -1,54 +1,35 @@
 package model;
 
 
+import java.sql.Struct;
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Requirement {
 
-    private ArrayList<TeamMembers> list;
-    private ArrayList<Task> tasks;
+    private TeamMembers list;
+    private TaskList tasks;
     private int neededtime;
     private StartDate_DeadLine date;
-    private String title;
     private String ID;
     private String why;
     private String who;
     private String what;
     private boolean isOpened;
     private Developer responsibleDeveloper;
-    private int timeSpent;
-
-    private Random r;
-    private int id;
-
-    private boolean isApproved;
-    private boolean isDisapproved;
-
+    private  boolean finished;
     private  boolean approved;
     private  boolean disapproved;
 
-    public Requirement(String title, String why, String who, String what, StartDate_DeadLine date) {
-        r = new Random();
-        id = r.nextInt();
-        if (id < 0){
-            id *= -1;
-        }
-        this.title = title;
-        this.ID = "" + id;
+    public Requirement(String ID, String why, String who, String what, int neededtime , StartDate_DeadLine date  ) {
+        this.ID = ID;
         this.why = why;
         this.who = who;
         this.what = what;
         this.date = date;
-        this.neededtime = 0;
-        this.timeSpent = 0;
-        this.tasks = new ArrayList<>();
-        this.isApproved = false;
-        this.isDisapproved = false;
-    }
-    public Requirement(String title, String who){
-        this.title = title;
-        this.who = who;
+        this.neededtime = neededtime;
+        this.finished = false;
+        this.approved = false;
+        this.disapproved = false;
     }
 
     public void setRequirementApproved()
@@ -60,62 +41,19 @@ public class Requirement {
         approved = true;
     }
 
-    public void setTimeSpent(int timeSpent) {
-        this.timeSpent = timeSpent;
-    }
-    public void removeTask(int index){
-        tasks.remove(index);
-    }
-
-    public int getTimeSpent() {
-        if(tasks != null){
-            this.timeSpent = 0;
-            for(int x = 0; x < tasks.size(); x++){
-                this.timeSpent += tasks.get(x).getTimeDone();
+    public void setRequirementFinished()
+    {
+        for (int i = 0; i < tasks.getSize(); i++)
+        {
+            if (!tasks.getTask(i).isFinished())
+            {
+                this.finished = false;
             }
-        }
-        else {
-            timeSpent = 0;
-        }
-        return timeSpent;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setID(String ID) {
-        this.ID = ID;
-    }
-
-
-    public void setWhat(String what) {
-        this.what = what;
-    }
-
-    public void setWho(String who) {
-        this.who = who;
-    }
-
-    public void setWhy(String why) {
-        this.why = why;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setDate(StartDate_DeadLine date) {
-        this.date = date;
-    }
-
-    public void setNeededtime() {
-        for(int x = 0; x < tasks.size(); x++){
-            this.neededtime += tasks.get(x).getTime();
+            this.finished = true;
         }
     }
 
-
+        //// change spelling on disapprove
 
     public void setRequirementDisapproved()
     {
@@ -125,18 +63,11 @@ public class Requirement {
         }
         disapproved = true;
     }
-    public boolean doesTeamMemberExist(TeamMembers member) {
-        for (TeamMembers teamMembers : list) {
-            if (teamMembers == member) {
-                return true;
-            }
-        }
-        return false;
-    }
 
-    public void setResponsibleDeveloper(Developer developer)
-    {
-        responsibleDeveloper = developer;
+    public void setResponsibleDeveloper(Developer developer) {
+        if (list.doesDeveloperExist(developer)) {
+            responsibleDeveloper = developer;
+        }
     }
 
     public void addTask(Task task)
@@ -146,12 +77,12 @@ public class Requirement {
 
     public Task getTask(int index)
     {
-        return tasks.get(index);
+        return tasks.getTasks().get(index);
     }
 
     public int getTaskListSize()
     {
-        return tasks.size();
+        return tasks.getSize();
     }
 
     public Developer getResponsibleDeveloper() {
@@ -170,7 +101,7 @@ public class Requirement {
         return who;
     }
 
-    public ArrayList<TeamMembers> getList() {
+    public TeamMembers getList() {
         return list;
     }
 
@@ -192,25 +123,8 @@ public class Requirement {
 
     public String getNeededtime()
     {
-        if(tasks != null){
-            neededtime = 0;
-            for(int x = 0; x < tasks.size(); x++){
-                neededtime += tasks.get(x).getTime();
-            }
-        }
         return neededtime+"";
     }
-    public int getTime()
-    {
-        if(tasks != null){
-            neededtime = 0;
-            for(int x = 0; x < tasks.size(); x++){
-                neededtime += tasks.get(x).getTime();
-            }
-        }
-        return neededtime;
-    }
-
 
     public boolean isOpened()
     {
@@ -226,49 +140,9 @@ public class Requirement {
         return " " + ID + " " + why + " " + who + " " + what + " " + responsibleDeveloper + " " + date + " " + neededtime;
     }
 
-    public boolean isTaskFinished()
+    public boolean isTaskFinished(Task task)
     {
-        return false;
-    }
-
-    public boolean isTaskApproved()
-    {
-        return false;
-    }
-
-    public void setApproved(boolean approved) {
-        isApproved = approved;
-    }
-
-    public void setDisapproved(boolean disapproved) {
-        isDisapproved = disapproved;
-    }
-    public boolean getApproved(){
-        return isApproved;
-    }
-    public boolean getDisaproved(){
-        return isDisapproved;
-    }
-
-    public String getRequirementStatus(){
-        if (isApproved){
-            return "finished";
-        }
-        if (isDisapproved){
-            return "disapproved";
-        }
-        if (timeSpent <= 0){
-            return "not started";
-        }
-        if (timeSpent < neededtime){
-            return "in progress";
-        }
-        return "to approve";
-    }
-    public void removeTasks(){
-        for(int x = 0; x < tasks.size(); x++){
-            tasks.remove(x);
-        }
+        return tasks.specificTask(task).isFinished();
     }
 
 }

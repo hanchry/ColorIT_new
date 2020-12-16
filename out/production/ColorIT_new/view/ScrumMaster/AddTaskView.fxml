@@ -31,7 +31,7 @@
                   <Font size="25.0" />
                </font>
             </Text>
-            <TextField fx:id="timer" />
+            <TextField fx:id="timers" />
          </children>
          <padding>
             <Insets left="10.0" />
