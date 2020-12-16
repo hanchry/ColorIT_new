@@ -106,7 +106,7 @@ public class TaskListViewController
         }
       }
     }
-    smodel.update();
+    tmodel.update();
   }
 
   public void assignePersonOnClick(ActionEvent actionEvent)

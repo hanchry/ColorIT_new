@@ -48,6 +48,8 @@ public class AddTaskViewController {
         }
       }
     }
+    title.setText("");
+    timer.setText("");
     view.openView("TaskList");
   }
   public void reset()
