@@ -38,21 +38,6 @@ public class Time
     }
   }
 
-  public double getHoursSpent()
-  {
-    return hoursSpent;
-  }
-
-  public String toStringHoursSpent()
-  {
-    return "" + hoursSpent;
-  }
-
-  public String toStringHoursEstimated()
-  {
-    return "" + hoursEstimated;
-  }
-
   @Override public String toString()
   {
     return hoursEstimated + "" + hoursSpent;

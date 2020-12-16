@@ -61,16 +61,6 @@ public class TeamMembers {
     }
 
 
-
-    public boolean doesDeveloperExist(Developer developer){
-        for (int x = 0; x < developers.size(); x++){
-            if(developers.get(x) == developer){
-                return true;
-            }
-        }
-        return false;
-    }
-
     public void removeDeveloper(int index){
         developers.remove(index);
     }

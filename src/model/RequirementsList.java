@@ -24,8 +24,5 @@ public class RequirementsList
   {
     return requirements.size();
   }
-  public Requirement SpeicficReq(int index)
-  {
-    return requirements.get(index);
-  }
+
 }

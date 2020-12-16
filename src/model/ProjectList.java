@@ -45,32 +45,6 @@ public class ProjectList {
     }
 
 
-
-    public Project getByDeveloper(Developer developer) {
-        for (int i = 0; i < projects.size(); i++) {
-            if (projects.get(i).getTeamMembers(i).getDeveloper(i) == developer) {
-                projects.get(i);
-            }
-        }
-        return null;
-    }
-
-    public Project getByRequirement(Requirement requirement) {
-        return null;
-    }
-
-    public Project getByDates(MyDate date)
-    {
-        for (int i =0; i< projects.size(); i++)
-        {
-            if (projects.get(i).getStart_deadLine().getMyDateDeadline() == date)
-            {
-                return projects.get(i);
-            }
-        }
-        return null;
-    }
-
     public Project getByTitle(String title){
         for(Project x:projects){
             if(x.getTitle().equals(title)){

@@ -16,18 +16,9 @@ public class TaskList
     tasklist.add(task);
   }
 
-  public ArrayList<Task> getTasks()
-  {
-    return tasklist;
-  }
-
   public int getSize()
   {
     return tasklist.size();
   }
 
-  public Task SpecificTask(int index)
-  {
-    return tasklist.get(index);
-  }
 }

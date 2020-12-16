@@ -25,6 +25,12 @@ public class EditProjectViewController
     this.root = root;
     this.view = view;
     this.model = model;
+
+    for (int i = 0; model.getProjects().getSize() > i; i++) {
+      if (model.getProject(i).isOpened()) {
+        title.setText(model.getProject(i).getTitle());
+      }
+    }
   }
 
   public Region getRoot()

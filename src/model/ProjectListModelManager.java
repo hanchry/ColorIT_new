@@ -10,18 +10,19 @@ public class ProjectListModelManager implements ProjectListModel
   private TaskList taskList;
   private ProjectCreator creator;
 
+  public ProjectListModelManager() {
+    list = new ProjectList();
+    members = new TeamMembers();
+    requirementsList = new RequirementsList();
+    taskList = new TaskList();
+
+  }
+
   public void setCreator(ProjectCreator creator){
     this.creator = creator;
   }
 
 
-  public ProjectListModelManager()
-  {
-    creator = null;
-    requirementsList = new RequirementsList();
-    list = new ProjectList();
-    members = new TeamMembers();
-  }
 
   @Override public ArrayList<Requirement> getRequirementListOfProject(
       String title)
@@ -29,11 +30,6 @@ public class ProjectListModelManager implements ProjectListModel
     return getRequirementListOfProject(title);
   }
 
-  @Override public ArrayList<Task> getTasksOfRequirement(
-      Requirement requirement)
-  {
-    return null;
-  }
 
   @Override public ProjectList getProjects()
   {
@@ -55,63 +51,18 @@ public class ProjectListModelManager implements ProjectListModel
     list.Add(project);
   }
 
-  @Override public void addRequirementToProject(String title,
-      Requirement requirement)
-  {
-    requirementsList.add(requirement);
-
-  }
-
-  @Override public void addTask(Task task)
-  {
-    taskList.add(task);
-  }
-
-  @Override public int RequirementsListSize()
-  {
-    return requirementsList.getSize();
-  }
 
   @Override public Requirement getRequirement(int index)
   {
     return requirementsList.getRequirements().get(index);
   }
 
-  @Override public void addDeveloper(String title, Person person)
-  {
-
-  }
 
   @Override
   public void setTimeEstimated(String timeEstimated) {
 
   }
 
-  @Override public Time showTimeSpentOnRequirement()
-  {
-    return null;
-  }
-
-  @Override public Time showTimeSpentOnTask()
-  {
-    return null;
-  }
-
-  @Override public void setRoleOfTeamMember(Person person, String role)
-  {
-
-  }
-
-  @Override public Developer getDeveloper(Developer developer)
-  {
-    return null;
-  }
-
-  @Override public ArrayList<Project> getProjectsByDeveloper(
-      Developer developer)
-  {
-    return null;
-  }
 
   @Override public StartDate_DeadLine getStartDate()
   {
@@ -136,10 +87,6 @@ public class ProjectListModelManager implements ProjectListModel
     return list.get(indexOfProject).getRequirement(indexOfRequirement);
   }
 
-  @Override public void addRequirement(Requirement requirement)
-  {
-    requirementsList.add(requirement);
-  }
 
   @Override public boolean isProjectOpened(int index)
   {

@@ -16,7 +16,6 @@ public class EditRequirementViewController {
   public TextField what;
   public TextField who;
   public TextField why;
-  public TextField estimatedTime;
   public DatePicker deadline;
   public TextField status;
 
@@ -28,6 +27,19 @@ public class EditRequirementViewController {
     this.root = root;
     this.view = view;
     this.model = model;
+
+    for (int x = 0; x < model.getProjects().getSize(); x++) {
+      if (model.getProject(x).isOpened()) {
+        for (int y = 0; y < model.getProject(x).getRequirements().size(); y++) {
+          if (model.getProject(x).getRequirement(y).isOpened()) {
+            title.setText(model.getProject(x).getRequirement(y).getTitle());
+            what.setText(model.getProject(x).getRequirement(y).getWhat());
+            who.setText(model.getProject(x).getRequirement(y).getWho());
+            why.setText(model.getProject(x).getRequirement(y).getWhy());
+          }
+        }
+      }
+    }
   }
   public Region getRoot(){
     return root;

@@ -18,7 +18,6 @@ public class Task
     private Random r;
     private int id;
 
-    private boolean finished;
 
 
     public Task( String title, int estimatedTime){
@@ -31,19 +30,9 @@ public class Task
         this.timeDone = 0;
         this.taskID = "" + id;
         this.estimatedTime = estimatedTime;
-        this.finished = false;
         this.isOpened = false;
     }
 
-    public boolean isFinished()
-    {
-        return finished;
-    }
-
-    public void finishTask()
-    {
-        this.finished = true;
-    }
 
     public void setTimeDone(int timeDone) {
         this.timeDone = timeDone;
@@ -53,14 +42,6 @@ public class Task
         return timeDone;
     }
 
-    public boolean doesTeamMemberExist(TeamMembers member) {
-        for (TeamMembers teamMembers : list) {
-            if (teamMembers == member) {
-                return true;
-            }
-        }
-        return false;
-    }
 
     public void setResponsibleDeveloper(Developer developer)
     {
@@ -92,15 +73,6 @@ public class Task
         return title;
     }
 
-    public boolean isTaskStarted()
-    {
-        return true;
-    }
-
-    public boolean isTaskFinished()
-    {
-        return true;
-    }
 
     public boolean isOpened(){
         return isOpened;

@@ -2,10 +2,12 @@ package model;
 
 import java.util.ArrayList;
 
+/**
+ * Project class
+ */
 public class Project {
 
     public int time;
-    private ArrayList<Person> people;
     private ProjectCreator projectCreator;
     private StartDate_DeadLine startDate_deadLine;
     private String title;
@@ -14,11 +16,12 @@ public class Project {
     private ArrayList<Requirement> requirements;
     private int timeSpendet;
 
-
-
-    private boolean finished;
-
-
+    /**
+     * constructor of Project
+     *
+     * @param title title of project
+     * @param startDeadLine start and deadline of project
+     */
     public Project(String title, StartDate_DeadLine startDeadLine) {
         this.time = 0;
         this.timeSpendet = 0;
@@ -27,9 +30,14 @@ public class Project {
         teamMembers = new ArrayList<>();
         this.startDate_deadLine = startDeadLine;
         this.isOpened = false;
-        this.finished = false;
+
     }
 
+    /**
+     * getter for time spend
+     *
+     * @return time spend on project
+     */
     public int getTimeSpendet() {
         if (requirements != null){
             timeSpendet = 0;
@@ -43,35 +51,29 @@ public class Project {
         return timeSpendet;
     }
 
-    public void setTimeSpendet(int timeSpendet) {
-        this.timeSpendet = timeSpendet;
-    }
-
-
+    /**
+     * constructor of Project
+     *
+     * @param title title of project
+     */
     public Project(String title) {
         this.title = title;
     }
 
+    /**
+     * project creator getter
+     *
+     * @return project creator person
+     */
     public ProjectCreator getProjectCreator() {
         return projectCreator;
     }
 
-    public void removePerson(Person person) {
-        people.remove(person);
-    }
-
-    public void createProject(String title, StartDate_DeadLine startDate_deadLine, ArrayList<TeamMembers> role, ArrayList<Person> people) {
-        this.title = title;
-        this.startDate_deadLine = startDate_deadLine;
-        this.teamMembers = role;
-        this.people = people;
-    }
-
-    public void addPerson(Person person) {
-        people.add(person);
-    }
-
-
+    /**
+     * hours estimated getter
+     *
+     * @return estimated hours
+     */
     public String getHoursEstimated() {
 
         if(requirements != null){
@@ -84,6 +86,10 @@ public class Project {
         return time + "";
     }
 
+    /**
+     * estimated time setter
+     * sets estimated time by putting requirements estimated time sum together
+     */
     public void setTimeEstimated() {
         if(requirements != null){
             this.time = 0;
@@ -96,12 +102,21 @@ public class Project {
         }
     }
 
-
-
+    /**
+     * add requirement to list method
+     *
+     * @param requirement requirement to be addet to list of requirements
+     */
     public void addRequriement(Requirement requirement) {
         requirements.add(requirement);
     }
 
+    /**
+     * remove requirement from list method
+     *
+     * @param title title of requirement
+     * @param who
+     */
     public void removeRequirement(String title, String who){
         for(int x = 0; x < requirements.size(); x++){
             if (requirements.get(x).getTitle().equals(title) && requirements.get(x).getWho().equals(who)){
@@ -110,6 +125,10 @@ public class Project {
         }
     }
 
+    /**
+     *
+     * @return start and deadline
+     */
     public StartDate_DeadLine getStart_deadLine() {
         return startDate_deadLine;
     }
@@ -131,11 +150,6 @@ public class Project {
     }
 
 
-    public void Edit(String title, Requirement requirement, StartDate_DeadLine startDeadLine) {
-        this.title = title;
-        this.addRequriement(requirement);
-        this.startDate_deadLine = startDeadLine;
-    }
 
     public Requirement getRequirement(String title) {
         return null;
