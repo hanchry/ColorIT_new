@@ -11,7 +11,7 @@ public class StartDate_DeadLine {
 
     private MyDate myDateDeadline;
     private MyDate myDateStartDate;
-    private DateFormat dateFormat;
+    private transient DateFormat dateFormat;
     private Date date;
     private String[] datesValues;
 
