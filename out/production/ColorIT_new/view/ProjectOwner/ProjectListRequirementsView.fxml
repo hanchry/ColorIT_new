@@ -19,7 +19,11 @@
                   <Font size="25.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#webPageOnAction" text="WebPage" />
+            <Button mnemonicParsing="false" onAction="#webPageOnAction" prefHeight="55.0" prefWidth="150.0" text="WebPage">
+               <font>
+                  <Font size="22.0" />
+               </font></Button>
+
          </children>
          <padding>
             <Insets left="20.0" />
